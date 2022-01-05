@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const EditWarehouse = () => {
-  // const [warehouseDetails, setWarehouseDetails] = useState(null);
+  //const [warehouseDetails, setWarehouseDetails] = useState(null);
   const [warehouseDetails, setWarehouseDetails] = useState({
     id: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
     name: "King West",
@@ -83,6 +84,7 @@ const EditWarehouse = () => {
         </svg>
         <h1>Edit Warehouse</h1>
       </div>
+      {!warehouseDetails && <LoadingSpinner />}
       {warehouseDetails && (
         <form className="editWH-form" onSubmit={handleEditWarehouse}>
           <div className="editWH-form__warehouse">
