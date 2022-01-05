@@ -1,3 +1,8 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
 
 .body {
     background-color: #d1d1d1;
@@ -53,7 +58,7 @@
     &__title {
         font-size: 1.7rem;
         color: #13172c;
-        font-family: 'Titillium';
+        font-family: "Titillium Web";
         margin: 0 0 5%;
 
         @include tablet {
@@ -66,7 +71,7 @@
         border: 1px solid black;
         border-radius: 1.25rem;
         width: 95%;
-        background: url('../../assets/icons/search-24px.svg');
+        background: url('../../assets/icons/search-24px.svg') no-repeat scroll 95% 50%;
 
         @include tablet {
             width: 50%;
@@ -143,6 +148,7 @@
         }
 
         &-title {
+            font-family: "Titillium Web";
             @include tablet {
                 font-size: 0.75rem;
                 color: #5c667e;

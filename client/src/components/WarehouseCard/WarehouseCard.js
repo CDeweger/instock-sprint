@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import '../WarehouseCard/WarehouseCard.scss';
 import DeleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import EditIcon from '../../assets/icons/edit-24px.svg';
