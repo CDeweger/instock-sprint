@@ -1,4 +1,8 @@
-
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
 
 
 .warehouseList__card {
@@ -6,6 +10,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     border-bottom: 1px solid #bdc5d5;
+    font-family: "Titillium Web";
+    font-weight: 400;
 
     @include tablet {
         width: 100%;
@@ -16,13 +22,21 @@
     }
 
     &-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
         @include tablet {
+            display: flex;
+            flex-direction: row;
             flex-wrap: nowrap;
             border-bottom: none;
             width: 77%;
         }
 
         @include desktop {
+            display: flex;
+            flex-direction: row;
             width: 72%;
             justify-content: space-evenly;
         }
@@ -43,7 +57,7 @@
         color: #5c667e;
         font-size: 0.75rem;
         margin: 0 0 4%;
-        font-family: 'Titillium';
+        font-family: "Titillium Web";
 
         @include tablet{
             display: none;
@@ -51,7 +65,7 @@
     }
 
     &-text {
-        font-family: "Titillium";
+        font-family: "Titillium Web";
 
         @include tablet {
             width: 6.88rem;
