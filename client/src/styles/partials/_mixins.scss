@@ -1,0 +1,26 @@
+@use "variables" as *;
+
+
+@mixin mobile {
+    @media screen and (min-width:$mobile-breakpoint) {
+      @content;
+    }
+  }
+@mixin tablet {
+    @media screen and (min-width:$tablet-breakpoint) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media screen and (min-width:$desktop-breakpoint) {
+      @content;
+    }
+  }
+  
+  @mixin flex($justify-content,$align-item,$flex-direction) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items:$align-item;
+    flex-direction: $flex-direction;
+  }
