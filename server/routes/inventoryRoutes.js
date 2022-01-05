@@ -21,8 +21,9 @@ inventoryRouter.post("/", (req, res) => {
         "please include warehouse ID, warehouse name, item name, item description, item category, item status, item quantity",
     });
   }
-  //newInventory structure should be like this
+
   /*
+  //newInventory structure should be like this
  const newInventory = {
    id: uuidv4(),
    warehouseID: req.body.warehouseID,
