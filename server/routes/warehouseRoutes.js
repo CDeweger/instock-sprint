@@ -42,14 +42,16 @@ const writeFile = (warehousesData) => {
 
 //GET /warehouse/:warehouseId
 warehouseRouter.get("/:warehouseId", (req, res) => {
-  const warehousesData = readFile();
   const warehouseId = req.params.warehouseId;
-
-  res.status(200).send(
-    warehousesData.filter((warehouse) => {
-      return warehouse.id === warehouseId;
-    })
+  const warehousesData = readFile().find(
+    (warehouse) => warehouse.id === warehouseId
   );
+
+  if (warehousesData) {
+    res.status(200).json(warehousesData);
+  } else {
+    res.status(404).send("Warehouse not found");
+  }
 });
 
 //POST (create) a new warehouse
