@@ -26,4 +26,28 @@ warehouseRouter.patch("/:warehouseID/edit", (req, res) => {
   }
 });
 
+//function for read file
+const readFile = () => {
+  const warehousesData = fs.readFileSync("./data/warehouses.json");
+  return JSON.parse(warehousesData);
+};
+
+//GET /warehouse/:warehouseId
+warehouseRouter.get("/:warehouseId", (req, res) => {
+  const warehousesData = readFile();
+  const warehouseId = req.params.warehouseId;
+
+  if (warehouseId) {
+    res.status(200).send(
+      warehousesData.filter((warehouse) => {
+        return warehouse.id === warehouseId;
+      })
+    );
+  } else {
+    res.status(400).send("warehouse not found");
+
+    // res.status(404).send("warehouse not found");
+  }
+});
+
 module.exports = warehouseRouter;
