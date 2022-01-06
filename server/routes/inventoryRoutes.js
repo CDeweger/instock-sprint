@@ -55,4 +55,19 @@ inventoryRouter.post("/", (req, res) => {
   }
 });
 
+//to read inventories.json
+const readData = () => {
+  const inventoriesData = fs.readFileSync("./data/inventories.json");
+  return JSON.parse(inventoriesData);
+};
+
+// get inventory for given warehouse ID
+inventoryRouter.get("/:warehouseID", (req, res) => {
+  const inventoriesData = readData();
+  let warehouseInventories = inventoriesData.filter(
+    (inventory) => inventory.warehouseID === req.params.warehouseID
+  );
+  res.status(200).json(warehouseInventories);
+});
+
 module.exports = inventoryRouter;
