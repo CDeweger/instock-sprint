@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from "react-router-dom";
-// Need to connect to delete icon on warehouse list
+// Need to connect to delete icon on warehouse list and also add onclick functionality to delete button.
 function DeleteWarehouseModal() {
     // for now use one warehouse ID
     const ID ="2922c286-16cd-4d43-ab98-c79f698aeab0";
