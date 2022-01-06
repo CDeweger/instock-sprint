@@ -32,22 +32,59 @@ const readFile = () => {
   return JSON.parse(warehousesData);
 };
 
+// function for write file
+const writeFile = (warehousesData) => {
+  fs.writeFileSync(
+    "./data/warehouses.json",
+    JSON.stringify(warehousesData, null, 2)
+  );
+};
+
 //GET /warehouse/:warehouseId
 warehouseRouter.get("/:warehouseId", (req, res) => {
   const warehousesData = readFile();
   const warehouseId = req.params.warehouseId;
 
-  if (warehouseId) {
-    res.status(200).send(
-      warehousesData.filter((warehouse) => {
-        return warehouse.id === warehouseId;
-      })
-    );
-  } else {
-    res.status(400).send("warehouse not found");
+  res.status(200).send(
+    warehousesData.filter((warehouse) => {
+      return warehouse.id === warehouseId;
+    })
+  );
+});
 
-    // res.status(404).send("warehouse not found");
+//POST (create) a new warehouse
+warehouseRouter.post("/", (req, res) => {
+  const warehousesData = readFile();
+
+  if (
+    !req.body.warehouseName ||
+    !req.body.address ||
+    !req.body.city ||
+    !req.body.country ||
+    !req.body.contactName ||
+    !req.body.position ||
+    !req.body.phoneNumber ||
+    !req.body.email
+  ) {
+    return res.status(400).send("please provide all required information.");
   }
+
+  const newWarehouseObj = {
+    id: uuidv4(),
+    name: req.body.warehouseName,
+    address: req.body.address,
+    city: req.body.city,
+    country: req.body.country,
+    contact: {
+      name: req.body.contactName,
+      position: req.body.position,
+      phone: req.body.phoneNumber,
+      email: req.body.email,
+    },
+  };
+  warehousesData.push(newWarehouseObj);
+  writeFile(warehousesData);
+  res.status(201).json(newWarehouseObj);
 });
 
 module.exports = warehouseRouter;
