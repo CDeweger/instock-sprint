@@ -55,4 +55,22 @@ inventoryRouter.post("/", (req, res) => {
   }
 });
 
+//to read inventories.json
+const readData = () => {
+  const inventoriesData = fs.readFileSync("./data/inventories.json");
+  return JSON.parse(inventoriesData);
+};
+
+// get inventory for given warehouse ID
+inventoryRouter.get("/warehouse/:warehouseID", (req, res) => {
+  const inventoriesData = readData();
+  let warehouseInventories = inventoriesData.filter(
+    (inventory) => inventory.warehouseID === req.params.warehouseID
+  );
+  if (warehouseInventories.length === 0) {
+    return res.status(404).send("Warehouse is not found.");
+  }
+  res.status(200).json(warehouseInventories);
+});
+
 module.exports = inventoryRouter;
