@@ -1,3 +1,5 @@
+/********* font for desktop and tablet *********/
+/********* font for mobil *********/
 @font-face {
   font-family: "Titillium Web";
   src: url("../../assets/font/TitilliumWeb-Regular (1).woff2") format("woff2");
@@ -17,8 +19,6 @@
   font-family: "Titillium Web";
   src: url("../../assets/font/TitilliumWeb-ExtraLight.woff2") format("woff2");
 }
-/********* font for desktop and tablet *********/
-/********* font for mobil *********/
 *,
 * ::before,
 *,
@@ -91,95 +91,20 @@ textarea {
   }
 }
 
-.warehouseList__card {
+.footer {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #bdc5d5;
-  font-family: "Titillium Web";
   font-weight: 400;
-}
-@media screen and (min-width: 48rem) {
-  .warehouseList__card {
-    width: 100%;
-    padding: 1rem 0 1.5rem;
-    justify-content: space-around;
-    align-items: center;
-    box-sizing: border-box;
-  }
-}
-.warehouseList__card-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-@media screen and (min-width: 48rem) {
-  .warehouseList__card-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    border-bottom: none;
-    width: 77%;
-  }
-}
-@media screen and (min-width: 80rem) {
-  .warehouseList__card-container {
-    display: flex;
-    flex-direction: row;
-    width: 72%;
-    justify-content: space-evenly;
-  }
-}
-.warehouseList__card-info {
-  width: 40%;
-  padding: 1rem 1rem 0;
-}
-@media screen and (min-width: 48rem) {
-  .warehouseList__card-info {
-    padding: 0;
-    width: auto;
-    text-align: left;
-  }
-}
-.warehouseList__card-title {
+  line-height: 1rem;
+  font-size: 0.6875rem;
   color: #5c667e;
-  font-size: 0.75rem;
-  margin: 0 0 4%;
-  font-family: "Titillium Web";
 }
 @media screen and (min-width: 48rem) {
-  .warehouseList__card-title {
-    display: none;
+  .footer {
+    font-weight: 400;
+    line-height: 1.125rem;
+    font-size: 0.75rem;
   }
-}
-.warehouseList__card-text {
-  font-family: "Titillium Web";
-}
-@media screen and (min-width: 48rem) {
-  .warehouseList__card-text {
-    width: 6.88rem;
-  }
-}
-.warehouseList__card-action {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  width: 90%;
-  padding: 1rem 1rem 2rem;
-}
-@media screen and (min-width: 48rem) {
-  .warehouseList__card-action {
-    padding: 0;
-    width: 5rem;
-    justify-content: space-evenly;
-  }
-}
-@media screen and (min-width: 80rem) {
-  .warehouseList__card-action {
-    justify-content: center;
-    width: 10%;
-  }
-}
-.warehouseList__card-edit {
-  width: 1.5rem;
-}/*# sourceMappingURL=WarehouseCard.css.map */
+}/*# sourceMappingURL=Footer.css.map */

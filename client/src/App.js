@@ -16,6 +16,7 @@ function App() {
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
         <Route path="/warehouse/list" component={WarehouseList} />
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
