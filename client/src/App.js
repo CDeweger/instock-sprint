@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
+import Footer from "./components/Footer/Footer";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 
@@ -16,8 +17,8 @@ function App() {
         <Route path="/inventory" component={InventoryPage} />
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
         <Route path="/warehouse" component={WarehouseList} />
-        <Route path="/warehouse" component={AddWarehouse} />
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

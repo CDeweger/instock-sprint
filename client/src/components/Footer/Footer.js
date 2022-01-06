@@ -1,8 +1,9 @@
 import React from "react";
+import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer">
       <p>© InStock Inc. All Rights Reserved.</p>
     </footer>
   );
