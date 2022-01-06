@@ -67,6 +67,9 @@ inventoryRouter.get("/:warehouseID", (req, res) => {
   let warehouseInventories = inventoriesData.filter(
     (inventory) => inventory.warehouseID === req.params.warehouseID
   );
+  if (warehouseInventories.length === 0) {
+    return res.status(404).send("Warehouse is not found.");
+  }
   res.status(200).json(warehouseInventories);
 });
 
