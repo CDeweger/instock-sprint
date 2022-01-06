@@ -62,7 +62,7 @@ const readData = () => {
 };
 
 // get inventory for given warehouse ID
-inventoryRouter.get("/:warehouseID", (req, res) => {
+inventoryRouter.get("/warehouse/:warehouseID", (req, res) => {
   const inventoriesData = readData();
   let warehouseInventories = inventoriesData.filter(
     (inventory) => inventory.warehouseID === req.params.warehouseID
