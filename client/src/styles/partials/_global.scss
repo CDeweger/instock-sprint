@@ -1,0 +1,65 @@
+@use "./typography";
+@use "./colors";
+@use "./mixins";
+@use "./variables";
+
+*,
+* ::before,
+*,
+* ::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Titillium Web", serif;
+  color: colors.$primary-dark;
+  background-color: colors.$primary-light;
+}
+
+button {
+  font-family: inherit;
+  height: 2.25rem;
+  padding: 0 1rem;
+  border-radius: 20px;
+  background-color: colors.$primary-blue;
+  border: 1px solid colors.$primary-blue;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+    background-color: colors.$background-dark;
+  }
+
+  @include mixins.tablet {
+    height: 2.375rem;
+  }
+}
+
+input,
+textarea {
+  font-family: inherit;
+  height: 2.25rem;
+  padding: 0 1rem;
+  border-radius: 20px;
+  border: 1px solid colors.$secondary-medium;
+
+  &::placeholder {
+    font-family: inherit;
+    color: colors.$secondary-dark;
+    color: red;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid colors.$primary-blue;
+  }
+
+  &:focus:invalid {
+    outline: none;
+    border: 1px solid colors.$supporting-red;
+  }
+
+  @include mixins.tablet {
+    height: 2.375rem;
+  }
+}
