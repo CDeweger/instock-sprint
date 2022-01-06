@@ -17,6 +17,7 @@ function App() {
         <Route path="/inventory" component={InventoryPage} />
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
         <Route path="/warehouse" component={WarehouseList} />
+        <Route path="/warehouse" component={AddWarehouse} />
       </Switch>
       <Footer />
     </BrowserRouter>

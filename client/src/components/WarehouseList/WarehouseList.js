@@ -12,7 +12,7 @@ function WarehouseList(){
                 <h2 className='warehouseList__title'>Warehouse</h2>
                 <div className='warehouseList__heard-container'>
                     <input className='warehouseList__search-bar' placeholder='Search...'></input>
-                    <Link to='/warehouse/add'><button className='warehouseList__addButton'>+ Add New Warehouse</button></Link>
+                    <Link to='/warehouse'><button className='warehouseList__addButton'>+ Add New Warehouse</button></Link>
                 </div>
             </div>
 

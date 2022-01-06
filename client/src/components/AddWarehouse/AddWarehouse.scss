@@ -110,6 +110,10 @@
       }
     }
 
+    &-input::placeholder {
+        color: $secondary-medium;
+    }
+
     &-input:focus::placeholder {
       color: transparent;
     }
@@ -173,7 +177,7 @@
 
     &-add {
         border: none;
-        background-color: $primary-medium;
+        background-color: $primary-blue;
         height: 2.2rem;
         border-radius: 1.25rem;
         font-family: "Titillium Web";

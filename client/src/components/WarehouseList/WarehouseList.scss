@@ -68,7 +68,7 @@
 
     &__search-bar {
         height: 2.2rem;
-        border: 1px solid black;
+        border: 1px solid $secondary-medium;
         border-radius: 1.25rem;
         width: 95%;
         background: url('../../assets/icons/search-24px.svg') no-repeat scroll 95% 50%;
@@ -85,6 +85,7 @@
 
     &__search-bar::placeholder {
         padding: 0 1rem 0;
+        color: $secondary-medium;
     }
 
     &__addButton {
