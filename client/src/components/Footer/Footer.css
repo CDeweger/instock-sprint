@@ -1,0 +1,8 @@
+/********* font for desktop and tablet *********/
+/********* font for mobil *********/
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}/*# sourceMappingURL=Footer.css.map */
