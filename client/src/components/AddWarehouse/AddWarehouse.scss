@@ -155,7 +155,7 @@
       }
 
       @include desktop {
-        width: 24%;
+        width: 50%;
         padding: 1rem 1.25rem 0;
       }
     }
@@ -173,6 +173,10 @@
             width: 200%;
             height: 2.5rem;
         }
+
+        @include desktop {
+          width: 250%;
+        }
     }
 
     &-add {
@@ -183,15 +187,15 @@
         font-family: "Titillium Web";
         font-weight: 600;
         color: $primary-light;
-        width: 45%;
+        width: 240%;
 
         @include tablet {
-            width: 55%;
+            width: 200%;
             height: 2.5rem;
         }
 
         @include desktop {
-            width: 48%;
+            width: 250%;
         }
     }
   }

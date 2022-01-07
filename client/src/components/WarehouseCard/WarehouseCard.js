@@ -12,25 +12,25 @@ function WarehouseCard () {
                 <div className="warehouseList__card-info">
                     <h3 className="warehouseList__card-title">WAREHOUSE</h3>
                     <div className="warehouseList__card-name">
-                        <p className="warehouseList__card-text warehouseList__card-location">Name of warehouse</p>
+                        <p className="warehouseList__card-text warehouseList__card-location">Manhattan</p>
                         <img className="warehouseList__icon" src={ChevronIcon} alt="chevron icon" />
                     </div>
                 </div>
 
                 <div className="warehouseList__card-info">
                     <h3 className="warehouseList__card-title">CONTACT ME</h3>
-                    <p className="warehouseList__card-text">Name of contact</p> 
+                    <p className="warehouseList__card-text">Parmin Aujla</p> 
                 </div>
 
                 <div className="warehouseList__card-info">
                     <h3 className="warehouseList__card-title">ADDRESS</h3>
-                    <p className="warehouseList__card-text">Address</p> 
+                    <p className="warehouseList__card-text">503 Broadway, New York USA"</p> 
                 </div>
 
                 <div className="warehouseList__card-info">
                     <h3 className="warehouseList__card-title">CONTACT INFORMATION</h3>
-                    <p className="warehouseList__card-text">number</p>
-                    <p className="warehouseList__card-text">email</p>
+                    <p className="warehouseList__card-text">+1 (646) 123-1234</p>
+                    <p className="warehouseList__card-text">paujla@instock.com</p>
                 </div>
             </div>
 
