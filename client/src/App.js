@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import Header from './components/Header/Header';
-import React from 'react';
-function App() {
-  return (
-    <div className="App">
-      <Header/>
-    </div>
-=======
 // import packages needed for routing
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -26,7 +17,6 @@ function App() {
       </Switch>
       <Footer />
     </BrowserRouter>
->>>>>>> dd4163d00a4764a06e9c328c8b0509a8b925a30e
   );
 }
 

@@ -4,6 +4,8 @@ const fs = require("fs");
 
 const warehouseRouter = express.Router();
 
+
+
 //function for read file
 const readFile = () => {
   const warehousesData = fs.readFileSync("./data/warehouses.json");
@@ -42,6 +44,11 @@ warehouseRouter.patch("/:warehouseID/edit", (req, res) => {
     res.status(400).json({ message: "warehouse not found" });
   }
 });
+// GET List Of All Warehouses
+  warehouseRouter.get("/",(req,res) =>{
+  let warehouseData = readFile();
+  return res.status(200).send(warehouseData);
+})
 
 //GET /warehouse/:warehouseId
 warehouseRouter.get("/:warehouseId", (req, res) => {
