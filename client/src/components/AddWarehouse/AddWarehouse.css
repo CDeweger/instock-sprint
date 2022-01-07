@@ -1,0 +1,283 @@
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/font/TitilliumWeb-Regular (1).woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/font/TitilliumWeb-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+/********* font for desktop and tablet *********/
+/********* font for mobil *********/
+*,
+* ::before,
+*,
+* ::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Titillium Web", serif;
+  color: #13182c;
+  background-color: #ffffff;
+}
+
+button {
+  font-family: inherit;
+  height: 2.25rem;
+  padding: 0 1rem;
+  border-radius: 20px;
+  background-color: #2e66e5;
+  border: 1px solid #2e66e5;
+}
+button:hover, button:active {
+  cursor: pointer;
+  background-color: #232940;
+}
+@media screen and (min-width: 48rem) {
+  button {
+    height: 2.375rem;
+  }
+}
+
+input,
+textarea {
+  font-family: inherit;
+  height: 2.25rem;
+  padding: 0 1rem;
+  border-radius: 20px;
+  border: 1px solid #bdc5d5;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+  font-family: inherit;
+  color: #5c667e;
+  color: red;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  font-family: inherit;
+  color: #5c667e;
+  color: red;
+}
+input::placeholder,
+textarea::placeholder {
+  font-family: inherit;
+  color: #5c667e;
+  color: red;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #2e66e5;
+}
+input:focus:invalid,
+textarea:focus:invalid {
+  outline: none;
+  border: 1px solid #c94515;
+}
+@media screen and (min-width: 48rem) {
+  input,
+textarea {
+    height: 2.375rem;
+  }
+}
+
+.newWarehouse {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  width: 91%;
+  margin: 1rem;
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  top: -2.5rem;
+}
+@media screen and (min-width: 48rem) {
+  .newWarehouse {
+    top: -6.7rem;
+    left: 2%;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .newWarehouse {
+    width: 77%;
+    left: 9%;
+  }
+}
+.newWarehouse__header {
+  width: 100%;
+  padding: 1.25rem 1.25rem 1rem;
+  margin: 0 0 5%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bdc5d5;
+}
+@media screen and (min-width: 80rem) {
+  .newWarehouse__header {
+    margin: 0 0 2%;
+  }
+}
+.newWarehouse__header-back {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 3% 0 0;
+}
+.newWarehouse__header-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 0 0 0 4%;
+}
+@media screen and (min-width: 48rem) {
+  .newWarehouse__header-title {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .newWarehouse__form-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+.newWarehouse__form-details {
+  margin: 0 0 4%;
+  padding: 0 0 0.85rem;
+  border-bottom: 1px solid #bdc5d5;
+}
+@media screen and (min-width: 48rem) {
+  .newWarehouse__form-details {
+    width: 48%;
+    border-bottom: none;
+    border-right: 1px solid #bdc5d5;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .newWarehouse__form-details {
+    width: 50%;
+    margin: 0 0 2%;
+  }
+}
+.newWarehouse__details-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 0 1.25rem 1.25rem;
+}
+@media screen and (min-width: 80rem) {
+  .newWarehouse__details-title {
+    font-size: 1.5rem;
+  }
+}
+.newWarehouse__details-container {
+  padding: 0 1.25rem 0;
+}
+.newWarehouse__details-input {
+  border: 1px solid #bdc5d5;
+  box-sizing: border-box;
+  border-radius: 1.25rem;
+  height: 2.25rem;
+  width: 95%;
+  margin: 0 0 1%;
+  text-indent: 1.25rem;
+}
+@media screen and (min-width: 80rem) {
+  .newWarehouse__details-input {
+    width: 88%;
+  }
+}
+.newWarehouse__details-input::-moz-placeholder {
+  color: #bdc5d5;
+}
+.newWarehouse__details-input:-ms-input-placeholder {
+  color: #bdc5d5;
+}
+.newWarehouse__details-input::placeholder {
+  color: #bdc5d5;
+}
+.newWarehouse__details-input:focus::-moz-placeholder {
+  color: transparent;
+}
+.newWarehouse__details-input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.newWarehouse__details-input:focus::placeholder {
+  color: transparent;
+}
+.newWarehouse__element-title {
+  font-size: 0.85rem;
+  font-family: "Titillium Web";
+  font-weight: 600;
+  margin: 0 0 2%;
+}
+.newWarehouse__buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  height: 6.2rem;
+  background-color: #f7f8f9;
+}
+@media screen and (min-width: 48rem) {
+  .newWarehouse__buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.newWarehouse__buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin: 2% 0 0 0;
+  padding: 1rem 1.3rem 0;
+}
+@media screen and (min-width: 48rem) {
+  .newWarehouse__buttons-container {
+    width: 37%;
+    padding: 1rem 1rem 0;
+    margin: 0 3% 0 0;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .newWarehouse__buttons-container {
+    width: 24%;
+    padding: 1rem 1.25rem 0;
+  }
+}
+.newWarehouse__buttons-cancel {
+  border: 1px solid #bdc5d5;
+  background-color: #ffffff;
+  height: 2.2rem;
+  width: 240%;
+  border-radius: 1.25rem;
+  font-family: "Titillium Web";
+  font-weight: 600;
+}
+@media screen and (min-width: 48rem) {
+  .newWarehouse__buttons-cancel {
+    width: 200%;
+    height: 2.5rem;
+  }
+}
+.newWarehouse__buttons-add {
+  border: none;
+  background-color: #2e66e5;
+  height: 2.2rem;
+  border-radius: 1.25rem;
+  font-family: "Titillium Web";
+  font-weight: 600;
+  color: #ffffff;
+  width: 45%;
+}
+@media screen and (min-width: 48rem) {
+  .newWarehouse__buttons-add {
+    width: 55%;
+    height: 2.5rem;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .newWarehouse__buttons-add {
+    width: 48%;
+  }
+}/*# sourceMappingURL=AddWarehouse.css.map */

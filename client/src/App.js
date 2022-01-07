@@ -7,7 +7,13 @@ import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Footer from "./components/Footer/Footer";
 import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInventoryModal";
 //thee route here for DeleteInventoryModal is dummy route just to see the component
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
+
+
+
+
 
 function App() {
   return (
@@ -21,7 +27,15 @@ function App() {
           component={DeleteInventoryModal}
         />
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
-        <Route path="/warehouse" component={WarehouseList} />
+
+        <Route path="/warehouse" exact component={WarehouseList} />
+        <Route path="/warehouse/add" component={AddWarehouse} />
+
+        <Route
+          path="/warehouse/:warehouseId/inventory/:inventoryId"
+          component={DeleteInventoryModal}
+        />
+        <Route path="/warehouse/:id" exact component={WarehouseDetails} />
       </Switch>
       <Footer />
     </BrowserRouter>
