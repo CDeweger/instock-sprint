@@ -205,4 +205,21 @@
         }
     }
   }
+
+  &__warning {
+    display: flex;
+    align-items: center;
+    height: 1.25rem;
+    margin: 0 0 1%;
+
+    &-icon {
+      width: 0.9rem;
+      height: 0.9rem;
+      margin: 0 1.5% 0 0;
+    }
+
+    &-text {
+      color: $supporting-red;
+    }
+  }
 }
