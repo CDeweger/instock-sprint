@@ -79,6 +79,12 @@
         margin: 0 0 2%;
       }
     }
+
+    &-tablet {
+      @include tablet {
+        border: none;
+      }
+    }
   }
 
   &__details {
@@ -149,7 +155,7 @@
       padding: 1rem 1.3rem 0;
 
       @include tablet {
-        width: 37%;
+        width: 50%;
         padding: 1rem 1rem 0;
         margin: 0 3% 0 0;
       }
@@ -164,7 +170,7 @@
         border: 1px solid $secondary-medium;
         background-color: $primary-light;
         height: 2.2rem;
-        width: 240%;
+        width: 180%;
         border-radius: 1.25rem;
         font-family: "Titillium Web";
         font-weight: 600;
@@ -175,7 +181,7 @@
         }
 
         @include desktop {
-          width: 250%;
+          width: 280%;
         }
     }
 
@@ -187,15 +193,15 @@
         font-family: "Titillium Web";
         font-weight: 600;
         color: $primary-light;
-        width: 240%;
+        width: 40%;
 
         @include tablet {
-            width: 200%;
+            width: 43%;
             height: 2.5rem;
         }
 
         @include desktop {
-            width: 250%;
+            width: 43%;
         }
     }
   }
