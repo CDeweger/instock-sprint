@@ -3,8 +3,14 @@ import React from 'react';
 import { Link } from "react-router-dom";
 // Need to connect to delete icon on warehouse list and also add onclick functionality to delete button.
 function DeleteWarehouseModal() {
-    // for now use one warehouse ID
+    // for now use one warehouse ID, for future this we get from props
     const ID ="2922c286-16cd-4d43-ab98-c79f698aeab0";
+    const handleDelete=(ID)=>{
+      axios.get(`http://localhost:3000/warehouse/${ID}/edit`)
+      .then(resolve=>console.log(resolve.data))
+      .catch(error=>error);
+
+    }
     
     return (
       <article>
@@ -16,7 +22,7 @@ function DeleteWarehouseModal() {
         <Link to="/">
           <button>Cancel</button>
         </Link>
-        <button >Delete</button>
+        <button onClick={handleDelete(ID)}>Delete</button>
       </article>
     );
 }
