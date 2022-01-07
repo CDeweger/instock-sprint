@@ -71,7 +71,7 @@ warehouseRouter.post("/", (req, res) => {
     !req.body.phoneNumber ||
     !req.body.email
   ) {
-    return res.status(400).send("please provide all required information.");
+    return res.status(400).send("Please provide all information.");
   }
 
   const newWarehouseObj = {

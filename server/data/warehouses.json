@@ -92,5 +92,18 @@
       "phone": "+1 (646) 123-1234",
       "email": "vmendoza@instock.com"
     }
+  },
+  {
+    "id": "4115a522-ebab-4af1-af57-da62a2bfef5a",
+    "name": "Manhattan999",
+    "address": "503 Broadway",
+    "city": "New York",
+    "country": "USA",
+    "contact": {
+      "name": "Parmin Aujla",
+      "position": "Warehouse Manager",
+      "phone": "+1 (646) 123-1234",
+      "email": "paujla@instock.com"
+    }
   }
 ]
