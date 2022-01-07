@@ -1,0 +1,198 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+.body {
+    background-color: #d1d1d1;
+}
+
+.warehouseList {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 1rem;
+    top: -2.5rem;
+    border-radius: 3px;
+    
+    @include tablet {
+        top: -6.6rem;
+    }
+    
+    @include desktop {
+        width: 77%;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1rem;
+        border-bottom: 1px solid black;
+
+        @include tablet {
+            flex-direction: row;
+            padding: 0 2rem 1rem;
+            justify-content: space-between;
+            border-bottom: none;
+        }
+
+        &-container {
+            @include tablet {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                width: 60%;
+                margin: 0;
+            }
+
+            @include desktop {
+                width: 52%;
+            }
+        }
+        
+    }
+
+    &__title {
+        font-size: 1.7rem;
+        color: #13172c;
+        font-family: "Titillium Web";
+        margin: 0 0 5%;
+
+        @include tablet {
+            margin: 2% 0 0;
+        }
+    }
+
+    &__search-bar {
+        height: 2.2rem;
+        border: 1px solid $secondary-medium;
+        border-radius: 1.25rem;
+        width: 95%;
+        background: url('../../assets/icons/search-24px.svg') no-repeat scroll 95% 50%;
+
+        @include tablet {
+            width: 110%;
+            margin: 5% 5% 0 0;
+        }
+
+        @include desktop {
+            width: 120%;
+        }        
+    }
+
+    &__search-bar::placeholder {
+        padding: 0 1rem 0;
+        color: $secondary-medium;
+    }
+
+    &__addButton {
+        background-color: #2e66e6;
+        border-radius: 2.25rem;
+        color: #ffffff;
+        border: none;
+        margin: 5% 0 4%;
+        width: 97%;
+        height: 2.2rem;
+
+        @include tablet {
+            width: 110%;
+            height: 2.5rem;
+        }
+        @include desktop {
+            width: 120%;
+            margin: 5% 0 0 0;
+        }
+    }
+
+    &__container {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 2.5rem;
+            background-color: #f7f8f9;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+        }
+    }
+
+    &__head {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 2.5rem;
+            background-color: #f7f8f9;
+            align-items: center;
+            justify-content: space-between;
+            width: 125%;
+        }
+
+        @include desktop {
+            display: flex;
+            height: 2.5rem;
+            background-color: #f7f8f9;
+            align-items: center;
+            justify-content: space-between;
+            width: 76%;
+        }
+
+        &-warehouse {
+            @include tablet {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &-title {
+            font-family: "Titillium Web";
+            @include tablet {
+                font-size: 0.75rem;
+                color: #5c667e;
+            }
+        }
+
+        &-title:nth-child(3) {
+            @include tablet {
+                margin: 0 5% 0 0;
+            }
+        }
+
+        &-action {
+            display: none;
+
+            @include tablet {
+                display: flex;
+                width: 16%;
+                margin: 0 0 0 4%;
+            }
+
+            @include desktop {
+                margin: 2%;
+                width: 7%;
+            }
+        }
+    }
+
+    &__sortingImg {
+        @include tablet {
+            width: 1.3rem;
+            height: 1.3rem;
+            color: #5c667e;
+        }
+    }
+
+    &__warehouse-cards {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            width: 100%;
+        }
+    }
+}
+

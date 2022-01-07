@@ -29,6 +29,7 @@ button {
   &:hover,
   &:active {
     cursor: pointer;
+    color: colors.$primary-light;
     background-color: colors.$background-dark;
   }
 

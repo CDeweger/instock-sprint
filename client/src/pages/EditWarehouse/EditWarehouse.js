@@ -75,15 +75,11 @@ export default class EditWarehouse extends Component {
     const currentWarehouseId = this.props.match.params.id;
     const previousWarehouseId = prevProps.match.params.id;
     if (currentWarehouseId !== previousWarehouseId) {
-      this.setVideos();
+      this.getWarehouseData();
     }
   }
 
   render() {
-    /*  //need to delete the next two lines once the api call is hooked
-    const { name, address, city, country, contact } =
-      this.state.warehouseDetails;
- */
     return (
       <div className="edit-container">
         <section className="edit-warehouse">
