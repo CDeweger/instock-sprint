@@ -1,0 +1,87 @@
+@use "../../styles/partials/typography";
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/global";
+@use "../../styles/partials/variables";
+.header {
+  background-color: colors.$background-dark;
+  height: 136px;
+  width: 375px;
+
+  @include mixins.tablet {
+    height: 92px;
+    width: 768px;
+    display: flex;
+  }
+
+  &__logo {
+    padding-top: 30px;
+    padding-left: 123px;
+    padding-right: 123px;
+
+    @include mixins.tablet {
+      align-self: flex-start;
+      padding-top: 38.39px;
+      padding-left: 32px;
+    }
+  }
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+
+    @include mixins.tablet {
+      justify-content: flex-end;
+    }
+  }
+  &__nav-warehouses,
+  &__nav-inventory:active {
+    border: 1px solid #13182c;
+    border-radius: 15px;
+    background-color: #13182c;
+    width: 163px;
+    height: 36px;
+  }
+
+  //   &__nav-warehouses,
+  //   &__nav-inventory:hover {
+  //     border-bottom: 1px solid white;
+  //   }
+  &__nav-warehouses,
+  &__nav-inventory:visited {
+    color: colors.$secondary-medium;
+  }
+}
+
+h3 {
+  color: colors.$primary-light;
+  padding-left: 50px;
+  padding-top: 6px;
+  @include mixins.mobil-labels;
+  @include mixins.tablet {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+}
+.header__nav-inventory {
+  @include mixins.tablet {
+    @include mixins.table-header;
+  }
+}
+.header__nav-warehouses {
+  @include mixins.tablet {
+    padding-left: 250px;
+    @include mixins.table-header;
+  }
+}
+
+// .header__nav-inactive {
+//   border: 1px solid #13182c;
+//   border-radius: 15px;
+//   background-color: #13182c;
+//   width: 163px;
+//   height: 36px;
+//   @include mixins.tablet {
+//     width: 107px;
+//     height: 38px;
+//   }
+// }
