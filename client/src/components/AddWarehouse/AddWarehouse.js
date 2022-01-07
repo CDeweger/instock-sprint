@@ -1,17 +1,20 @@
 import React from "react";
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
-import '../AddWarehouse/AddWarehouse.scss';
+import "../AddWarehouse/AddWarehouse.scss";
+import { Link } from "react-router-dom";
 
 function AddWarehouse() {
   return (
     <>
       <section className="newWarehouse">
         <div className="newWarehouse__header">
-          <img
-            className="newWarehouse__header-back"
-            src={BackIcon}
-            alt="going back button"
-          />
+          <Link to='/warehouse'>
+            <img
+              className="newWarehouse__header-back"
+              src={BackIcon}
+              alt="going back button"
+            />
+          </Link>
           <h2 className="newWarehouse__header-title">Add New Warehouse</h2>
         </div>
 
