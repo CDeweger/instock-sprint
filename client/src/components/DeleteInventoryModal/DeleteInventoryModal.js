@@ -1,4 +1,5 @@
 // need to hook up with inventory list delete icon, use state to toggle display
+// the route in the app.js is dummy route just to see the component
 import React, { Component } from "react";
 import axios from "axios";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
@@ -8,11 +9,21 @@ export default class DeleteInventoryModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inventoryData: null,
+      inventoryData: {
+        id: "83433026-ca32-4c6d-bd86-a39ee8b7303e",
+        warehouseID: "2922c286-16cd-4d43-ab98-c79f698aeab0",
+        warehouseName: "Manhattan",
+        itemName: "Gym Bag",
+        description:
+          "Made out of military-grade synthetic materials, this gym bag is highly durable, water resistant, and easy to clean.",
+        category: "Gear",
+        status: "Out of Stock",
+        quantity: 0,
+      },
     };
   }
 
-  getInventoryData = (warehouseId, inventoryId) => {
+  /*   getInventoryData = (warehouseId, inventoryId) => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/inventory/${inventoryId}`)
       .then((res) => {
@@ -51,7 +62,7 @@ export default class DeleteInventoryModal extends Component {
       this.props.match.params.inventoryId
     );
   }
-
+ */
   render() {
     return (
       <>

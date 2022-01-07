@@ -85,26 +85,4 @@ inventoryRouter.get("/:id", (req, res) => {
   res.status(200).json(targetInventory[0]);
 });
 
-//delete an inventory
-inventoryRouter.delete("/:id", (req, res) => {
-  let inventoriesData = readData();
-  const targetInventory = inventoriesData.find(
-    (inventory) => inventory.id === req.params.id
-  );
-  console.log(targetInventory);
-  if (targetInventory) {
-    inventoriesData = inventoriesData.filter(
-      (inventory) => inventory.id !== req.params.id
-    );
-    fs.writeFileSync(
-      "./data/inventories.json",
-      JSON.stringify(inventoriesData)
-    );
-    console.log(targetInventory);
-    res.status(200).json(targetInventory);
-  } else {
-    res.status(400).json({ message: "inventory not found" });
-  }
-});
-
 module.exports = inventoryRouter;
