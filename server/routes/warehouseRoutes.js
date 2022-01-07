@@ -43,7 +43,55 @@ warehouseRouter.patch("/:warehouseID/edit", (req, res) => {
   }
 });
 
-<<<<<<< HEAD
+//GET /warehouse/:warehouseId
+warehouseRouter.get("/:warehouseId", (req, res) => {
+  const warehouseId = req.params.warehouseId;
+  const warehousesData = readFile().find(
+    (warehouse) => warehouse.id === warehouseId
+  );
+
+  if (warehousesData) {
+    res.status(200).json(warehousesData);
+  } else {
+    res.status(404).send("Warehouse not found");
+  }
+});
+
+//POST (create) a new warehouse
+warehouseRouter.post("/", (req, res) => {
+  const warehousesData = readFile();
+
+  if (
+    !req.body.warehouseName ||
+    !req.body.address ||
+    !req.body.city ||
+    !req.body.country ||
+    !req.body.contactName ||
+    !req.body.position ||
+    !req.body.phoneNumber ||
+    !req.body.email
+  ) {
+    return res.status(400).send("Please provide all information.");
+  }
+
+  const newWarehouseObj = {
+    id: uuidv4(),
+    name: req.body.warehouseName,
+    address: req.body.address,
+    city: req.body.city,
+    country: req.body.country,
+    contact: {
+      name: req.body.contactName,
+      position: req.body.position,
+      phone: req.body.phoneNumber,
+      email: req.body.email,
+    },
+  };
+  warehousesData.push(newWarehouseObj);
+  writeFile(warehousesData);
+  res.status(201).json(newWarehouseObj);
+});
+
 //ticket15: delete a warehouse and delete all inventory items in the given warehouse - by Yuxian
 warehouseRouter.delete("/:warehouseID", (req, res) => {
   const warehouseID = req.params.warehouseID;
@@ -99,55 +147,4 @@ warehouseRouter.delete("/:warehouseID", (req, res) => {
   }
 });
 
-=======
-//GET /warehouse/:warehouseId
-warehouseRouter.get("/:warehouseId", (req, res) => {
-  const warehouseId = req.params.warehouseId;
-  const warehousesData = readFile().find(
-    (warehouse) => warehouse.id === warehouseId
-  );
-
-  if (warehousesData) {
-    res.status(200).json(warehousesData);
-  } else {
-    res.status(404).send("Warehouse not found");
-  }
-});
-
-//POST (create) a new warehouse
-warehouseRouter.post("/", (req, res) => {
-  const warehousesData = readFile();
-
-  if (
-    !req.body.warehouseName ||
-    !req.body.address ||
-    !req.body.city ||
-    !req.body.country ||
-    !req.body.contactName ||
-    !req.body.position ||
-    !req.body.phoneNumber ||
-    !req.body.email
-  ) {
-    return res.status(400).send("Please provide all information.");
-  }
-
-  const newWarehouseObj = {
-    id: uuidv4(),
-    name: req.body.warehouseName,
-    address: req.body.address,
-    city: req.body.city,
-    country: req.body.country,
-    contact: {
-      name: req.body.contactName,
-      position: req.body.position,
-      phone: req.body.phoneNumber,
-      email: req.body.email,
-    },
-  };
-  warehousesData.push(newWarehouseObj);
-  writeFile(warehousesData);
-  res.status(201).json(newWarehouseObj);
-});
-
->>>>>>> develop
 module.exports = warehouseRouter;
