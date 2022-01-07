@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { isPossiblePhoneNumber } from "react-phone-number-input";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import "./EditWarehouse.scss";
 
@@ -39,35 +40,40 @@ export default class EditWarehouse extends Component {
 
   handleEditWarehouse = (e) => {
     e.preventDefault();
-    const warehouseUpdatedDetails = {
-      name: e.target.name.value,
-      address: e.target.address.value,
-      city: e.target.city.value,
-      country: e.target.country.value,
-      contact: {
-        name: e.target.contactName.value,
-        position: e.target.position.value,
-        phone: e.target.phone.value,
-        email: e.target.email.value,
-      },
-    };
-    console.log(warehouseUpdatedDetails);
+    let phoneValidationResult = isPossiblePhoneNumber(e.target.phone.value);
+    if (!phoneValidationResult) {
+      alert("not valid number");
+    } else {
+      const warehouseUpdatedDetails = {
+        name: e.target.name.value,
+        address: e.target.address.value,
+        city: e.target.city.value,
+        country: e.target.country.value,
+        contact: {
+          name: e.target.contactName.value,
+          position: e.target.position.value,
+          phone: e.target.phone.value,
+          email: e.target.email.value,
+        },
+      };
+      console.log(warehouseUpdatedDetails);
 
-    axios
-      .patch(
-        `${process.env.REACT_APP_API_URL}/warehouse/${this.props.match.params.id}/edit`,
-        warehouseUpdatedDetails
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
-        console.error(e);
-        alert("something went wrong");
-      });
-
-    e.target.reset();
+      axios
+        .patch(
+          `${process.env.REACT_APP_API_URL}/warehouse/${this.props.match.params.id}/edit`,
+          warehouseUpdatedDetails
+        )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((e) => {
+          console.error(e);
+          alert("something went wrong");
+        });
+      //this.props.history.goBack();
+    }
   };
+
   /* 
   componentDidMount() {
     this.getWarehouseData(this.props.match.params.id);
@@ -85,6 +91,7 @@ export default class EditWarehouse extends Component {
     //need to delete the next two lines once the api call is hooked
     const { name, address, city, country, contact } =
       this.state.warehouseDetails;
+
     return (
       <div className="edit-container">
         <section className="edit-warehouse">
@@ -216,7 +223,7 @@ export default class EditWarehouse extends Component {
                   </label>
                   <input
                     id="contact-phone"
-                    type="text"
+                    type="tel"
                     name="phone"
                     className="editWH-form__input"
                     defaultValue={contact.phone}
