@@ -74,12 +74,12 @@
         background: url('../../assets/icons/search-24px.svg') no-repeat scroll 95% 50%;
 
         @include tablet {
-            width: 50%;
+            width: 110%;
             margin: 5% 5% 0 0;
         }
 
         @include desktop {
-            width: 60%;
+            width: 120%;
         }        
     }
 
@@ -128,7 +128,7 @@
             height: 2.5rem;
             background-color: #f7f8f9;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-between;
             width: 125%;
         }
 
@@ -137,7 +137,7 @@
             height: 2.5rem;
             background-color: #f7f8f9;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-between;
             width: 76%;
         }
 

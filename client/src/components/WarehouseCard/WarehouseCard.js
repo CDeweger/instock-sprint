@@ -4,7 +4,8 @@ import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
 import axios from "axios";
-import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
+import { Link } from "react-router-dom";
+// import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
 const { REACT_APP_API_URL } = process.env;
 
 class WarehouseCard extends React.Component {
@@ -36,14 +37,14 @@ class WarehouseCard extends React.Component {
   render() {
     let modal = <></>;
 
-    if (this.state.showModal) {
-      modal = (
-        <DeleteWarehouseModal
-          closeModal={this.closeModal}
-          delete={() => this.handleDelete()}
-        />
-      );
-    }
+    // if (this.state.showModal) {
+    //   modal = (
+    //     <DeleteWarehouseModal
+    //       closeModal={this.closeModal}
+    //       delete={() => this.handleDelete()}
+    //     />
+    //   );
+    // }
 
     return (
       <>
@@ -57,7 +58,7 @@ class WarehouseCard extends React.Component {
               >
                 <div className="warehouseList__card-name">
                   <p className="warehouseList__card-text warehouseList__card-location">
-                    Manhattan
+                   {this.props.city} Manhattan
                   </p>
                   <img
                     className="warehouseList__icon"
@@ -70,20 +71,20 @@ class WarehouseCard extends React.Component {
 
             <div className="warehouseList__card-info">
               <h3 className="warehouseList__card-title">CONTACT NAME</h3>
-              <p className="warehouseList__card-text">Parmin Aujla</p>
+              <p className="warehouseList__card-text">{this.props.name}Parmin Aujla</p>
             </div>
 
             <div className="warehouseList__card-info">
               <h3 className="warehouseList__card-title">ADDRESS</h3>
               <p className="warehouseList__card-text">
-                503 Broadway, New York USA"
+                {this.props.address}503 Broadway, New York USA"
               </p>
             </div>
 
             <div className="warehouseList__card-info">
               <h3 className="warehouseList__card-title">CONTACT INFORMATION</h3>
-              <p className="warehouseList__card-text">+1 (646) 123-1234</p>
-              <p className="warehouseList__card-text">paujla@instock.com</p>
+              <p className="warehouseList__card-text">{this.props.number}+1 (646) 123-1234</p>
+              <p className="warehouseList__card-text">{this.props.email}paujla@instock.com</p>
             </div>
           </div>
 
@@ -92,14 +93,17 @@ class WarehouseCard extends React.Component {
               className="warehouseList_card-delete"
               src={DeleteIcon}
               alt="delete icon"
+              onClick={this.showModal}
             />
-            <img
+            <Link to={`/warehouse/${this.props.id}/edit`} ><img
               className="warehouseList_card-edit"
               src={EditIcon}
               alt="edit icon"
             />
+            </Link>
           </div>
         </div>
+        {modal}
       </>
     );
   }
