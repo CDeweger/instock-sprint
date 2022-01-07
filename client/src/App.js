@@ -6,6 +6,7 @@ import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Footer from "./components/Footer/Footer";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="/" exact component={HomePage} />
         <Route path="/inventory" component={InventoryPage} />
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
-        <Route path="/warehouse" component={WarehouseList} />
+        <Route path="/warehouse" exact component={WarehouseList} />
+        <Route path="/warehouse/add" component={AddWarehouse} />
       </Switch>
       <Footer />
     </BrowserRouter>

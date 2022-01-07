@@ -46,6 +46,10 @@ function WarehouseList(){
 
             <div className='warehouseList__warehouse-cards'>
                 <WarehouseCard />
+                <WarehouseCard />
+                <WarehouseCard />
+                <WarehouseCard />
+                <WarehouseCard />
             </div>
         </section>
         </>

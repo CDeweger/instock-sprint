@@ -18,13 +18,21 @@ function WarehouseCard () {
                 </div>
 
                 <div className="warehouseList__card-info">
+<<<<<<< HEAD
                     <h3 className="warehouseList__card-title">CONTACT NAME</h3>
+=======
+                    <h3 className="warehouseList__card-title">CONTACT ME</h3>
+>>>>>>> O21DM2-6-AddWarehouseComponent
                     <p className="warehouseList__card-text">Parmin Aujla</p> 
                 </div>
 
                 <div className="warehouseList__card-info">
                     <h3 className="warehouseList__card-title">ADDRESS</h3>
+<<<<<<< HEAD
                     <p className="warehouseList__card-text">503 Broadway</p> 
+=======
+                    <p className="warehouseList__card-text">503 Broadway, New York USA"</p> 
+>>>>>>> O21DM2-6-AddWarehouseComponent
                 </div>
 
                 <div className="warehouseList__card-info">
