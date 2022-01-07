@@ -8,19 +8,7 @@ export default class EditWarehouse extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      warehouseDetails: {
-        id: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-        name: "King West",
-        address: "469 King Street West",
-        city: "Toronto",
-        country: "CAN",
-        contact: {
-          name: "Greame Lyon",
-          position: "Warehouse Manager",
-          phone: "+1 (646) 123-1234",
-          email: "glyon@instock.com",
-        },
-      },
+      warehouseDetails: null,
     };
   }
 
@@ -28,9 +16,9 @@ export default class EditWarehouse extends Component {
     axios
       .get(`${process.env.REACT_APP_API_URL}/warehouse/${id}`)
       .then((res) => {
+        console.log(res.data);
         this.setState({ warehouseDetails: res.data });
-        const { name, address, city, country, contact } =
-          this.state.warehouseDetails;
+        console.log(this.state.warehouseDetails);
       })
       .catch((e) => {
         console.error(e);
@@ -70,13 +58,13 @@ export default class EditWarehouse extends Component {
           console.error(e);
           alert("something went wrong");
         });
-      //this.props.history.goBack();
+      this.props.history.goBack();
     }
   };
 
-  /* 
   componentDidMount() {
     this.getWarehouseData(this.props.match.params.id);
+    //  console.log(this.state.warehouseDetails);
   }
 
   componentDidUpdate(prevProps) {
@@ -86,12 +74,12 @@ export default class EditWarehouse extends Component {
       this.setVideos();
     }
   }
- */
+
   render() {
-    //need to delete the next two lines once the api call is hooked
+    /*  //need to delete the next two lines once the api call is hooked
     const { name, address, city, country, contact } =
       this.state.warehouseDetails;
-
+ */
     return (
       <div className="edit-container">
         <section className="edit-warehouse">
@@ -127,7 +115,7 @@ export default class EditWarehouse extends Component {
                     type="text"
                     name="name"
                     className="editWH-form__input"
-                    defaultValue={name}
+                    defaultValue={this.state.warehouseDetails.name}
                     required
                   ></input>
                 </div>
@@ -144,7 +132,7 @@ export default class EditWarehouse extends Component {
                     type="text"
                     name="address"
                     className="editWH-form__input"
-                    defaultValue={address}
+                    defaultValue={this.state.warehouseDetails.address}
                     required
                   ></input>
                 </div>
@@ -161,7 +149,7 @@ export default class EditWarehouse extends Component {
                     type="text"
                     name="city"
                     className="editWH-form__input"
-                    defaultValue={city}
+                    defaultValue={this.state.warehouseDetails.city}
                     required
                   ></input>
                 </div>
@@ -178,7 +166,7 @@ export default class EditWarehouse extends Component {
                     type="text"
                     name="country"
                     className="editWH-form__input"
-                    defaultValue={country}
+                    defaultValue={this.state.warehouseDetails.country}
                     required
                   ></input>
                 </div>
@@ -195,7 +183,7 @@ export default class EditWarehouse extends Component {
                     type="text"
                     name="contactName"
                     className="editWH-form__input"
-                    defaultValue={contact.name}
+                    defaultValue={this.state.warehouseDetails.contact.name}
                     required
                   ></input>
                 </div>
@@ -212,7 +200,7 @@ export default class EditWarehouse extends Component {
                     type="text"
                     name="position"
                     className="editWH-form__input"
-                    defaultValue={contact.position}
+                    defaultValue={this.state.warehouseDetails.contact.position}
                     required
                   ></input>
                 </div>
@@ -226,7 +214,7 @@ export default class EditWarehouse extends Component {
                     type="tel"
                     name="phone"
                     className="editWH-form__input"
-                    defaultValue={contact.phone}
+                    defaultValue={this.state.warehouseDetails.contact.phone}
                     required
                   ></input>
                 </div>
@@ -240,7 +228,7 @@ export default class EditWarehouse extends Component {
                     type="email"
                     name="email"
                     className="editWH-form__input"
-                    defaultValue={contact.email}
+                    defaultValue={this.state.warehouseDetails.contact.email}
                     required
                   ></input>
                 </div>
