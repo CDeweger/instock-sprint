@@ -5,13 +5,10 @@ import HomePage from "./pages/HomePage/HomePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Footer from "./components/Footer/Footer";
-<<<<<<< HEAD
 import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInventoryModal";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-//thee route here for DeleteInventoryModal is dummy route just to see the component
-=======
 import WarehouseList from "./components/WarehouseList/WarehouseList";
->>>>>>> develop
+//thee route here for DeleteInventoryModal is dummy route just to see the component
 
 function App() {
   return (
@@ -19,13 +16,14 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={HomePage} />
-        <Route path="/inventory" exact component={InventoryPage} />
+        <Route path="/inventory" component={InventoryPage} />
+        <Route path="/warehouse/:id/edit" component={EditWarehouse} />
+        <Route path="/warehouse/:id" component={EditWarehouse} />
         <Route
           path="/warehouse/:warehouseId/inventory/:inventoryId"
           component={DeleteInventoryModal}
         />
         <Route path="/warehouse/:id" exact component={WarehouseDetails} />
-        <Route path="/warehouse/:id/edit" component={EditWarehouse} />
         <Route path="/warehouse" component={WarehouseList} />
       </Switch>
       <Footer />

@@ -21,21 +21,6 @@ inventoryRouter.post("/", (req, res) => {
         "please include warehouse ID, warehouse name, item name, item description, item category, item status, item quantity",
     });
   }
-
-  /*
-  //newInventory structure should be like this
- const newInventory = {
-   id: uuidv4(),
-   warehouseID: req.body.warehouseID,
-   warehouseName: req.body.warehouseName,
-   itemName: req.body.itemName,
-   description: req.body.description,
-   category: req.body.category,
-   status: req.body.status,
-   quantity: req.body.quantity
- };
- */
-
   //read file & write file
   try {
     let currentInventoryList = JSON.parse(
@@ -73,7 +58,6 @@ inventoryRouter.get("/warehouse/:warehouseID", (req, res) => {
   res.status(200).json(warehouseInventories);
 });
 
-<<<<<<< HEAD
 //// get an inventory by ID
 inventoryRouter.get("/:id", (req, res) => {
   const inventoriesData = readData();
@@ -84,7 +68,8 @@ inventoryRouter.get("/:id", (req, res) => {
     return res.status(404).send("inventory is not found.");
   }
   res.status(200).json(targetInventory[0]);
-=======
+});
+
 // function for write file
 const writeFile = (inventoriesData) => {
   fs.writeFileSync(
@@ -113,7 +98,6 @@ inventoryRouter.patch("/:id/edit", (req, res) => {
   } else {
     res.status(400).send("Inventory item not found");
   }
->>>>>>> develop
 });
 
 module.exports = inventoryRouter;
