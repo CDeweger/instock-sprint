@@ -6,7 +6,7 @@ function DeleteWarehouseModal() {
     // for now use one warehouse ID, for future this we get from props
     const ID ="2922c286-16cd-4d43-ab98-c79f698aeab0";
     const handleDelete=(ID)=>{
-      axios.get(`http://localhost:3000/warehouse/${ID}/edit`)
+      axios.delete(`http://localhost:3000/warehouse/${ID}/edit`)
       .then(resolve=>console.log(resolve.data))
       .catch(error=>error);
 
