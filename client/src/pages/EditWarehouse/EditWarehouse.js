@@ -26,6 +26,10 @@ export default class EditWarehouse extends Component {
       });
   };
 
+  handleCancel = () => {
+    this.props.history.goBack();
+  };
+
   handleEditWarehouse = (e) => {
     e.preventDefault();
     let phoneValidationResult = isPossiblePhoneNumber(e.target.phone.value);
@@ -58,7 +62,7 @@ export default class EditWarehouse extends Component {
           console.error(e);
           alert("something went wrong");
         });
-      this.props.history.goBack();
+      //  this.props.history.goBack();
     }
   };
 
@@ -90,6 +94,7 @@ export default class EditWarehouse extends Component {
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              onClick={this.handleCancel}
             >
               <path
                 d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
@@ -98,7 +103,9 @@ export default class EditWarehouse extends Component {
             </svg>
             <h1 className="edit-warehouse__title">Edit Warehouse</h1>
           </div>
+
           {!this.state.warehouseDetails && <LoadingSpinner />}
+
           {this.state.warehouseDetails && (
             <form className="editWH-form" onSubmit={this.handleEditWarehouse}>
               <div className="editWH-form__warehouse">
@@ -236,7 +243,7 @@ export default class EditWarehouse extends Component {
 
               <div className="editWH-form__buttons">
                 <div className="editWH-form__buttons-container">
-                  <button type="button" id="cancel">
+                  <button type="button" id="cancel" onClick={this.handleCancel}>
                     Cancel
                   </button>
                   <button type="submit" id="save">
