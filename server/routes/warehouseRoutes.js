@@ -92,4 +92,59 @@ warehouseRouter.post("/", (req, res) => {
   res.status(201).json(newWarehouseObj);
 });
 
+//ticket15: delete a warehouse and delete all inventory items in the given warehouse - by Yuxian
+warehouseRouter.delete("/:warehouseID", (req, res) => {
+  const warehouseID = req.params.warehouseID;
+  const warehouseList = JSON.parse(fs.readFileSync("./data/warehouses.json"));
+
+  // find the target warehouse
+  const targetWarehouse = warehouseList.find((warehouse) => {
+    return warehouse.id === warehouseID;
+  });
+
+  if (targetWarehouse) {
+    //remove the target warehouse from the array of warehouse list data.
+    warehouseList.splice(warehouseList.indexOf(targetWarehouse), 1);
+
+    fs.writeFile(
+      "./data/warehouses.json",
+      JSON.stringify(warehouseList),
+      (err) => {
+        if (err) {
+          res.status(500).send(err);
+        }
+        res.status(200).json(warehouseList);
+      }
+    );
+
+    //delete the inventories data as well
+    let inventoriesData = [];
+
+    fs.readFile("./data/inventories.json", (err, data) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      inventoriesData = JSON.parse(data);
+
+      let newInventory = inventoriesData.filter(
+        (data) => data.warehouseID !== warehouseID
+      );
+
+      fs.writeFile(
+        "./data/inventories.json",
+        JSON.stringify(newInventory),
+        (err, data) => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+        }
+      );
+    });
+  } else {
+    res.status(404).send("Cannot find that warehouse");
+  }
+});
+
 module.exports = warehouseRouter;

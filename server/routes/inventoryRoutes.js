@@ -73,6 +73,7 @@ inventoryRouter.get("/warehouse/:warehouseID", (req, res) => {
   res.status(200).json(warehouseInventories);
 });
 
+<<<<<<< HEAD
 //// get an inventory by ID
 inventoryRouter.get("/:id", (req, res) => {
   const inventoriesData = readData();
@@ -83,6 +84,36 @@ inventoryRouter.get("/:id", (req, res) => {
     return res.status(404).send("inventory is not found.");
   }
   res.status(200).json(targetInventory[0]);
+=======
+// function for write file
+const writeFile = (inventoriesData) => {
+  fs.writeFileSync(
+    "./data/inventories.json",
+    JSON.stringify(inventoriesData, null, 2)
+  );
+};
+
+inventoryRouter.patch("/:id/edit", (req, res) => {
+  const inventoriesData = readData();
+  const inventoryId = req.params.id;
+
+  let targetInventoryItem = inventoriesData.find(
+    (inventoryItem) => inventoryItem.id === inventoryId
+  );
+
+  if (targetInventoryItem) {
+    targetInventoryItem.itemName = req.body.itemName;
+    targetInventoryItem.description = req.body.description;
+    targetInventoryItem.category = req.body.category;
+    targetInventoryItem.status = req.body.status;
+    targetInventoryItem.quantity = req.body.quantity;
+    targetInventoryItem.warehouseName = req.body.warehouseName;
+    writeFile(inventoriesData);
+    res.status(200).send(targetInventoryItem);
+  } else {
+    res.status(400).send("Inventory item not found");
+  }
+>>>>>>> develop
 });
 
 module.exports = inventoryRouter;
