@@ -68,23 +68,24 @@
 
     &__search-bar {
         height: 2.2rem;
-        border: 1px solid black;
+        border: 1px solid $secondary-medium;
         border-radius: 1.25rem;
         width: 95%;
         background: url('../../assets/icons/search-24px.svg') no-repeat scroll 95% 50%;
 
         @include tablet {
-            width: 50%;
+            width: 110%;
             margin: 5% 5% 0 0;
         }
 
         @include desktop {
-            width: 60%;
+            width: 120%;
         }        
     }
 
     &__search-bar::placeholder {
         padding: 0 1rem 0;
+        color: $secondary-medium;
     }
 
     &__addButton {
@@ -127,7 +128,7 @@
             height: 2.5rem;
             background-color: #f7f8f9;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-between;
             width: 125%;
         }
 
@@ -136,7 +137,7 @@
             height: 2.5rem;
             background-color: #f7f8f9;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-between;
             width: 76%;
         }
 
@@ -194,5 +195,4 @@
         }
     }
 }
-
 
