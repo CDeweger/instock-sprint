@@ -1,0 +1,225 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.newWarehouse {
+  background-color: $primary-light;
+  display: flex;
+  flex-direction: column;
+  width: 91%;
+  margin: 1rem;
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  top: -2.5rem;
+
+  @include tablet {
+    top: -6.7rem;
+    left: 2%;
+  }
+
+  @include desktop {
+    width: 77%;
+    left: 9%;
+  }
+
+  &__header {
+    width: 100%;
+    padding: 1.25rem 1.25rem 1rem;
+    margin: 0 0 5%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $secondary-medium;
+
+    @include desktop {
+      margin: 0 0 2%;
+    }
+
+    &-back {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0 3% 0 0;
+    }
+
+    &-title {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin: 0 0 0 4%;
+
+      @include tablet {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__form {
+    &-container {
+      @include tablet {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+    }
+
+    &-details {
+      margin: 0 0 4%;
+      padding: 0 0 0.85rem;
+      border-bottom: 1px solid $secondary-medium;
+
+      @include tablet {
+        width: 48%;
+        border-bottom: none;
+        border-right: 1px solid $secondary-medium;
+      }
+
+      @include desktop {
+        width: 50%;
+        margin: 0 0 2%;
+      }
+    }
+
+    &-tablet {
+      @include tablet {
+        border: none;
+      }
+    }
+  }
+
+  &__details {
+    &-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      padding: 0 1.25rem 1.25rem;
+
+      @include desktop {
+        font-size: 1.5rem;
+      }
+    }
+
+    &-container {
+      padding: 0 1.25rem 0;
+    }
+
+    &-input {
+      border: 1px solid $secondary-medium;
+      box-sizing: border-box;
+      border-radius: 1.25rem;
+      height: 2.25rem;
+      width: 95%;
+      margin: 0 0 1%;
+      text-indent: 1.25rem;
+
+      @include desktop {
+        width: 88%;
+      }
+    }
+
+    &-input::placeholder {
+      color: $secondary-medium;
+    }
+
+    &-input:focus::placeholder {
+      color: transparent;
+    }
+  }
+
+  &__element {
+    &-title {
+      font-size: 0.85rem;
+      font-family: "Titillium Web";
+      font-weight: 600;
+      margin: 0 0 2%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    height: 6.2rem;
+    background-color: $background-light;
+
+    @include tablet {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      width: 75%;
+      margin: 2% 0 0 0;
+      padding: 1rem 1.3rem 0;
+
+      @include tablet {
+        width: 50%;
+        padding: 1rem 1rem 0;
+        margin: 0 3% 0 0;
+      }
+
+      @include desktop {
+        width: 50%;
+        padding: 1rem 1.25rem 0;
+      }
+    }
+
+    &-cancel {
+      border: 1px solid $secondary-medium;
+      background-color: $primary-light;
+      height: 2.2rem;
+      width: 180%;
+      border-radius: 1.25rem;
+      font-family: "Titillium Web";
+      font-weight: 600;
+
+      @include tablet {
+        width: 200%;
+        height: 2.5rem;
+      }
+
+      @include desktop {
+        width: 280%;
+      }
+    }
+
+    &-add {
+      border: none;
+      background-color: $primary-blue;
+      height: 2.2rem;
+      border-radius: 1.25rem;
+      font-family: "Titillium Web";
+      font-weight: 600;
+      color: $primary-light;
+      width: 40%;
+
+      @include tablet {
+        width: 43%;
+        height: 2.5rem;
+      }
+
+      @include desktop {
+        width: 43%;
+      }
+    }
+  }
+
+  &__warning {
+    display: flex;
+    align-items: center;
+    height: 1.25rem;
+    margin: 0 0 1%;
+
+    &-icon {
+      width: 0.9rem;
+      height: 0.9rem;
+      margin: 0 1.5% 0 0;
+    }
+
+    &-text {
+      color: $supporting-red;
+    }
+  }
+}
