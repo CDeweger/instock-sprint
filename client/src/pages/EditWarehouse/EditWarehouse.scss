@@ -1,0 +1,131 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+.edit-container {
+  height: fit-content;
+  @include mixins.flex(center, center, row);
+}
+
+.edit-warehouse {
+  width: 90%;
+  height: fit-content;
+  @include mixins.flex(flex-start, flex-start, column);
+  //border: 1px solid colors.$secondary-medium;
+  box-shadow: 0 2px 5px colors.$secondary-medium;
+  background-color: colors.$primary-light;
+  border-radius: 5px;
+  position: relative;
+  top: -60px;
+  @include mixins.tablet {
+    top: -100px;
+  }
+  @include mixins.desktop {
+    width: 80%;
+  }
+
+  &__top {
+    width: 100%;
+    @include mixins.flex(flex-start, center, row);
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid colors.$secondary-medium;
+
+    @include mixins.tablet {
+      padding: 2rem;
+    }
+  }
+
+  &__title {
+    margin-left: 0.5rem;
+    @include mixins.mobil-page-header;
+
+    @include mixins.tablet {
+      @include mixins.page-header;
+    }
+  }
+}
+
+.editWH-form {
+  width: 100%;
+  @include mixins.tablet {
+    @include mixins.flex(space-between, center, row);
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    @include mixins.mobil-subheader;
+    padding-bottom: 1rem;
+    @include mixins.tablet {
+      @include mixins.subheader;
+    }
+  }
+
+  &__warehouse,
+  &__contact {
+    width: 100%;
+    padding: 1rem;
+    @include mixins.tablet {
+      padding: 0 2rem;
+      margin: 2rem 0;
+      width: 50%;
+    }
+  }
+
+  &__contact {
+    border-top: 1px solid colors.$secondary-medium;
+    @include mixins.tablet {
+      border: none;
+      border-left: 1px solid colors.$secondary-medium;
+    }
+  }
+
+  &__entries {
+    margin-top: 1rem;
+  }
+
+  &__label {
+    @include mixins.mobil-labels;
+  }
+
+  &__input {
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  &__buttons {
+    width: 100%;
+    padding: 1rem;
+    background-color: colors.$background-light;
+    @include mixins.tablet {
+      @include mixins.flex(flex-end, center, row);
+      padding-right: 2rem;
+    }
+  }
+
+  &__buttons-container {
+    width: 100%;
+    @include mixins.flex(space-between, center, row);
+    @include mixins.tablet {
+      @include mixins.flex(flex-end, center, row);
+      width: 40%;
+    }
+  }
+}
+
+#cancel {
+  width: 47%;
+  background-color: colors.$primary-light;
+  border: 1px solid colors.$secondary-medium;
+  @include mixins.tablet {
+    width: fit-content;
+    margin-right: 1.5rem;
+  }
+}
+
+#save {
+  width: 47%;
+  color: colors.$primary-light;
+  @include mixins.tablet {
+    width: fit-content;
+  }
+}
