@@ -1,0 +1,104 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+.whDetails-container {
+  padding: 1.9375rem 1rem;
+
+  @include mixins.tablet {
+    padding: 2rem;
+  }
+
+  @include mixins.tablet {
+    padding: 2rem;
+  }
+}
+
+.whDetails {
+  width: 100%;
+  @include mixins.flex(flex-start, flex-start, column);
+  box-shadow: 0 2px 5px colors.$secondary-medium;
+  background-color: colors.$primary-light;
+  border-radius: 5px;
+
+  &__top {
+    width: 100%;
+    @include mixins.flex(space-between, center, row);
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid colors.$secondary-medium;
+
+    @include mixins.tablet {
+      padding: 2rem;
+    }
+  }
+
+  &__headline {
+    @include mixins.flex(flex-start, center, row);
+  }
+
+  &__title {
+    margin-left: 0.5rem;
+    @include mixins.mobil-page-header;
+
+    @include mixins.tablet {
+      @include mixins.page-header;
+    }
+  }
+
+  &__subtitle {
+    @include mixins.mobil-table-header;
+    color: colors.$secondary-dark;
+    text-transform: uppercase;
+
+    @include mixins.tablet {
+      @include mixins.table-header;
+    }
+  }
+
+  &__info {
+    @include mixins.mobil-body-small;
+
+    @include mixins.tablet {
+      @include mixins.body-small;
+    }
+  }
+
+  &__edit-button {
+    padding: 0.1rem 0.35rem;
+    @include mixins.tablet {
+      padding: 0 1rem;
+      @include mixins.flex(space-between, center, row);
+    }
+  }
+
+  &__edit-text {
+    display: none;
+    @include mixins.tablet {
+      display: inline-block;
+      color: colors.$primary-light;
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__bottom {
+    width: 100%;
+    padding: 1rem;
+    @include mixins.flex(flex-start, flex-start, column);
+    @include mixins.tablet {
+      padding: 2rem;
+      @include mixins.flex(space-between, center, row);
+    }
+  }
+
+  &__contact {
+    width: 100%;
+    margin-top: 1rem;
+    @include mixins.flex(space-between, center, row);
+    @include mixins.tablet {
+      width: 70%;
+      padding: 0 2rem;
+      margin-top: 0;
+      border-left: 1px solid colors.$secondary-medium;
+    }
+  }
+}
