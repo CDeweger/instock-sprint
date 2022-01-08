@@ -8,6 +8,9 @@ export default class WarehouseDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      warehouseData: null,
+    };
+    /*  this.state = {
       warehouseData: {
         id: "2922c286-16cd-4d43-ab98-c79f698aeab0",
         name: "Manhattan",
@@ -21,7 +24,7 @@ export default class WarehouseDetails extends Component {
           email: "paujla@instock.com",
         },
       },
-    };
+    }; */
   }
 
   getWarehouseData = (warehouseId) => {
@@ -44,12 +47,11 @@ export default class WarehouseDetails extends Component {
   handleGoToEdit = () => {};
 
   componentDidMount() {
-    //should be through props
+    // data should be through props
     // this.getWarehouseData(this.props.warehouseData.id);
-    this.getWarehouseData(this.state.warehouseData.id);
+    // this.getWarehouseData(this.state.warehouseData.id);
+    this.getWarehouseData(this.props.match.params.id);
   }
-
-  /*  after hook up with pre page, all data can get from props!!!!!!!! */
 
   render() {
     return (
@@ -73,7 +75,9 @@ export default class WarehouseDetails extends Component {
                       fill="#2E66E6"
                     />
                   </svg>
-                  <h1 className="whDetails__title">King West</h1>
+                  <h1 className="whDetails__title">
+                    {this.state.warehouseData.name}
+                  </h1>
                 </div>
 
                 <Link to={`/warehouse/${this.state.warehouseData.id}/edit`}>
