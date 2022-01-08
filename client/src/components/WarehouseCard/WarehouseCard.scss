@@ -1,105 +1,103 @@
-@use '../../styles/partials/colors' as *;
-@use '../../styles/partials/global' as *;
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/typography' as *;
-
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
 
 .warehouseList__card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bdc5d5;
+  font-family: "Titillium Web";
+  font-weight: 400;
+
+  @include tablet {
+    width: 100%;
+    padding: 1rem 0 1.5rem;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  &-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border-bottom: 1px solid #bdc5d5;
-    font-family: "Titillium Web";
-    font-weight: 400;
 
     @include tablet {
-        width: 100%;
-        padding: 1rem 0 1.5rem;
-        justify-content: space-around;
-        align-items: center;
-        box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      border-bottom: none;
+      justify-content: space-between;
+      width: 77%;
     }
 
-    &-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        
-        @include tablet {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            border-bottom: none;
-            justify-content: space-between;
-            width: 77%;
-        }
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      width: 72%;
+      justify-content: space-between;
+    }
+  }
 
-        @include desktop {
-            display: flex;
-            flex-direction: row;
-            width: 72%;
-            justify-content: space-between;
-        }
+  &-info {
+    width: 40%;
+    padding: 1rem 1rem 0;
+
+    @include tablet {
+      padding: 0;
+      width: auto;
+      text-align: left;
+    }
+  }
+
+  &-title {
+    color: #5c667e;
+    font-size: 0.75rem;
+    margin: 0 0 4%;
+    font-family: "Titillium Web";
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &-text {
+    font-family: "Titillium Web";
+
+    @include tablet {
+      width: 6.88rem;
+    }
+  }
+
+  &-name {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 90%;
+    padding: 1rem 1rem 2rem;
+
+    @include tablet {
+      padding: 0;
+      width: 5rem;
+      justify-content: space-evenly;
     }
 
-    &-info {
-        width: 40%;
-        padding: 1rem 1rem 0;
-
-        @include tablet {
-            padding: 0;
-            width: auto;
-            text-align: left;
-        }
+    @include desktop {
+      justify-content: center;
+      width: 10%;
     }
+  }
 
-    &-title {
-        color: #5c667e;
-        font-size: 0.75rem;
-        margin: 0 0 4%;
-        font-family: "Titillium Web";
-
-        @include tablet{
-            display: none;
-        }
-    }
-
-    &-text {
-        font-family: "Titillium Web";
-
-        @include tablet {
-            width: 6.88rem;
-        }
-    }
-
-    &-name {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        
-    }
-
-    &-action {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        width: 90%;
-        padding: 1rem 1rem 2rem;
-
-        @include tablet {
-            padding: 0;
-            width: 5rem;
-            justify-content: space-evenly;
-        }
-
-        @include desktop {
-            justify-content: center;
-            width: 10%;
-        }
-    }
-
-    &-edit {
-        width: 1.5rem;
-    }
+  &-edit {
+    width: 1.5rem;
+  }
 }

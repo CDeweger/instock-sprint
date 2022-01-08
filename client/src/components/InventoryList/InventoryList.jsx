@@ -10,8 +10,8 @@ const InventoryList = () => {
   return (
     <>
       <section className="inventory-container">
-        <div className="header">
-          <h2 className="header__title">Inventory</h2>
+        <div className="header-container">
+          <h2 className="header-container__title">Inventory</h2>
           <div className="header-section">
             <input
               className="header-section__search"
@@ -78,17 +78,20 @@ const InventoryList = () => {
           </div>
 
           {/* Inventory Item */}
-          <div className="inventory-data">
-            <div className="inventory-item">
-              <h3 className="inventory-item__name">Telivision</h3>
-              <img
-                className="inventory-item__icon"
-                src={ChevronIcon}
-                alt="chevron icon"
-              />
-            </div>
-            {/* Inventory Item Info */}
+          {/* <div className="inventory-data">
             <div className="inventory-item-info">
+              <h3 className="inventory-item-info__title">INVENTORY ITEM</h3>
+              <div className="item-description">
+                <h3 className="item-description__name">Television</h3>
+                <img
+                  className="item-description__icon"
+                  src={ChevronIcon}
+                  alt="chevron icon"
+                />
+              </div>
+            </div> */}
+          {/* Inventory Item Info */}
+          {/* <div className="inventory-item-info">
               <h3 className="inventory-item-info__title">STATUS</h3>
               <h3 className="inventory-item-info__data">INSTOCK</h3>
             </div>
@@ -106,10 +109,10 @@ const InventoryList = () => {
             <div className="inventory-item-info">
               <h3 className="inventory-item-info__title">WAREHOUSE</h3>
               <h3 className="inventory-item-info__data">Manhattan</h3>
-            </div>
+            </div> */}
 
-            {/* Adding Delete and Edit Icons */}
-            <div className="inventory-item-icon">
+          {/* Adding Delete and Edit Icons */}
+          {/* <div className="inventory-item-icon">
               <img
                 className="inventory-item-icon__delete"
                 src={DeleteIcon}
@@ -121,7 +124,7 @@ const InventoryList = () => {
                 alt="edit icon"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

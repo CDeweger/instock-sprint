@@ -7,16 +7,17 @@
 .body {
   background-color: colors.$primary-light;
 }
-.header {
+.header-container {
   display: flex;
-  //   flex-direction: column;
+  flex-direction: column;
   justify-content: space-between;
   width: 90%;
   margin: 1rem;
-  top: -2.5rem;
+  //   top: -2.5rem;
   border-radius: 3px;
 
   @include mixins.tablet {
+    flex-direction: row;
     top: -6.6rem;
   }
 
@@ -25,12 +26,11 @@
   }
   &__title {
     font-size: 1.7rem;
-    color: #13172c;
-    font-family: "Titillium Web";
+    color: colors.$primary-dark;
     margin: 0 0 5%;
 
     @include mixins.tablet {
-      margin: 2% 0 0;
+      padding-left: 1rem;
     }
   }
 }
@@ -40,7 +40,7 @@
     flex-direction: row;
     align-items: baseline;
     width: 60%;
-    margin: 0;
+    justify-content: flex-end;
   }
 
   @include mixins.desktop {
@@ -50,17 +50,17 @@
     height: 2.2rem;
     border: 1px solid colors.$secondary-medium;
     border-radius: 1.25rem;
-    width: 95%;
+    width: 18.3125rem;
     background: url("../../assets/icons/search-24px.svg") no-repeat scroll 95%
       50%;
 
     @include mixins.tablet {
-      width: 110%;
+      width: 9.875rem;
       margin: 5% 5% 0 0;
     }
 
     @include mixins.desktop {
-      width: 120%;
+      width: 17.125rem;
     }
   }
   &__search::placeholder {
@@ -77,8 +77,8 @@
     height: 2.2rem;
 
     @include mixins.tablet {
-      width: 110%;
-      height: 2.5rem;
+      width: 8rem;
+      height: 2.375rem;
     }
     @include mixins.desktop {
       width: 120%;
@@ -138,6 +138,57 @@
       width: 1.3rem;
       height: 1.3rem;
       color: colors.$secondary-dark;
+    }
+  }
+}
+// styling the items info part
+.inventory-data {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @include mixins.tablet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-bottom: none;
+    justify-content: space-between;
+    width: 77%;
+  }
+
+  @include mixins.desktop {
+    display: flex;
+    flex-direction: row;
+    width: 72%;
+    justify-content: space-between;
+  }
+}
+.inventory-item-info {
+  width: 40%;
+  padding: 1rem 1rem 0;
+
+  @include mixins.tablet {
+    padding: 0;
+    width: auto;
+    text-align: left;
+  }
+
+  &__name {
+    color: #5c667e;
+    font-size: 0.75rem;
+    margin: 0 0 4%;
+    font-family: "Titillium Web";
+
+    @include mixins.tablet {
+      display: none;
+    }
+  }
+
+  &__data {
+    font-family: "Titillium Web";
+
+    @include mixins.tablet {
+      width: 6.88rem;
     }
   }
 }
