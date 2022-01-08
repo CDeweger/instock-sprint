@@ -3,23 +3,26 @@
 @use "../../styles/partials/variables";
 
 .edit-container {
-  padding: 1.9375rem 1rem;
-
-  @include mixins.tablet {
-    padding: 2rem;
-  }
-
-  @include mixins.tablet {
-    padding: 2rem 8.125rem;
-  }
+  height: 70vh;
+  @include mixins.flex(center, center, row);
 }
 
 .edit-warehouse {
+  width: 90%;
   @include mixins.flex(flex-start, flex-start, column);
   //border: 1px solid colors.$secondary-medium;
   box-shadow: 0 2px 5px colors.$secondary-medium;
   background-color: colors.$primary-light;
   border-radius: 5px;
+  position: fixed;
+  top: 15%;
+  @include mixins.tablet {
+    top: 12%;
+  }
+
+  @include mixins.desktop {
+    width: 80%;
+  }
 
   &__top {
     width: 100%;

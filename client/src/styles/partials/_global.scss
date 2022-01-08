@@ -3,6 +3,9 @@
 @use "./mixins";
 @use "./variables";
 
+:root {
+  height: 100%;
+}
 *,
 * ::before,
 *,
@@ -65,4 +68,8 @@ textarea {
   @include mixins.tablet {
     height: 2.375rem;
   }
+}
+
+a {
+  text-decoration: none;
 }
