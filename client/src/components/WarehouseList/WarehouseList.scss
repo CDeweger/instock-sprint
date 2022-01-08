@@ -49,6 +49,9 @@
             }
 
             @include desktop {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
                 width: 52%;
             }
         }
@@ -74,12 +77,13 @@
         background: url('../../assets/icons/search-24px.svg') no-repeat scroll 95% 50%;
 
         @include tablet {
-            width: 110%;
+            width: 50%;
             margin: 5% 5% 0 0;
         }
 
         @include desktop {
-            width: 120%;
+            width: 60%;
+            margin: 5% 5% 0 0;
         }        
     }
 

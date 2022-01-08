@@ -58,7 +58,7 @@ class WarehouseCard extends React.Component {
               >
                 <div className="warehouseList__card-name">
                   <p className="warehouseList__card-text warehouseList__card-location">
-                   {this.props.city} Manhattan
+                   {this.props.city} 
                   </p>
                   <img
                     className="warehouseList__icon"
@@ -71,20 +71,20 @@ class WarehouseCard extends React.Component {
 
             <div className="warehouseList__card-info">
               <h3 className="warehouseList__card-title">CONTACT NAME</h3>
-              <p className="warehouseList__card-text">{this.props.name}Parmin Aujla</p>
+              <p className="warehouseList__card-text">{this.props.name}</p>
             </div>
 
             <div className="warehouseList__card-info">
               <h3 className="warehouseList__card-title">ADDRESS</h3>
               <p className="warehouseList__card-text">
-                {this.props.address}503 Broadway, New York USA"
+                {this.props.address}
               </p>
             </div>
 
             <div className="warehouseList__card-info">
               <h3 className="warehouseList__card-title">CONTACT INFORMATION</h3>
-              <p className="warehouseList__card-text">{this.props.number}+1 (646) 123-1234</p>
-              <p className="warehouseList__card-text">{this.props.email}paujla@instock.com</p>
+              <p className="warehouseList__card-text">{this.props.number}</p>
+              <p className="warehouseList__card-text">{this.props.email}</p>
             </div>
           </div>
 

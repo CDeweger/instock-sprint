@@ -4,13 +4,13 @@ import "../WarehouseList/WarehouseList.scss";
 import SortIcon from "../../assets/icons/sort-24px.svg";
 import { Link } from "react-router-dom";
 
-function WarehouseList() {
+function WarehouseList(props) {
   return (
     <>
       <section className="warehouseList">
         <div className="warehouseList__header">
           <h2 className="warehouseList__title">Warehouse</h2>
-          <div className="warehouseList__heard-container">
+          <div className="warehouseList__header-container">
             <input
               className="warehouseList__search-bar"
               placeholder="Search..."
@@ -68,7 +68,7 @@ function WarehouseList() {
         </div>
 
         <div className="warehouseList__warehouse-cards">
-          {/* {props.warehouseList.map((warehouse) => 
+          {props.warehouseList.map((warehouse) => 
             <WarehouseCard
               key={warehouse.id}
               warehouseId={warehouse.id}
@@ -87,12 +87,7 @@ function WarehouseList() {
               showModal={props.showModal}
               closeModal={props.closeModal}
             />
-          )} */}
-          <WarehouseCard />
-          <WarehouseCard />
-          <WarehouseCard />
-          <WarehouseCard />
-          <WarehouseCard />
+          )}
 
         </div>
       </section>
