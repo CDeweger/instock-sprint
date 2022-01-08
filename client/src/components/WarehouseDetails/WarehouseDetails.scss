@@ -3,23 +3,25 @@
 @use "../../styles/partials/variables";
 
 .whDetails-container {
-  padding: 1.9375rem 1rem;
-
-  @include mixins.tablet {
-    padding: 2rem;
-  }
-
-  @include mixins.tablet {
-    padding: 2rem;
-  }
+  height: fit-content;
+  @include mixins.flex(center, center, row);
 }
 
 .whDetails {
-  width: 100%;
+  width: 90%;
+  height: fit-content;
   @include mixins.flex(flex-start, flex-start, column);
   box-shadow: 0 2px 5px colors.$secondary-medium;
   background-color: colors.$primary-light;
   border-radius: 5px;
+  position: relative;
+  top: -60px;
+  @include mixins.tablet {
+    top: -100px;
+  }
+  @include mixins.desktop {
+    width: 80%;
+  }
 
   &__top {
     width: 100%;
