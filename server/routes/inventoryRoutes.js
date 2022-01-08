@@ -58,7 +58,10 @@ inventoryRouter.get("/warehouse/:warehouseID", (req, res) => {
   res.status(200).json(warehouseInventories);
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> new/develop
 //// get an inventory by ID
 inventoryRouter.get("/:id", (req, res) => {
   const inventoriesData = readData();
@@ -71,7 +74,10 @@ inventoryRouter.get("/:id", (req, res) => {
   res.status(200).json(targetInventory[0]);
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> new/develop
 // function for write file
 const writeFile = (inventoriesData) => {
   fs.writeFileSync(
