@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 function WarehouseList(props) {
   return (
-    <>
+    <div className="container">
       <section className="warehouseList">
         <div className="warehouseList__header">
-          <h2 className="warehouseList__title">Warehouse</h2>
+          <h2 className="warehouseList__title">Warehouses</h2>
           <div className="warehouseList__header-container">
             <input
               className="warehouseList__search-bar"
@@ -91,7 +91,7 @@ function WarehouseList(props) {
 
         </div>
       </section>
-    </>
+    </div>
   )
 }
 
