@@ -1,9 +1,10 @@
 import React from 'react';
+import InventoryList from '../../components/InventoryList/InventoryList';
 
 function HomePage() {
     return (
         <div>
-           <h1>Hello from homepage</h1> 
+           <InventoryList />
         </div>
     );
 }
