@@ -13,14 +13,26 @@
     border-bottom: colors.$secondary-medium solid 1px;
   }
   &__title {
-    margin-top: 2rem;
+    margin-top: 1.8rem;
     margin-bottom: 1.5rem;
+    margin-right: 5.5rem;
   }
 
   &__link-back {
     margin-top: 2.75rem;
     margin-left: 1.75rem;
     margin-right: 0.75rem;
+  }
+  &__edit-background {
+    background-color: #2e66e6;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 25px;
+    margin-top: 2rem;
+  }
+  &__edit-img {
+    margin: 0.3438rem;
+    padding: 0.125rem;
   }
 }
 
