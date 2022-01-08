@@ -1,10 +1,11 @@
 // import packages needed for routing
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInventoryModal";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
@@ -16,18 +17,25 @@ function App() {
   return (
     // define the routes here
     <BrowserRouter>
+      <Header />
       <Switch>
+<<<<<<< HEAD
         <Route path="/inventory/add" component={AddInventory} />
         <Route path="/inventories" component={FakeInventoryList} />
         <Route path="/" exact component={HomePage} />
+=======
+        <Route path="/" exact>
+          <Redirect to="/warehouse" exact component={WarehouseList} />
+        </Route>
+>>>>>>> d5b9ea2ff5fe08c17957fce30e94cc66fab73dbd
         <Route path="/inventory" component={InventoryPage} />
         <Route path="/warehouse" exact component={WarehouseList} />
+        <Route path="/warehouse/:id" exact component={WarehouseDetails} />
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
         <Route
           path="/warehouse/:warehouseId/inventory/:inventoryId"
           component={DeleteInventoryModal}
         />
-        <Route path="/warehouse/:id" exact component={WarehouseDetails} />
       </Switch>
       <Footer />
     </BrowserRouter>
