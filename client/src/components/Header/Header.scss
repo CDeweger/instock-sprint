@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @use "../../styles/partials/typography";
 @use "../../styles/partials/colors";
 @use "../../styles/partials/mixins";
@@ -85,3 +86,60 @@ h3 {
 //     height: 38px;
 //   }
 // }
+=======
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+.header {
+  width: 100%;
+  height: 12.5rem;
+  background-color: colors.$background-dark;
+  padding: 1.5rem 1rem;
+  @include mixins.flex(flex-start, center, column);
+
+  @include mixins.tablet {
+    padding: 32px;
+    @include mixins.flex(space-between, flex-start, row);
+  }
+
+  &__buttons {
+    width: 100%;
+    margin-top: 1.5rem;
+    @include mixins.flex(space-between, center, row);
+    @include mixins.tablet {
+      width: 33%;
+      margin-top: 0;
+      @include mixins.flex(space-between, flex-start, row);
+    }
+  }
+
+  &__button {
+    width: 50%;
+    @include mixins.mobil-body-medium;
+    @include mixins.tablet {
+      @include mixins.body-medium;
+    }
+  }
+
+  &__warehouse,
+  &__inventory {
+    background-color: inherit;
+    border-color: transparent;
+    color: colors.$secondary-medium;
+    width: 100%;
+
+    &:hover {
+      background-color: colors.$primary-dark;
+      border-color: colors.$primary-dark;
+    }
+  }
+
+  &__active {
+    background-color: colors.$primary-dark;
+    border-color: colors.$primary-dark;
+    color: colors.$primary-light;
+    border-radius: 20px;
+  }
+}
+>>>>>>> new/develop
