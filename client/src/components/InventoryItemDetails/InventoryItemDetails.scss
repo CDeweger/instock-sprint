@@ -1,0 +1,31 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+.item-container {
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  margin: 1rem;
+  //padding: 2rem 1.5rem;
+
+  &__header {
+    @include mixins.flex(flex-start, flex-start, row);
+    border-bottom: colors.$secondary-medium solid 1px;
+  }
+  &__title {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.item-info {
+  &__description {
+    margin-top: 1rem;
+  }
+}
+.stock-status {
+  @include mixins.flex(flex-start, _, row);
+}
+
+p {
+  line-height: 1.8rem;
+}
