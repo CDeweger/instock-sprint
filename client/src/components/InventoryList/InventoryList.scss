@@ -168,6 +168,7 @@
 .inventory-card {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 
   @include mixins.tablet {
     display: flex;

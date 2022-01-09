@@ -5,8 +5,25 @@ import { Link } from "react-router-dom";
 import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
+import axios from "axios";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 class InventoryList extends Component {
+    state={
+        inventoryData: null,
+    };
+    componentDidMount(){
+        // Fetching all GETT/Inventory Inventory Data
+        axios
+          .get("http://localhost:8080/inventory")
+         .then((res) => {
+            //  console.log(res.data);
+            this.setState({ inventoryData: res.data });
+          })
+          .catch((e) => {
+            console.error(e);
+        });
+    };
     render() {
         return (
             <>

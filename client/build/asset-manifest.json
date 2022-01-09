@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9b68ab9b.css",
+    "main.js": "/static/js/main.729f8074.js",
+    "static/media/TitilliumWeb-Regular (1).woff2": "/static/media/TitilliumWeb-Regular (1).e8b72c9b375ac9ebe78d.woff2",
+    "static/media/TitilliumWeb-SemiBold.woff2": "/static/media/TitilliumWeb-SemiBold.c82906e5e8a64c09cabe.woff2",
+    "index.html": "/index.html",
+    "static/media/search-24px.svg": "/static/media/search-24px.5317dd0d1d2e2971f514.svg",
+    "static/media/edit-24px.svg": "/static/media/edit-24px.34030862a2aed1ec1efefe1b3ff181ed.svg",
+    "static/media/sort-24px.svg": "/static/media/sort-24px.1811f1f0c1cd36589492267c332f73d8.svg",
+    "static/media/error-24px.svg": "/static/media/error-24px.eed74db22e59ad00c516d6ed6b40a8ce.svg",
+    "static/media/delete_outline-24px.svg": "/static/media/delete_outline-24px.2cbb4a63b094d3d9b622b040446a6310.svg",
+    "static/media/chevron_right-24px.svg": "/static/media/chevron_right-24px.8bc767eb9cebbb42af635ab011ef1433.svg",
+    "static/media/arrow_back-24px.svg": "/static/media/arrow_back-24px.543f2ed7e7cac0707a80230af2299744.svg",
+    "main.9b68ab9b.css.map": "/static/css/main.9b68ab9b.css.map",
+    "main.729f8074.js.map": "/static/js/main.729f8074.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b68ab9b.css",
+    "static/js/main.729f8074.js"
+  ]
+}
