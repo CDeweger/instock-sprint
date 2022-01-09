@@ -3,7 +3,7 @@ import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import { Route } from "react-router-dom";
 import axios from "axios";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
-
+const { REACT_APP_API_URL} = process.env;
 
 class WarehousePage extends React.Component {
 
@@ -18,7 +18,7 @@ class WarehousePage extends React.Component {
     componentDidMount(){
         axios
         .get("http://localhost:8080/warehouse")
-        // .get(`${process.env.REACT_APP_API_URL}/warehouse`)
+        // .get(`${REACT_APP_API_URL}/warehouse`)
 
         .then((res) => {
             this.setState({
