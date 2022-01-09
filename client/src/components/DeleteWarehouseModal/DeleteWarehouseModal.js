@@ -8,10 +8,15 @@ export default class DeleteWarehouseModal extends Component {
   }
 
   handleCancel = () => {
-    this.props.history.goBack();
+    this.props.closeModal();
   };
 
   handleDelete = () => {
+    console.log(this.props.warehouseId);
+    this.props.delete(this.props.warehouseId);
+  };
+
+  /* handleDelete = () => {
     axios
       .delete(
         `${process.env.REACT_APP_API_URL}/warehouse/${this.props.match.params.id}`
@@ -24,7 +29,7 @@ export default class DeleteWarehouseModal extends Component {
         alert("something went wrong");
       });
     this.props.history.goBack();
-  };
+  }; */
 
   render() {
     return (

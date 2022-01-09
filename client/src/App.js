@@ -7,18 +7,15 @@ import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-<<<<<<< HEAD
+
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 //the routes  for DeleteModals is dummy route just to see the component, need to set up with relevant componet and toggle state to render it or not"
 //thee route here for DeleteInventoryModal is dummy route just to see the component
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
-=======
+
 import WarehousePage from "./pages/WarehousePage/WarehousePage";
 import DeleteWarehouseModal from "./components/DeleteWarehouseModal/DeleteWarehouseModal";
 //the routes  for DeleteModals is dummy route just to see the component, need to set up with relevant componet and toggle state to render it or not"
-import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
-
->>>>>>> 7279d1aa06880de1e16466e60fbe27df238f4052
 
 function App() {
   return (
