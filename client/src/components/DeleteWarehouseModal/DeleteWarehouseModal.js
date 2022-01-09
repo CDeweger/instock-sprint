@@ -12,10 +12,9 @@ export default class DeleteWarehouseModal extends Component {
   };
 
   handleDelete = () => {
-    console.log(this.props.match.params.inventoryId);
     axios
       .delete(
-        `${process.env.REACT_APP_API_URL}/warehouse/${this.props.warehouseId}`
+        `${process.env.REACT_APP_API_URL}/warehouse/${this.props.match.params.id}`
       )
       .then((res) => {
         console.log(res);
@@ -24,7 +23,7 @@ export default class DeleteWarehouseModal extends Component {
         console.error(e);
         alert("something went wrong");
       });
-    //  this.props.history.goBack();
+    this.props.history.goBack();
   };
 
   render() {

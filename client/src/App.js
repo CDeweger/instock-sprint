@@ -6,7 +6,6 @@ import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInventoryModal";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import DeleteWarehouseModal from "./components/DeleteWarehouseModal/DeleteWarehouseModal";
@@ -29,10 +28,6 @@ function App() {
           path="/warehouse/:id/delete"
           exact
           component={DeleteWarehouseModal}
-        />
-        <Route
-          path="/warehouse/:warehouseId/inventory/:inventoryId"
-          component={DeleteInventoryModal}
         />
       </Switch>
       <Footer />
