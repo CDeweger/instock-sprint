@@ -9,8 +9,6 @@ import Header from "./components/Header/Header";
 import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInventoryModal";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
-import FakeInventoryList from "./components/FakeInventoryList/FakeInventoryList";
-import AddInventory from "./components/AddInventory/AddInventory";
 //thee route here for DeleteInventoryModal is dummy route just to see the component
 
 function App() {
@@ -19,9 +17,6 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route path="/inventory/add" component={AddInventory} />
-        <Route path="/inventory" component={FakeInventoryList} />
-
         <Route path="/" exact>
           <Redirect to="/warehouse" exact component={WarehouseList} />
         </Route>
