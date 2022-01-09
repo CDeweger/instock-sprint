@@ -10,7 +10,7 @@
   @include mixins.flex(flex-start, center, column);
 
   @include mixins.tablet {
-    padding: 32px;
+    // padding: 32px;
     @include mixins.flex(space-between, flex-start, row);
   }
 
