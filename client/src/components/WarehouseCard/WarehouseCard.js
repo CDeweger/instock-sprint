@@ -26,7 +26,6 @@ class WarehouseCard extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     let modal = <></>;
 
     if (this.state.showModal) {

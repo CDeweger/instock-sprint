@@ -29,7 +29,7 @@ export default class WarehouseDetails extends Component {
 
   getWarehouseData = (warehouseId) => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/warehouse/${warehouseId}`)
+      .get(`http://localhost:8080/warehouse/${warehouseId}`)
       .then((res) => {
         //  console.log(res.data);
         this.setState({ warehouseData: res.data });
