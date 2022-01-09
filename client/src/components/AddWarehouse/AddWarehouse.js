@@ -4,7 +4,6 @@ import ErrorIcon from "../../assets/icons/error-24px.svg";
 import "../AddWarehouse/AddWarehouse.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
-const { REACT_APP_API_URL } = process.env;
 
 class AddWarehouse extends React.Component {
   state = {
@@ -20,10 +19,8 @@ class AddWarehouse extends React.Component {
     emailStrcheck: false,
   };
 
-  SubmitForm = (e) => {
+  submitForm = (e) => {
     e.preventDefault();
-    let expressURL = { REACT_APP_API_URL };
-    let addWarehouse = "/warehouse/add";
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/;
 
@@ -48,7 +45,7 @@ class AddWarehouse extends React.Component {
     } else if (!phoneRegex.test(e.target.contactNumber.value)) {
       this.setState({ numberStrcheck: true, emailcheck: false });
     } else {
-      alert("Warehouse Created");
+      console.log("it ran");
 
       this.setState({
         warehousecheck: false,
@@ -61,14 +58,14 @@ class AddWarehouse extends React.Component {
         emailcheck: false,
       });
 
-      axios.post(expressURL + addWarehouse, {
-        name: e.target.warehouseName.value,
+      axios.post("http://localhost:8080/warehouse", {
+        warehouseName: e.target.warehouseName.value,
         address: e.target.address.value,
         city: e.target.city.value,
         country: e.target.country.value,
         contactName: e.target.contactName.value,
         position: e.target.contactPosition.value,
-        phone: e.target.contactNumber.value,
+        phoneNumber: e.target.contactNumber.value,
         email: e.target.contactEmail.value,
       });
 
@@ -91,10 +88,7 @@ class AddWarehouse extends React.Component {
             <h2 className="newWarehouse__header-title">Add New Warehouse</h2>
           </div>
 
-          <form
-            className="newWarehouse__form"
-            onSubmit={(e) => this.SubmitForm(e)}
-          >
+          <form className="newWarehouse__form" onSubmit={this.submitForm}>
             <div className="newWarehouse__form-container">
               <div className="newWarehouse__form-details">
                 <h3 className="newWarehouse__details-title">

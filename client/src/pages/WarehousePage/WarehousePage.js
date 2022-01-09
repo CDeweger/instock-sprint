@@ -13,7 +13,7 @@ class WarehousePage extends React.Component {
     };
   }
 
-  componentDidMount() {
+  getWarehouseList = () => {
     axios
       .get("http://localhost:8080/warehouse")
       // .get(`${REACT_APP_API_URL}/warehouse`)
@@ -22,12 +22,15 @@ class WarehousePage extends React.Component {
         this.setState({
           warehouseList: res.data,
         });
-        console.log(this.state.warehouseList);
       })
       .catch((e) => {
         console.error(e);
         alert("something went wrong");
       });
+  };
+
+  componentDidMount() {
+    this.getWarehouseList();
   }
 
   render() {

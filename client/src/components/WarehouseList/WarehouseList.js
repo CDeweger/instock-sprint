@@ -5,6 +5,8 @@ import SortIcon from "../../assets/icons/sort-24px.svg";
 import { Link } from "react-router-dom";
 
 function WarehouseList(props) {
+  console.log(props.warehouseList);
+
   return (
     <div className="container">
       <section className="warehouseList">
@@ -68,9 +70,10 @@ function WarehouseList(props) {
         </div>
 
         <div className="warehouseList__warehouse-cards">
-          {props.warehouseList.map((warehouse) => 
+          {props.warehouseList.map((warehouse) => (
             <WarehouseCard
               key={warehouse.id}
+              warehouseName={warehouse.name}
               warehouseId={warehouse.id}
               city={warehouse.name}
               address={
@@ -87,12 +90,11 @@ function WarehouseList(props) {
               showModal={props.showModal}
               closeModal={props.closeModal}
             />
-          )}
-
+          ))}
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 export default WarehouseList;

@@ -19,10 +19,10 @@ const writeFile = (warehousesData) => {
 };
 
 // GET List Of All Warehouses
-warehouseRouter.get("/",(req,res) =>{
+warehouseRouter.get("/", (req, res) => {
   let warehouseData = readFile();
   return res.status(200).send(warehouseData);
-})
+});
 
 // update a warehouse
 warehouseRouter.patch("/:warehouseID/edit", (req, res) => {
@@ -95,6 +95,7 @@ warehouseRouter.post("/", (req, res) => {
   };
   warehousesData.push(newWarehouseObj);
   writeFile(warehousesData);
+  console.log(newWarehouseObj);
   res.status(201).json(newWarehouseObj);
 });
 

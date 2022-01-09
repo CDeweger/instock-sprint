@@ -10,9 +10,12 @@ import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
 const { REACT_APP_API_URL } = process.env;
 
 class WarehouseCard extends React.Component {
-  state = {
-    showModal: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false,
+    };
+  }
 
   showModal = () => {
     this.setState({ showModal: true });
@@ -22,22 +25,8 @@ class WarehouseCard extends React.Component {
     this.setState({ showModal: false });
   };
 
-  handleDelete(id) {
-    axios
-      .delete(`${REACT_APP_API_URL}/warehouse/${id}`)
-      .then((res) => {
-        console.log(res.data);
-        this.setState({
-          showModal: false,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    this.closeModal();
-  }
-
   render() {
+    console.log(this.props);
     let modal = <></>;
 
     if (this.state.showModal) {
@@ -46,7 +35,6 @@ class WarehouseCard extends React.Component {
           warehouseName={this.props.warehouseName}
           warehouseId={this.props.warehouseId}
           closeModal={this.closeModal}
-          delete={this.handleDelete}
         />
       );
     }
