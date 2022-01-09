@@ -8,13 +8,25 @@
     background-color: #d1d1d1;
 }
 
+.container {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 .warehouseList {
+    background-color: $primary-light;
     display: flex;
     flex-direction: column;
     width: 90%;
     margin: 1rem;
-    top: -2.5rem;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     border-radius: 3px;
+    position: relative;
+    left: 0%;
+    right: 0%;
+    top: -2.5rem;
     
     @include tablet {
         top: -6.6rem;
@@ -49,6 +61,9 @@
             }
 
             @include desktop {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
                 width: 52%;
             }
         }
@@ -68,7 +83,7 @@
 
     &__search-bar {
         height: 2.2rem;
-        border: 1px solid black;
+        border: 1px solid $secondary-medium;
         border-radius: 1.25rem;
         width: 95%;
         background: url('../../assets/icons/search-24px.svg') no-repeat scroll 95% 50%;
@@ -80,11 +95,13 @@
 
         @include desktop {
             width: 60%;
+            margin: 5% 5% 0 0;
         }        
     }
 
     &__search-bar::placeholder {
         padding: 0 1rem 0;
+        color: $secondary-medium;
     }
 
     &__addButton {
@@ -127,7 +144,7 @@
             height: 2.5rem;
             background-color: #f7f8f9;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-around;
             width: 125%;
         }
 
@@ -136,7 +153,7 @@
             height: 2.5rem;
             background-color: #f7f8f9;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-between;
             width: 76%;
         }
 
@@ -194,5 +211,4 @@
         }
     }
 }
-
 
