@@ -10,6 +10,7 @@ import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInvent
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import WarehousePage from "./pages/WarehousePage/WarehousePage";
 //thee route here for DeleteInventoryModal is dummy route just to see the component
+import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
 
 function App() {
   return (
@@ -24,10 +25,7 @@ function App() {
         <Route path="/warehouse" exact component={WarehousePage} />
         <Route path="/warehouse/:id" exact component={WarehouseDetails} />
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
-        <Route
-          path="/warehouse/:warehouseId/inventory/:inventoryId"
-          component={DeleteInventoryModal}
-        />
+        <Route path="/test" component={InventoryItemDetails} />
       </Switch>
       <Footer />
     </BrowserRouter>
