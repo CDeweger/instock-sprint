@@ -70,6 +70,13 @@ inventoryRouter.get("/:id", (req, res) => {
   res.status(200).json(targetInventory[0]);
 });
 
+// get all inventories
+inventoryRouter.get("/", (req, res) => {
+  const inventoriesData = readData();
+
+  res.status(200).json(inventoriesData);
+});
+
 // function for write file
 const writeFile = (inventoriesData) => {
   fs.writeFileSync(

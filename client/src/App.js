@@ -19,6 +19,9 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
+        <Route path="/inventory/add" component={AddInventory} />
+        <Route path="/inventory" component={FakeInventoryList} />
+
         <Route path="/" exact>
           <Redirect to="/warehouse" exact component={WarehouseList} />
         </Route>

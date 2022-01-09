@@ -18,6 +18,12 @@ class AddInventory extends Component {
     });
   };
 
+  // to validate quantity input on keypress
+  handleKeyPress = (event) => {
+    if (event.target.value < 0 || event.target.value % 1 != 0) {
+      alert("Please enter valid quantity, quantity should be positive integer");
+    }
+  };
   //   for categories options
   handleCategoryChange = (e) => {
     this.setState({ category: e.target.value });
@@ -145,7 +151,13 @@ class AddInventory extends Component {
               }
             >
               <label htmlFor="quantity">Quantity</label>
-              <input type="number" placeholder="0" name="quantity" />
+              <input
+                type="number"
+                min="0"
+                onKeyPress={this.handleKeyPress}
+                placeholder="0"
+                name="quantity"
+              />
             </div>
             <h3>Warehouse</h3>
             <select

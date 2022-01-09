@@ -32,6 +32,7 @@ class FakeInventoryList extends Component {
       console.log(resolve.data);
       this.setState({
         inventoriesData: resolve.data,
+// to get unique list of categories and warehouses
         categories: [...new Set(this.getCategories(resolve.data))],
         warehouses: [...new Set(this.getWarehouses(resolve.data))],
       });
@@ -40,7 +41,6 @@ class FakeInventoryList extends Component {
   }
 
   render() {
-    //   const {id ,warehouseID, warehouseName, itemName, description, category,status, quantity}=this.state.inventoriesData;
     return (
       <div>
         {this.state.categories.length === 0 &&
