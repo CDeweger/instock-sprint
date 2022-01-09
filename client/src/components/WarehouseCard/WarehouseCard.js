@@ -53,7 +53,7 @@ class WarehouseCard extends React.Component {
             <div className="warehouseList__card-info">
               <h3 className="warehouseList__card-title">WAREHOUSE</h3>
               <Link
-                to={`/warehouse/${this.props.id}`}
+                to={`/warehouse/${this.props.warehouseId}`}
                 className="warehouseList__link"
               >
                 <div className="warehouseList__card-name">
@@ -95,7 +95,7 @@ class WarehouseCard extends React.Component {
               alt="delete icon"
               onClick={this.showModal}
             />
-            <Link to={`/warehouse/${this.props.id}/edit`} ><img
+            <Link to={`/warehouse/${this.props.warehouseId}/edit`} ><img
               className="warehouseList_card-edit"
               src={EditIcon}
               alt="edit icon"
