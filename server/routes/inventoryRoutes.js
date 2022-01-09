@@ -4,47 +4,59 @@ const fs = require("fs");
 
 const inventoryRouter = express.Router();
 
-//post a new inventory item
-inventoryRouter.post("/", (req, res) => {
-  // validation
-  if (
-    !req.body.warehouseID ||
-    !req.body.warehouseName ||
-    !req.body.itemName ||
-    !req.body.description ||
-    !req.body.category ||
-    !req.body.status ||
-    !req.body.quantity
-  ) {
-    res.status(400).json({
-      message:
-        "please include warehouse ID, warehouse name, item name, item description, item category, item status, item quantity",
-    });
-  }
-  //read file & write file
-  try {
-    let currentInventoryList = JSON.parse(
-      fs.readFileSync("./data/inventories.json")
-    );
-    let newInventory = { id: uuidv4(), ...req.body };
-    console.log(newInventory);
-    let updatedInventoryList = { ...currentInventoryList, newInventory };
-    fs.writeFileSync(
-      "./data/inventories.json",
-      JSON.stringify(updatedInventoryList)
-    );
-    res.status(200).send(newInventory);
-  } catch (e) {
-    console.log(e);
-    res.status(400).json({ message: "something went wrong" });
-  }
-});
+// function for write file
+const writeFile = (inventoriesData) => {
+  fs.writeFileSync(
+    "./data/inventories.json",
+    JSON.stringify(inventoriesData, null, 2)
+  );
+};
 
 //to read inventories.json
 const readData = () => {
   const inventoriesData = fs.readFileSync("./data/inventories.json");
   return JSON.parse(inventoriesData);
 };
+
+//post a new inventory item
+inventoryRouter.post("/", (req, res) => {
+  // validation
+  console.log(req.body);
+  console.log(req.body.warehouseName);
+  console.log(req.body.itemName);
+  if (
+    req.body.warehouseName &&
+    req.body.itemName &&
+    req.body.description &&
+    req.body.category &&
+    req.body.quantity >= 0
+  ) {
+    let status;
+    if (req.body.quantity === 0) {
+      status = "Out of Stock";
+    } else {
+      status = "In Stock";
+    }
+    console.log(status);
+    //read file & write file
+    try {
+      let currentInventoryList = readData();
+      let newInventory = { id: uuidv4(), status: status, ...req.body };
+      console.log(newInventory);
+      let updatedInventoryList = [...currentInventoryList, newInventory];
+      writeFile(updatedInventoryList);
+      return res.status(200).send(newInventory);
+    } catch (e) {
+      console.log(e);
+      return res.status(400).json({ message: "something went wrong" });
+    }
+  } else {
+    res.status(400).json({
+      message:
+        "please include warehouse name, item name, item description, item quantity",
+    });
+  }
+});
 
 // GET List Of All INVENTORY
 inventoryRouter.get("/", (req, res) => {
@@ -75,14 +87,6 @@ inventoryRouter.get("/:id", (req, res) => {
   }
   res.status(200).json(targetInventory[0]);
 });
-
-// function for write file
-const writeFile = (inventoriesData) => {
-  fs.writeFileSync(
-    "./data/inventories.json",
-    JSON.stringify(inventoriesData, null, 2)
-  );
-};
 
 inventoryRouter.patch("/:id/edit", (req, res) => {
   const inventoriesData = readData();
