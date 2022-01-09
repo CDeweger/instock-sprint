@@ -3,14 +3,17 @@
 @use "../../styles/partials/variables";
 
 .item-container {
+  background-color: white;
   border-radius: 3px;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-  margin: 1rem 1rem 10.375rem 1rem;
+  margin: -4.2rem 1rem 10.375rem 1rem;
   //position: relative;
   @include mixins.tablet {
-    margin: 0 2rem 40rem 2rem;
+    margin: -6.35rem 2rem 40rem 2rem;
   }
-  &__link {
+
+  @include mixins.desktop {
+    margin: -6.4rem 8.125rem 34.9375rem 8.125rem;
   }
 
   &__header {
@@ -26,6 +29,9 @@
     margin-right: 5.5rem;
     @include mixins.tablet {
       margin-right: 23rem;
+    }
+    @include mixins.desktop {
+      margin-right: 44rem;
     }
   }
 
@@ -58,12 +64,19 @@
   @include mixins.tablet {
     @include mixins.flex(flex-start, _, _);
   }
+  @include mixins.desktop {
+    @include mixins.flex(center, _, _);
+  }
 }
 
 .item-info {
   @include mixins.tablet {
     border-right: colors.$secondary-medium solid 1px;
     margin-bottom: 2rem;
+  }
+  @include mixins.desktop {
+    width: 50%;
+    margin-left: 10px;
   }
   &__title {
     color: colors.$secondary-dark;
@@ -102,6 +115,9 @@
       width: 18.4375rem;
       margin-right: 1.5rem;
     }
+    @include mixins.desktop {
+      @include mixins.body-large;
+    }
   }
 
   //this will need to be dynamic
@@ -121,6 +137,9 @@
 .stock-info {
   @include mixins.flex(flex-start, _, row);
   flex-wrap: wrap;
+  @include mixins.desktop {
+    width: 50%;
+  }
   &__status-qty {
     @include mixins.flex(flex-start, _, row);
   }
@@ -136,6 +155,9 @@
     margin-right: 5.5rem;
     @include mixins.tablet {
       margin-right: 0;
+    }
+    @include mixins.desktop {
+      width: 10rem;
     }
   }
 

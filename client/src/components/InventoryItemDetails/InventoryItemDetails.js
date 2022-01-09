@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./InventoryItemDetails.scss";
-import editImg from "../../assets/icons/edit-24px.svg";
+//import editImg from "../../assets/icons/edit-24px.svg";
 //import arrowBackImg from "../../assets/icons/arrow_back-24px.svg";
 
 const InventoryItemDetails = () => {
