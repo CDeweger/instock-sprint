@@ -47,13 +47,10 @@ const readData = () => {
 };
 
 // GET List Of All INVENTORY
-  inventoryRouter.get("/",(req,res) =>{
+inventoryRouter.get("/", (req, res) => {
   let inventoriesData = readData();
   return res.status(200).send(inventoriesData);
-})
-
-
-
+});
 
 // get inventory for given warehouse ID
 inventoryRouter.get("/warehouse/:warehouseID", (req, res) => {
