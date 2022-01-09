@@ -7,7 +7,7 @@ import "./InventoryItemDetails.scss";
 const InventoryItemDetails = () => {
   return (
     <>
-      <div className="test">
+      <div>
         <div className="item-container">
           <div className="item-container__header">
             <Link to={`/`} className="item-container__link-back">
