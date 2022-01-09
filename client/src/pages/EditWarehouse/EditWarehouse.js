@@ -14,7 +14,7 @@ export default class EditWarehouse extends Component {
 
   getWarehouseData = (id) => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/warehouse/${id}`)
+      .get(`http://localhost:8080/warehouse/${id}`)
       .then((res) => {
         console.log(res.data);
         this.setState({ warehouseDetails: res.data });
@@ -52,7 +52,7 @@ export default class EditWarehouse extends Component {
 
       axios
         .patch(
-          `${process.env.REACT_APP_API_URL}/warehouse/${this.props.match.params.id}/edit`,
+          `http://localhost:8080/warehouse/${this.props.match.params.id}/edit`,
           warehouseUpdatedDetails
         )
         .then((res) => {

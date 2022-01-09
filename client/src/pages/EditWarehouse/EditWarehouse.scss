@@ -116,6 +116,11 @@
   width: 47%;
   background-color: colors.$primary-light;
   border: 1px solid colors.$secondary-medium;
+  &:hover {
+    color: colors.$primary-light;
+    background-color: colors.$background-dark;
+    border: 1px solid colors.$background-dark;
+  }
   @include mixins.tablet {
     width: fit-content;
     margin-right: 1.5rem;
@@ -125,6 +130,9 @@
 #save {
   width: 47%;
   color: colors.$primary-light;
+  &:hover {
+    border: 1px solid colors.$background-dark;
+  }
   @include mixins.tablet {
     width: fit-content;
   }

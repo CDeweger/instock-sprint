@@ -5,8 +5,6 @@ import SortIcon from "../../assets/icons/sort-24px.svg";
 import { Link } from "react-router-dom";
 
 function WarehouseList(props) {
-  console.log(props.warehouseList);
-
   return (
     <div className="container">
       <section className="warehouseList">

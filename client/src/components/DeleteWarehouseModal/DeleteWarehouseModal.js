@@ -13,9 +13,7 @@ export default class DeleteWarehouseModal extends Component {
 
   handleDelete = () => {
     axios
-      .delete(
-        `${process.env.REACT_APP_API_URL}/warehouse/${this.props.warehouseId}`
-      )
+      .delete(`http://localhost:8080/warehouse/${this.props.warehouseId}`)
       .then((res) => {
         console.log(res);
       })

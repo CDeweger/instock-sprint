@@ -25,9 +25,13 @@
     margin-top: 1.5rem;
     @include mixins.flex(space-between, center, row);
     @include mixins.tablet {
-      width: 33%;
+      width: 30%;
       margin-top: 0;
       @include mixins.flex(space-between, flex-start, row);
+    }
+    @include mixins.desktop {
+      width: 20%;
+      margin-right: 5.5rem;
     }
   }
 
@@ -45,9 +49,9 @@
     border-color: transparent;
     color: colors.$secondary-medium;
     width: 100%;
-    @include mixins.desktop {
-      width: 8rem;
-    }
+    // @include mixins.desktop {
+    //   width: 6rem;
+    // }
 
     &:hover {
       background-color: colors.$primary-dark;
@@ -60,5 +64,8 @@
     border-color: colors.$primary-dark;
     color: colors.$primary-light;
     border-radius: 20px;
+    // @include mixins.desktop {
+    //   width: 2rem;
+    // }
   }
 }
