@@ -19,15 +19,9 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-<<<<<<< HEAD
-        <Route path="/inventory/add" component={AddInventory} />
-        <Route path="/inventories" component={FakeInventoryList} />
-        <Route path="/" exact component={HomePage} />
-=======
         <Route path="/" exact>
           <Redirect to="/warehouse" exact component={WarehouseList} />
         </Route>
->>>>>>> d5b9ea2ff5fe08c17957fce30e94cc66fab73dbd
         <Route path="/inventory" component={InventoryPage} />
         <Route path="/warehouse" exact component={WarehouseList} />
         <Route path="/warehouse/:id" exact component={WarehouseDetails} />

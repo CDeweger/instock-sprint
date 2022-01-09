@@ -1,50 +1,92 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-// use parse from html-react-parser make html text react readable
-import parse from "html-react-parser";
+import "./AddInventory.scss";
 
 class AddInventory extends Component {
   state = {
     warehouse: "Please select",
     category: "Please select",
-    status: "",
+    status: "In Stock",
+  };
+
+  //   for status
+  handleStatusChange = (e) => {
+    const { value } = e.target;
+    this.setState({
+      status: value,
+    });
   };
 
   //   for categories options
-  handleChange = (e) => {
+  handleCategoryChange = (e) => {
     this.setState({ category: e.target.value });
   };
-  //   to get the options for select tag
-  getOptions = (arr) => {
-    let optionValue = "";
-    for (let i = 0; i < arr.length; i++) {
-      optionValue += `<option value="${arr[i]}">${arr[i]}</option>;`;
-    }
-    return optionValue;
+
+  //   for warehouse change
+  handleWarehouseChange = (e) => {
+    this.setState({ warehouse: e.target.value });
+  };
+
+  getWarehouseID = (arr) => {
+    const warehouseElement = arr.find(
+      (element) => element.warehouseName === this.state.warehouse
+    );
+    return warehouseElement;
   };
 
   //   handle form submit
   handleSubmit = (event) => {
     event.preventDefault();
+
+    // to take make post request go through on out of stock
+    const getQuantity = () => {
+      if (event.target.quantity.value === "") {
+        return 0;
+      } else {
+        return event.target.quantity.value;
+      }
+    };
+
     const itemName = event.target.itemName.value;
     const description = event.target.description.value;
-    const quantity = event.target.quantity.value;
-    const status = event.target.status.value;
-    const category = event.target.categoryOption.value;
-    const warehouse = event.target.warehouseOption.value;
-    // need to add functionality to capture the values of  status, category, warehouse
-    console.log(itemName, description, quantity, status, category, warehouse);
+
+    const quantity = getQuantity();
+    const status = this.state.status;
+    const category = this.state.category;
+    const warehouse = this.state.warehouse;
+    const inventoriesData = this.props.location.state.inventoriesData;
+    const warehouseID = this.getWarehouseID(inventoriesData);
+
+    console.log(
+      itemName,
+      description,
+      quantity,
+      status,
+      category,
+      warehouse,
+      warehouseID
+    );
+
     // make post request
-    const body = { itemName, description, quantity };
+    const body = {
+      warehouseID: warehouseID,
+      warehouseName: warehouse,
+      itemName: itemName,
+      description: description,
+      category: category,
+      status: status,
+      quantity: quantity,
+    };
+
     axios
-      .post("http://localhost:8080/inventory")
+      .post("http://localhost:8080/inventory", body)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
     event.target.reset();
     window.history.back();
   };
-  //   console.log(getCategoriesOptions(props.location.state.categories));
+
   render() {
     return (
       <div>
@@ -61,27 +103,66 @@ class AddInventory extends Component {
               placeholder="Please enter a brief description"
             />
             <h3>Category</h3>
-            {/* to get select options for categories */}
-            {parse(`<select name="" id="" placeholder="Please select" name="categoryOption" >
-            <option value="Please select">Please select</option>;
-            ${this.getOptions(this.props.location.state.categories)}
-          </select>`)}
+            <select
+              name=""
+              value={this.state.category}
+              id=""
+              onChange={this.handleCategoryChange}
+            >
+              <option value="Please select">Please select</option>
+              {this.props.location.state.categories.map((option) => {
+                return (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                );
+              })}
+            </select>
           </div>
           <div>
             <h2>Item Availability</h2>
             <h3>Status</h3>
-            <label htmlFor="in-stock">In-stock</label>
-            <input type="radio" id="in-stock" name="status" />
-            <label htmlFor="out-of-stock">out-of-stock</label>
-            <input type="radio" id="out-of-stock" name="status" />
-            <label htmlFor="quantity">Quantity</label>
-            <input type="number" placeholder="0" name="quantity" />
+            <label htmlFor="in-stock">In stock</label>
+            <input
+              type="radio"
+              value="In Stock"
+              id="in-stock"
+              name="status"
+              onChange={this.handleStatusChange}
+            />
+            <label htmlFor="out-of-stock">Out of Stock</label>
+            <input
+              type="radio"
+              id="out-of-stock"
+              value="Out of Stock"
+              name="status"
+              onChange={this.handleStatusChange}
+            />
+            {/* conditional class on quantity to make display non on out of stock */}
+            <div
+              className={
+                this.state.status === "In Stock" ? "active" : "not-active"
+              }
+            >
+              <label htmlFor="quantity">Quantity</label>
+              <input type="number" placeholder="0" name="quantity" />
+            </div>
             <h3>Warehouse</h3>
-            {/* to get select options for warehouses */}
-            {parse(`<select name="" id="" placeholder="Please select" name="warehouseOption">
-            <option value="">Please select</option>;
-            ${this.getOptions(this.props.location.state.warehouses)}
-          </select>`)}
+            <select
+              name=""
+              value={this.state.warehouse}
+              id=""
+              onChange={this.handleWarehouseChange}
+            >
+              <option value="Please select">Please select</option>
+              {this.props.location.state.warehouses.map((option) => {
+                return (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                );
+              })}
+            </select>
           </div>
         </form>
         <Link to="/inventory">

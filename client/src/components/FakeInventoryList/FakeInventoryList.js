@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import FakeInventoryCard from "../FakeInventoryCard/FakeInventoryCard";
 
 class FakeInventoryList extends Component {
@@ -45,7 +46,7 @@ class FakeInventoryList extends Component {
         {this.state.categories.length === 0 &&
         this.state.warehouses.length === 0 &&
         this.state.inventoriesData.length === 0 ? (
-          <p>Loading...</p>
+          <LoadingSpinner />
         ) : (
           <Link
             to={{
