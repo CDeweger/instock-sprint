@@ -58,7 +58,7 @@ class WarehouseCard extends React.Component {
               >
                 <div className="warehouseList__card-name">
                   <p className="warehouseList__card-text warehouseList__card-location">
-                   {this.props.city} 
+                    {this.props.city}
                   </p>
                   <img
                     className="warehouseList__icon"
@@ -71,19 +71,23 @@ class WarehouseCard extends React.Component {
 
             <div className="warehouseList__card-info">
               <h3 className="warehouseList__card-title">CONTACT NAME</h3>
-              <p className="warehouseList__card-text">{this.props.name}</p>
-            </div>
-
-            <div className="warehouseList__card-info">
-              <h3 className="warehouseList__card-title">ADDRESS</h3>
-              <p className="warehouseList__card-text">
+              <p className="warehouseList__card-text warehouseList__card-mobile">
+                {this.props.name}
+              </p>
+              <p className="warehouseList__card-text warehouseList__card-tablet">
                 {this.props.address}
               </p>
             </div>
 
             <div className="warehouseList__card-info">
+              <h3 className="warehouseList__card-title">ADDRESS</h3>
+              <p className="warehouseList__card-text warehouseList__card-mobile">{this.props.address}</p>
+              <p className="warehouseList__card-text warehouseList__card-tablet">{this.props.name}</p>
+            </div>
+
+            <div className="warehouseList__card-info">
               <h3 className="warehouseList__card-title">CONTACT INFORMATION</h3>
-              <p className="warehouseList__card-text">{this.props.number}</p>
+              <p className="warehouseList__card-text warehouseList__card-nowrap">{this.props.number}</p>
               <p className="warehouseList__card-text">{this.props.email}</p>
             </div>
           </div>
@@ -95,11 +99,12 @@ class WarehouseCard extends React.Component {
               alt="delete icon"
               onClick={this.showModal}
             />
-            <Link to={`/warehouse/${this.props.warehouseId}/edit`} ><img
-              className="warehouseList_card-edit"
-              src={EditIcon}
-              alt="edit icon"
-            />
+            <Link to={`/warehouse/${this.props.warehouseId}/edit`}>
+              <img
+                className="warehouseList_card-edit"
+                src={EditIcon}
+                alt="edit icon"
+              />
             </Link>
           </div>
         </div>
