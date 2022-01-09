@@ -10,6 +10,8 @@ import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import DeleteWarehouseModal from "./components/DeleteWarehouseModal/DeleteWarehouseModal";
 //the routes  for DeleteModals is dummy route just to see the component, need to set up with relevant componet and toggle state to render it or not"
+import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
+
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
           exact
           component={DeleteWarehouseModal}
         />
+        <Route path="/test" component={InventoryItemDetails} />
       </Switch>
       <Footer />
     </BrowserRouter>
