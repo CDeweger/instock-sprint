@@ -1,17 +1,13 @@
-// import packages needed for routing
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-import WarehousePage from "./pages/WarehousePage/WarehousePage";
-import DeleteWarehouseModal from "./components/DeleteWarehouseModal/DeleteWarehouseModal";
-//the routes  for DeleteModals is dummy route just to see the component, need to set up with relevant componet and toggle state to render it or not"
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
-
+import WarehousePage from "./pages/WarehousePage/WarehousePage";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 
 function App() {
   return (
@@ -22,18 +18,19 @@ function App() {
         <Route path="/" exact>
           <Redirect to="/warehouse" exact component={WarehousePage} />
         </Route>
-        <Route path="/inventory" component={InventoryPage} />
-        <Route path="/warehouse" exact component={WarehousePage} />
-        <Route path="/warehouse/:id" exact component={WarehouseDetails} />
-
-        <Route path="/warehouse/:id/edit" exact component={EditWarehouse} />
-        <Route
-          path="/warehouse/:id/delete"
-          exact
-          component={DeleteWarehouseModal}
-        />
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
-        <Route path="/test" component={InventoryItemDetails} />
+        <Route path="/warehouse/add" exact component={AddWarehouse} />
+        <Route path="/warehouse/:id" exact component={WarehouseDetails} />
+        <Route path="/warehouse" exact component={WarehousePage} />
+
+        {/*       <Route path="/inventory/:id/edit" component={EditInventory} />
+        <Route path="/inventory/add" exact component={AddInventory} /> */}
+        <Route path="/inventory/:id" exact component={InventoryItemDetails} />
+        <Route path="/inventory" exact component={InventoryPage} />
+
+        <Route path="*" exact>
+          <Redirect to="/warehouse" exact component={WarehousePage} />
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>

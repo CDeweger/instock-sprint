@@ -21,39 +21,30 @@ const readData = () => {
 //post a new inventory item
 inventoryRouter.post("/", (req, res) => {
   // validation
-  console.log(req.body);
-  console.log(req.body.warehouseName);
-  console.log(req.body.itemName);
   if (
     req.body.warehouseName &&
     req.body.itemName &&
     req.body.description &&
     req.body.category &&
+    req.body.status &&
     req.body.quantity >= 0
   ) {
-    let status;
-    if (req.body.quantity === 0) {
-      status = "Out of Stock";
-    } else {
-      status = "In Stock";
-    }
-    console.log(status);
     //read file & write file
     try {
       let currentInventoryList = readData();
-      let newInventory = { id: uuidv4(), status: status, ...req.body };
+      let newInventory = { id: uuidv4(), ...req.body };
       console.log(newInventory);
       let updatedInventoryList = [...currentInventoryList, newInventory];
       writeFile(updatedInventoryList);
       return res.status(200).send(newInventory);
     } catch (e) {
       console.log(e);
-      return res.status(400).json({ message: "something went wrong" });
+      res.status(400).json({ message: "something went wrong" });
     }
   } else {
-    res.status(400).json({
+    return res.status(400).json({
       message:
-        "please include warehouse name, item name, item description, item quantity",
+        "please include warehouse ID, warehouse name, item name, item description, item category, item status, item quantity",
     });
   }
 });
