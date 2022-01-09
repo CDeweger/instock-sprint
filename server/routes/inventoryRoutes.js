@@ -29,19 +29,13 @@ inventoryRouter.post("/", (req, res) => {
     req.body.itemName &&
     req.body.description &&
     req.body.category &&
+    req.body.status &&
     req.body.quantity >= 0
   ) {
-    let status;
-    if (req.body.quantity === 0) {
-      status = "Out of Stock";
-    } else {
-      status = "In Stock";
-    }
-    console.log(status);
     //read file & write file
     try {
       let currentInventoryList = readData();
-      let newInventory = { id: uuidv4(), status: status, ...req.body };
+      let newInventory = { id: uuidv4(), ...req.body };
       console.log(newInventory);
       let updatedInventoryList = [...currentInventoryList, newInventory];
       writeFile(updatedInventoryList);

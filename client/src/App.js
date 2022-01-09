@@ -11,7 +11,8 @@ import WarehousePage from "./pages/WarehousePage/WarehousePage";
 import DeleteWarehouseModal from "./components/DeleteWarehouseModal/DeleteWarehouseModal";
 //the routes  for DeleteModals is dummy route just to see the component, need to set up with relevant componet and toggle state to render it or not"
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
-
+import AddInventory from "./components/AddInventory/AddInventory";
+import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInventoryModal";
 
 function App() {
   return (
@@ -22,10 +23,8 @@ function App() {
         <Route path="/" exact>
           <Redirect to="/warehouse" exact component={WarehousePage} />
         </Route>
-        <Route path="/inventory" component={InventoryPage} />
         <Route path="/warehouse" exact component={WarehousePage} />
         <Route path="/warehouse/:id" exact component={WarehouseDetails} />
-
         <Route path="/warehouse/:id/edit" exact component={EditWarehouse} />
         <Route
           path="/warehouse/:id/delete"
@@ -33,7 +32,14 @@ function App() {
           component={DeleteWarehouseModal}
         />
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
-        <Route path="/test" component={InventoryItemDetails} />
+        {/* routes for inventoryPage */}
+        <Route path="/inventory" exact component={InventoryPage} />
+        <Route
+          path={"/inventory/:id/warehouse/:id/delete"}
+          component={DeleteInventoryModal}
+        />
+        <Route path="/inventory/:id/details" component={InventoryItemDetails} />
+        <Route path="/inventory/add" component={AddInventory} />
       </Switch>
       <Footer />
     </BrowserRouter>
