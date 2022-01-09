@@ -25,12 +25,14 @@ function App() {
         <Route path="/inventory" component={InventoryPage} />
         <Route path="/warehouse" exact component={WarehouseList} />
         <Route path="/warehouse/:id" exact component={WarehouseDetails} />
+
         <Route path="/warehouse/:id/edit" exact component={EditWarehouse} />
         <Route
           path="/warehouse/:id/delete"
           exact
           component={DeleteWarehouseModal}
         />
+        <Route path="/warehouse/:id/edit" component={EditWarehouse} />
         <Route path="/test" component={InventoryItemDetails} />
       </Switch>
       <Footer />
