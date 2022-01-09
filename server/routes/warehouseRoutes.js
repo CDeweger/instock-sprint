@@ -18,6 +18,12 @@ const writeFile = (warehousesData) => {
   );
 };
 
+// GET List Of All Warehouses
+warehouseRouter.get("/", (req, res) => {
+  let warehouseData = readFile();
+  return res.status(200).send(warehouseData);
+});
+
 // update a warehouse
 warehouseRouter.patch("/:warehouseID/edit", (req, res) => {
   const warehouseID = req.params.warehouseID;
