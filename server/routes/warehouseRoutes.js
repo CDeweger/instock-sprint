@@ -147,4 +147,9 @@ warehouseRouter.delete("/:warehouseID", (req, res) => {
   }
 });
 
+warehouseRouter.get("/", (req, res) => {
+  const warehousesData = readFile();
+  res.status(200).send(warehousesData);
+});
+
 module.exports = warehouseRouter;
