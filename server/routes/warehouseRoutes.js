@@ -18,6 +18,12 @@ const writeFile = (warehousesData) => {
   );
 };
 
+// GET List Of All Warehouses
+warehouseRouter.get("/",(req,res) =>{
+  let warehouseData = readFile();
+  return res.status(200).send(warehouseData);
+})
+
 // update a warehouse
 warehouseRouter.patch("/:warehouseID/edit", (req, res) => {
   const warehouseID = req.params.warehouseID;
@@ -145,6 +151,11 @@ warehouseRouter.delete("/:warehouseID", (req, res) => {
   } else {
     res.status(404).send("Cannot find that warehouse");
   }
+});
+
+warehouseRouter.get("/", (req, res) => {
+  const warehousesData = readFile();
+  res.status(200).send(warehousesData);
 });
 
 module.exports = warehouseRouter;

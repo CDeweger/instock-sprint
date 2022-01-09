@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import FakeInventoryCard from "../FakeInventoryCard/FakeInventoryCard";
 
 class FakeInventoryList extends Component {
@@ -31,6 +32,7 @@ class FakeInventoryList extends Component {
       console.log(resolve.data);
       this.setState({
         inventoriesData: resolve.data,
+// to get unique list of categories and warehouses
         categories: [...new Set(this.getCategories(resolve.data))],
         warehouses: [...new Set(this.getWarehouses(resolve.data))],
       });
@@ -39,13 +41,12 @@ class FakeInventoryList extends Component {
   }
 
   render() {
-    //   const {id ,warehouseID, warehouseName, itemName, description, category,status, quantity}=this.state.inventoriesData;
     return (
       <div>
         {this.state.categories.length === 0 &&
         this.state.warehouses.length === 0 &&
         this.state.inventoriesData.length === 0 ? (
-          <p>Loading...</p>
+          <LoadingSpinner />
         ) : (
           <Link
             to={{
