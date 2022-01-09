@@ -18,10 +18,13 @@ class WarehousePage extends React.Component {
     componentDidMount(){
         axios
         .get("http://localhost:8080/warehouse")
+        // .get(`${process.env.REACT_APP_API_URL}/warehouse`)
+
         .then((res) => {
             this.setState({
                 warehouseList: res.data,
             });
+            console.log(this.state.warehouseList)
         })
         .catch((e) => {
             console.error(e)
