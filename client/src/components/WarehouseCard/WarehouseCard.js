@@ -26,7 +26,6 @@ class WarehouseCard extends React.Component {
 
   render() {
     let modal = <></>;
-    console.log(this.props);
     if (this.state.showModal) {
       modal = (
         <DeleteWarehouseModal
