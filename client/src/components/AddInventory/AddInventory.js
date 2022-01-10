@@ -116,13 +116,13 @@ class AddInventory extends Component {
               onChange={this.handleCategoryChange}
             >
               <option value="Please select">Please select</option>
-              {this.props.location.state.categories.map((option) => {
+              {/* {this.props.location.state.categories.map((option) => {
                 return (
                   <option key={option} value={option}>
                     {option}
                   </option>
                 );
-              })}
+              })} */}
             </select>
           </div>
           <div>
@@ -167,12 +167,12 @@ class AddInventory extends Component {
               onChange={this.handleWarehouseChange}
             >
               <option value="Please select">Please select</option>
-              {this.props.location.state.warehouses.map((option) => {
+              {/* {this.props.location.state.warehouses.map((option) => {
                 return (
                   <option key={option} value={option}>
                     {option}
                   </option>
-                );
+                ); */}
               })}
             </select>
           </div>
