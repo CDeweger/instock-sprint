@@ -8,12 +8,9 @@ import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
 
 import AddInventory from "./components/AddInventory/AddInventory";
-import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInventoryModal";
-
 import WarehousePage from "./pages/WarehousePage/WarehousePage";
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import EditInventoryItem from "./components/EditIventoryItem/EditInventoryItem";
-
 
 function App() {
   return (
@@ -29,16 +26,14 @@ function App() {
         <Route path="/warehouse/:id" exact component={WarehouseDetails} />
         <Route path="/warehouse" exact component={WarehousePage} />
 
-
         <Route path="/inventory/:id/edit" exact component={EditInventoryItem} />
         <Route path="/inventory/add" exact component={AddInventory} />
         <Route path="/inventory/:id" exact component={InventoryItemDetails} />
         <Route path="/inventory" exact component={InventoryPage} />
-        
+
         <Route path="*" exact>
           <Redirect to="/warehouse" exact component={WarehousePage} />
         </Route>
-
       </Switch>
       <Footer />
     </BrowserRouter>

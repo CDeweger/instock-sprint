@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import "./WarehouseDetails.scss";
+import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventoryList";
 
 export default class WarehouseDetails extends Component {
   constructor(props) {
@@ -10,21 +11,6 @@ export default class WarehouseDetails extends Component {
     this.state = {
       warehouseData: null,
     };
-    /*  this.state = {
-      warehouseData: {
-        id: "2922c286-16cd-4d43-ab98-c79f698aeab0",
-        name: "Manhattan",
-        address: "503 Broadway",
-        city: "New York",
-        country: "USA",
-        contact: {
-          name: "Parmin Aujla",
-          position: "Warehouse Manager",
-          phone: "+1 (646) 123-1234",
-          email: "paujla@instock.com",
-        },
-      },
-    }; */
   }
 
   getWarehouseData = (warehouseId) => {
@@ -136,6 +122,9 @@ export default class WarehouseDetails extends Component {
                   </div>
                 </div>
               </div>
+              <WarehouseInventoryList
+                warehouseID={this.props.match.params.id}
+              />
             </section>
           </div>
         )}
