@@ -198,11 +198,25 @@
       width: 100%;
     }
   }
-  &__header {
-    border-bottom: 1px #bdc5d5;
+}
+.add-inventory-header {
+  margin-top: 1rem;
+  padding: 28px;
+  display: flex;
+  border-bottom: 1px solid #bdc5d5;
+}
+.add-inventory-form {
+  display: flex;
+  flex-direction: column;
+  &__details {
+    padding-left: 24px;
+    border-bottom: 1px solid #bdc5d5;
+  }
+  &__availability {
+    padding-left: 24px;
+ 
   }
 }
-
 .active {
   border-bottom: 1px solid #bdc5d5;
 }

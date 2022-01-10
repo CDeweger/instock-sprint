@@ -98,7 +98,7 @@ class AddInventory extends Component {
     return (
       <div className="container">
         <section className="add-inventory">
-          <div className="add-inventory__header">
+          <div className="add-inventory-header">
             <Link to="/inventory">
               <img
                 src={BackIcon}
@@ -111,12 +111,12 @@ class AddInventory extends Component {
             </h1>
           </div>
           <form
-            className="add-inventory__form"
+            className="add-inventory-form"
             action=""
             id="addInventory"
             onSubmit={this.handleSubmit}
           >
-            <div className="">
+            <div className="add-inventory-form__details">
               <h2>Item Details</h2>
               <label htmlFor="itemName">Item Name</label>
               <input
@@ -150,7 +150,7 @@ class AddInventory extends Component {
                 })}
               </select>
             </div>
-            <div>
+            <div className="add-inventory-form__availability">
               <h2>Item Availability</h2>
               <h3>Status</h3>
               <label htmlFor="in-stock">In stock</label>
