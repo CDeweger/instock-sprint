@@ -79,6 +79,25 @@ inventoryRouter.get("/:id", (req, res) => {
   res.status(200).json(targetInventory[0]);
 });
 
+//// delete an inventory by ID
+inventoryRouter.delete("/:id", (req, res) => {
+  let inventoriesData = readData();
+  let targetInventory = inventoriesData.filter(
+    (inventory) => inventory.id === req.params.id
+  );
+  console.log(targetInventory);
+  if (targetInventory.length === 0) {
+    res.status(404).send("inventory is not found.");
+  } else {
+    inventoriesData = inventoriesData.filter(
+      (inventory) => inventory.id !== req.params.id
+    );
+    writeFile(inventoriesData);
+    res.status(200).json(targetInventory[0]);
+  }
+});
+
+// edit an inventory
 inventoryRouter.patch("/:id/edit", (req, res) => {
   const inventoriesData = readData();
   const inventoryId = req.params.id;

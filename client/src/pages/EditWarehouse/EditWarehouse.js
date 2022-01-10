@@ -62,7 +62,7 @@ export default class EditWarehouse extends Component {
           console.error(e);
           alert("something went wrong");
         });
-      this.props.history.goBack();
+      this.props.history.push("/warehouse");
     }
   };
 
