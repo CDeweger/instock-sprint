@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import "./WarehouseDetails.scss";
+// import  WarehouseInventoryList from "../../components/"
 
 export default class WarehouseDetails extends Component {
   constructor(props) {
