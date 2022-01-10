@@ -1,18 +1,18 @@
-// import packages needed for routing
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-import WarehousePage from "./pages/WarehousePage/WarehousePage";
-import DeleteWarehouseModal from "./components/DeleteWarehouseModal/DeleteWarehouseModal";
-//the routes  for DeleteModals is dummy route just to see the component, need to set up with relevant componet and toggle state to render it or not"
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
+
 import AddInventory from "./components/AddInventory/AddInventory";
 import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInventoryModal";
+
+import WarehousePage from "./pages/WarehousePage/WarehousePage";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
+
 
 function App() {
   return (
@@ -40,6 +40,7 @@ function App() {
         />
         <Route path="/inventory/:id/details" component={InventoryItemDetails} />
         <Route path="/inventory/add" component={AddInventory} />
+
       </Switch>
       <Footer />
     </BrowserRouter>

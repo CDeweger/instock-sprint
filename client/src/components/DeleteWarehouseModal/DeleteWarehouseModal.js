@@ -8,14 +8,12 @@ export default class DeleteWarehouseModal extends Component {
   }
 
   handleCancel = () => {
-    this.props.history.goBack();
+    this.props.closeModal();
   };
 
   handleDelete = () => {
     axios
-      .delete(
-        `${process.env.REACT_APP_API_URL}/warehouse/${this.props.match.params.id}`
-      )
+      .delete(`http://localhost:8080/warehouse/${this.props.warehouseId}`)
       .then((res) => {
         console.log(res);
       })
@@ -23,10 +21,12 @@ export default class DeleteWarehouseModal extends Component {
         console.error(e);
         alert("something went wrong");
       });
-    this.props.history.goBack();
+    this.props.closeModal();
+    window.location.reload(true);
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="modal">
         <article className="notice-card">

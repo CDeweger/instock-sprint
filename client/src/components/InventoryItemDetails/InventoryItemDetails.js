@@ -15,13 +15,9 @@ class InventoryItemDetails extends Component {
         'This 50", 4K LED TV provides a crystal-clear picture and vivid colors.',
       category: "Electronics",
       status: "In Stock",
-      quantity: 500,
+      quantity: 0,
     },
   };
-
-  //   handleCancel = () => {
-  //     this.props.history.goBack();
-  //   };
 
   render() {
     return (
@@ -87,8 +83,15 @@ class InventoryItemDetails extends Component {
                   <p className="item-info__title item-info__title-status">
                     STATUS:
                   </p>
-                  <p className="item-info__detail-status">
+                  {/*  <p className="item-info__detail-status">
                     {this.state.inventoryData.status}
+                  </p> */}
+                  <p className="item-info__detail-status">
+                    {this.state.inventoryData.quantity > 0 ? (
+                      <span className="in-stock">IN STOCK</span>
+                    ) : (
+                      <span className="out-of-stock">OUT OF STOCK</span>
+                    )}
                   </p>
                 </div>
                 <div className="stock-info__qty">

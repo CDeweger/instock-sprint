@@ -46,6 +46,8 @@
     height: 2.25rem;
     border-radius: 25px;
     margin-top: 2rem;
+    margin-right: 1rem;
+    margin-left: auto;
     @include mixins.tablet {
       width: 5.0625rem;
     }
@@ -124,8 +126,19 @@
       margin-right: 0;
     }
   }
+  &__detail-status {
+    padding: 0.25rem 0.5rem 0.25rem 0;
+    border-radius: 20px;
+    display: inline;
+    // width: 4rem;
+    @include mixins.mobil-body-small;
+    @include mixins.tablet {
+      width: 4rem;
+    }
+  }
+}
 
-  //this will need to be dynamic
+/* //this will need to be dynamic
   &__detail-status {
     background-color: rgba(21, 132, 99, 0.07);
     color: colors.$supporting-green;
@@ -137,8 +150,18 @@
     @include mixins.tablet {
       width: 4rem;
     }
-  }
+  } */
+
+.in-stock {
+  background-color: rgba(21, 132, 99, 0.07);
+  color: colors.$supporting-green;
 }
+
+.out-of-stock {
+  background-color: rgba(201, 69, 21, 0.07);
+  color: colors.$supporting-red;
+}
+
 .stock-info {
   @include mixins.flex(flex-start, _, row);
   flex-wrap: wrap;
