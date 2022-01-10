@@ -26,11 +26,11 @@ function App() {
         <Route path="/warehouse" exact component={WarehousePage} />
         <Route path="/warehouse/:id" exact component={WarehouseDetails} />
         <Route path="/warehouse/:id/edit" exact component={EditWarehouse} />
-        <Route
+        {/* <Route
           path="/warehouse/:id/delete"
           exact
           component={DeleteWarehouseModal}
-        />
+        /> */}
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
         {/* routes for inventoryPage */}
         <Route path="/inventory" exact component={InventoryPage} />
