@@ -28,7 +28,6 @@ export default class EditInventoryItem extends Component {
     axios
       .get(`http://localhost:8080/warehouse`)
       .then((res) => {
-        console.log(res.data);
         this.setState({
           warehouseList: res.data,
           loading: false,
@@ -45,7 +44,6 @@ export default class EditInventoryItem extends Component {
     axios
       .get(`http://localhost:8080/inventory/${id}`)
       .then((res) => {
-        console.log(res.data);
         this.getWarehouseList();
         this.setState({
           warehouseID: res.data.warehouseID,
