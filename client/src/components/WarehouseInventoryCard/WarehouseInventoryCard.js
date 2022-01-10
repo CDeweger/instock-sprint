@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
-import "./WarehouseInventoryCard.scss";
+
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
 
 function WarehouseInventoryCard({ itemName, category, status, quantity }) {

@@ -8,7 +8,7 @@ function WarehouseInventories(props) {
     <div className="warehouse-inventories-container">
       {props.inventories.map((inventory) => {
         return (
-          <WarehouseInventoryCard
+          <WarehouseInventoryCard 
             id={inventory.id}
             key={inventory.id}
             itemName={inventory.itemName}

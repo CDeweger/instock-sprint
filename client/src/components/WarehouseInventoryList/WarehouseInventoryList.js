@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import WarehouseInventories from "../WarehouseInventories/WarehouseInventories";
+import "./WarehouseInventoryList.scss";
 
 class WarehouseInventoryList extends Component {
   state = {
@@ -10,7 +11,7 @@ class WarehouseInventoryList extends Component {
   componentDidMount() {
     axios
       .get(
-        "http://localhost:8080/inventory/warehouse/5bf7bd6c-2b16-4129-bddc-9d37ff8539e9"
+        `http://localhost:8080/inventory/warehouse/${this.props.warehouseID}`
       )
       .then((resolve) => {
         console.log(resolve.data);
@@ -21,10 +22,10 @@ class WarehouseInventoryList extends Component {
       .catch((err) => err);
   }
   render() {
-    console.log(this.state.inventoryData);
+    // console.log(this.props);
     return (
-      <div className="inventory-list">
-        <h1 className="inventory-list__title">King West</h1>
+      <div className="warehouseinventory-list">
+        {/* <h1 className="inventory-list__title">King West</h1>
         <div className="inventory-list__address-contacts-container">
           <div className="inventory-list__address-container">
             <h2>WAREHOUSE ADDRESS</h2>
@@ -41,7 +42,7 @@ class WarehouseInventoryList extends Component {
               <p>sdsd@instock.com</p>
             </div>
           </div>
-        </div>
+        </div> */}
         <WarehouseInventories inventories={this.state.inventoryData} />
       </div>
     );

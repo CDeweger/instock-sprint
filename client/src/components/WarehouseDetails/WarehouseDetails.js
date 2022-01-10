@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import "./WarehouseDetails.scss";
-// import  WarehouseInventoryList from "../../components/"
+import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventoryList";
 
 export default class WarehouseDetails extends Component {
   constructor(props) {
@@ -137,6 +137,9 @@ export default class WarehouseDetails extends Component {
                   </div>
                 </div>
               </div>
+              <WarehouseInventoryList
+                warehouseID={this.props.match.params.id}
+              />
             </section>
           </div>
         )}
