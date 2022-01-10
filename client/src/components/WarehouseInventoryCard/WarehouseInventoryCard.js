@@ -6,7 +6,7 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
 
-function WarehouseInventoryCard({ itemName, category, status, quantity }) {
+function WarehouseInventoryCard({ itemName, category, status, quantity, id }) {
   //   console.log(props);
   return (
     <>
@@ -16,7 +16,7 @@ function WarehouseInventoryCard({ itemName, category, status, quantity }) {
             <h3 className="inventory__card-title">INVENTORY ITEM</h3>
             <Link
               to={{
-                pathname: "/inventory/:id/details",
+                pathname: `/inventory/${id}`,
                 state: {},
               }}
               className="inventory__link"
@@ -56,11 +56,6 @@ function WarehouseInventoryCard({ itemName, category, status, quantity }) {
               <p className="inventory__card-text">{quantity}</p>
             </div>
           </div>
-
-          {/* <div className="inventory__card-info">
-            <h3 className="inventory__card-title">WAREHOUSE</h3>
-            <p className="inventory__card-text">{warehouseName}</p>
-          </div> */}
         </div>
         <div>
           <Link
