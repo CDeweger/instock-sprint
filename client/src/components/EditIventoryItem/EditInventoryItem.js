@@ -91,7 +91,7 @@ export default class EditInventoryItem extends Component {
           }
         )
         .then((res) => {
-          this.props.history.goBack();
+          this.props.history.push("/inventory");
         })
         .catch((err) => {
           console.log(err);
