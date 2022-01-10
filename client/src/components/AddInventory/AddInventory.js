@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./AddInventory.scss";
+import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 
 class AddInventory extends Component {
   state = {
@@ -95,94 +96,121 @@ class AddInventory extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Add New Inventory Item</h1>
-        <form action="" id="addInventory" onSubmit={this.handleSubmit}>
-          <div>
-            <h2>Item Details</h2>
-            <label htmlFor="itemName">Item Name</label>
-            <input type="text" name="itemName" placeholder="Item Name" />
-            <label htmlFor="description">Description</label>
-            <input
-              type="text"
-              name="description"
-              placeholder="Please enter a brief description"
-            />
-            <h3>Category</h3>
-            <select
-              name=""
-              value={this.state.category}
-              id=""
-              onChange={this.handleCategoryChange}
-            >
-              <option value="Please select">Please select</option>
-              {this.props.location.state.categories.map((option) => {
-                return (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <div>
-            <h2>Item Availability</h2>
-            <h3>Status</h3>
-            <label htmlFor="in-stock">In stock</label>
-            <input
-              type="radio"
-              value="In Stock"
-              id="in-stock"
-              name="status"
-              onChange={this.handleStatusChange}
-            />
-            <label htmlFor="out-of-stock">Out of Stock</label>
-            <input
-              type="radio"
-              id="out-of-stock"
-              value="Out of Stock"
-              name="status"
-              onChange={this.handleStatusChange}
-            />
-            {/* conditional class on quantity to make display non on out of stock */}
-            <div
-              className={
-                this.state.status === "In Stock" ? "active" : "not-active"
-              }
-            >
-              <label htmlFor="quantity">Quantity</label>
-              <input
-                type="number"
-                min="0"
-                onKeyPress={this.handleKeyPress}
-                placeholder="0"
-                name="quantity"
+      <div className="container">
+        <section className="add-inventory">
+          <div className="add-inventory__header">
+            <Link to="/inventory">
+              <img
+                src={BackIcon}
+                alt="back icon"
+                className="editInventory__back-icon"
               />
-            </div>
-            <h3>Warehouse</h3>
-            <select
-              name=""
-              value={this.state.warehouse}
-              id=""
-              onChange={this.handleWarehouseChange}
-            >
-              <option value="Please select">Please select</option>
-              {this.props.location.state.warehouses.map((option) => {
-                return (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                );
-              })}
-            </select>
+            </Link>
+            <h1 className="editInventory__header-title">
+              Add New Inventory Item
+            </h1>
           </div>
-        </form>
-        <Link to="/inventory">
-          <button>Cancel</button>
-        </Link>
-        <button type="submit" form="addInventory">
-          + Add Item
-        </button>
+          <form
+            className="add-inventory__form"
+            action=""
+            id="addInventory"
+            onSubmit={this.handleSubmit}
+          >
+            <div className="">
+              <h2>Item Details</h2>
+              <label htmlFor="itemName">Item Name</label>
+              <input
+                type="text"
+                name="itemName"
+                placeholder="Item Name"
+                required
+              />
+              <label htmlFor="description">Description</label>
+              <input
+                type="text"
+                name="description"
+                placeholder="Please enter a brief description"
+                required
+              />
+              <h3>Category</h3>
+              <select
+                name=""
+                value={this.state.category}
+                id=""
+                onChange={this.handleCategoryChange}
+                required
+              >
+                <option value="Please select">Please select</option>
+                {this.props.location.state.categories.map((option) => {
+                  return (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <div>
+              <h2>Item Availability</h2>
+              <h3>Status</h3>
+              <label htmlFor="in-stock">In stock</label>
+              <input
+                type="radio"
+                value="In Stock"
+                id="in-stock"
+                name="status"
+                onChange={this.handleStatusChange}
+              />
+              <label htmlFor="out-of-stock">Out of Stock</label>
+              <input
+                type="radio"
+                id="out-of-stock"
+                value="Out of Stock"
+                name="status"
+                onChange={this.handleStatusChange}
+              />
+              {/* conditional class on quantity to make display non on out of stock */}
+              <div
+                className={
+                  this.state.status === "In Stock" ? "active" : "not-active"
+                }
+              >
+                <label htmlFor="quantity">Quantity</label>
+                <input
+                  type="number"
+                  min="0"
+                  onKeyPress={this.handleKeyPress}
+                  placeholder="0"
+                  name="quantity"
+                  required
+                />
+              </div>
+              <h3>Warehouse</h3>
+              <select
+                name=""
+                value={this.state.warehouse}
+                id=""
+                onChange={this.handleWarehouseChange}
+                required
+              >
+                <option value="Please select">Please select</option>
+                {this.props.location.state.warehouses.map((option) => {
+                  return (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+          </form>
+          <Link to="/inventory">
+            <button>Cancel</button>
+          </Link>
+          <button type="submit" form="addInventory">
+            + Add Item
+          </button>
+        </section>
       </div>
     );
   }
