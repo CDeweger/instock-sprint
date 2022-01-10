@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer";
 import DeleteInventoryModal from "./components/DeleteInventoryModal/DeleteInventoryModal";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
+import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
 //thee route here for DeleteInventoryModal is dummy route just to see the component
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     // define the routes here
     <BrowserRouter>
       <Switch>
+        <Route to="/warehouse/inventory" component={WarehouseInventoryList} />
         <Route path="/" exact component={HomePage} />
         <Route path="/inventory" component={InventoryPage} />
         <Route path="/warehouse" exact component={WarehouseList} />

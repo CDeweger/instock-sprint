@@ -1,0 +1,36 @@
+.warehouse-inventory-card {
+  border-bottom: 2px solid #bdc5d5;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+  }
+
+  &__subtitle {
+    color: #5c667e;
+    font-size: 11px;
+    line-height: 16px;
+  }
+  &__outer-flex {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+  }
+  &__inner-flex {
+    margin-right: 2.5rem;
+  }
+  //     &__item {
+  // margin-right: 91.67px;
+  //     }
+
+  //     &__category {
+  //       width: 50%;
+  //    margin-right: 91.67px;
+  //     }
+  //   //   &__qty {
+  //     width: 50%;
+  //   }
+  //   &__icons {
+  //     width: 100%;
+  //   }
+}
