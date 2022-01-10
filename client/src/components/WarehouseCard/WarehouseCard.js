@@ -3,7 +3,6 @@ import "../WarehouseCard/WarehouseCard.scss";
 import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
 
@@ -27,7 +26,7 @@ class WarehouseCard extends React.Component {
 
   render() {
     let modal = <></>;
-
+    console.log(this.props);
     if (this.state.showModal) {
       modal = (
         <DeleteWarehouseModal
