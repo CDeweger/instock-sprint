@@ -5,10 +5,10 @@ function WarehouseInventories(props) {
   //   console.log(props.inventories);
 
   return (
-    <div className="warehouse-inventories-container">
+    <div className="inventory__inventory-cards">
       {props.inventories.map((inventory) => {
         return (
-          <WarehouseInventoryCard 
+          <WarehouseInventoryCard
             id={inventory.id}
             key={inventory.id}
             itemName={inventory.itemName}
