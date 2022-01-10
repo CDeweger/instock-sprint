@@ -18,6 +18,7 @@ function App() {
         <Route path="/" exact>
           <Redirect to="/warehouse" exact component={WarehousePage} />
         </Route>
+    
         <Route path="/warehouse/:id/edit" component={EditWarehouse} />
         <Route path="/warehouse/add" exact component={AddWarehouse} />
         <Route path="/warehouse/:id" exact component={WarehouseDetails} />
