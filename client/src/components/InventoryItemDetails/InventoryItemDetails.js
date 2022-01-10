@@ -9,7 +9,7 @@ class InventoryItemDetails extends Component {
     inventoryData: [],
   };
 
-  fetchInvenotryDetails = (inventoryId) => {
+  fetchInventoryDetails = (inventoryId) => {
     axios
       .get(`http://localhost:8080/inventory/${inventoryId}`)
       .then((res) => {
@@ -23,7 +23,7 @@ class InventoryItemDetails extends Component {
   };
 
   componentDidMount() {
-    this.fetchInvenotryDetails(this.props.match.params.id);
+    this.fetchInventoryDetails(this.props.match.params.id);
   }
 
   render() {

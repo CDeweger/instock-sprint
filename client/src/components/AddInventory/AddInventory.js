@@ -38,7 +38,7 @@ class AddInventory extends Component {
     const warehouseElement = arr.find(
       (element) => element.warehouseName === this.state.warehouse
     );
-    return warehouseElement;
+    return warehouseElement.warehouseID;
   };
 
   //   handle form submit
@@ -90,7 +90,7 @@ class AddInventory extends Component {
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
     event.target.reset();
-    window.history.back();
+    this.props.history.push("/inventory");
   };
 
   render() {

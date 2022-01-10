@@ -70,6 +70,7 @@ class AddWarehouse extends React.Component {
       });
 
       this.props.history.push("/warehouse");
+      window.location.reload(true);
     }
   };
 
