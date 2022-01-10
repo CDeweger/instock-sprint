@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { isPossiblePhoneNumber } from "react-phone-number-input";
+import ErrorIcon from "../../assets/icons/error-24px.svg";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import "./EditWarehouse.scss";
 
@@ -9,6 +9,16 @@ export default class EditWarehouse extends Component {
     super(props);
     this.state = {
       warehouseDetails: null,
+      warehousecheck: false,
+      addresscheck: false,
+      citycheck: false,
+      countrycheck: false,
+      namecheck: false,
+      positioncheck: false,
+      numbercheck: false,
+      emailcheck: false,
+      numberStrcheck: false,
+      emailStrcheck: false,
     };
   }
 
@@ -16,9 +26,7 @@ export default class EditWarehouse extends Component {
     axios
       .get(`http://localhost:8080/warehouse/${id}`)
       .then((res) => {
-        console.log(res.data);
         this.setState({ warehouseDetails: res.data });
-        console.log(this.state.warehouseDetails);
       })
       .catch((e) => {
         console.error(e);
@@ -32,10 +40,43 @@ export default class EditWarehouse extends Component {
 
   handleEditWarehouse = (e) => {
     e.preventDefault();
-    let phoneValidationResult = isPossiblePhoneNumber(e.target.phone.value);
-    if (!phoneValidationResult) {
-      alert("not valid number");
+    console.log(e.target.phone.value);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/;
+
+    if (e.target.name.value === "") {
+      this.setState({ warehousecheck: true });
+    } else if (e.target.address.value === "") {
+      this.setState({ addresscheck: true });
+    } else if (e.target.city.value === "") {
+      this.setState({ citycheck: true });
+    } else if (e.target.country.value === "") {
+      this.setState({ countrycheck: true });
+    } else if (e.target.contactName.value === "") {
+      this.setState({ namecheck: true });
+    } else if (e.target.position.value === "") {
+      this.setState({ positioncheck: true });
+    } else if (e.target.phone.value === "") {
+      this.setState({ numbercheck: true, numberStrcheck: false });
+    } else if (e.target.email.value === "") {
+      this.setState({ emailcheck: true, emailStrcheck: false });
+    } else if (!emailRegex.test(e.target.email.value)) {
+      this.setState({ emailStrcheck: true, emailcheck: false });
+    } else if (!phoneRegex.test(e.target.phone.value)) {
+      this.setState({ numberStrcheck: true, emailcheck: false });
     } else {
+      this.setState({
+        warehousecheck: false,
+        addresscheck: false,
+        citycheck: false,
+        countrycheck: false,
+        namecheck: false,
+        positioncheck: false,
+        numbercheck: false,
+        emailcheck: false,
+      });
+
       const warehouseUpdatedDetails = {
         name: e.target.name.value,
         address: e.target.address.value,
@@ -48,7 +89,6 @@ export default class EditWarehouse extends Component {
           email: e.target.email.value,
         },
       };
-      console.log(warehouseUpdatedDetails);
 
       axios
         .patch(
@@ -68,7 +108,6 @@ export default class EditWarehouse extends Component {
 
   componentDidMount() {
     this.getWarehouseData(this.props.match.params.id);
-    //  console.log(this.state.warehouseDetails);
   }
 
   componentDidUpdate(prevProps) {
@@ -119,8 +158,19 @@ export default class EditWarehouse extends Component {
                     name="name"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.name}
-                    required
                   ></input>
+                  {this.state.warehousecheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        This field is required
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="editWH-form__entries">
@@ -136,8 +186,19 @@ export default class EditWarehouse extends Component {
                     name="address"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.address}
-                    required
                   ></input>
+                  {this.state.addresscheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        This field is required
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="editWH-form__entries">
@@ -153,8 +214,19 @@ export default class EditWarehouse extends Component {
                     name="city"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.city}
-                    required
                   ></input>
+                  {this.state.citycheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        This field is required
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="editWH-form__entries">
@@ -162,7 +234,7 @@ export default class EditWarehouse extends Component {
                     htmlFor="warehouse-country"
                     className="editWH-form__label"
                   >
-                    Warehouse Name
+                    Country
                   </label>
                   <input
                     id="warehouse-country"
@@ -170,8 +242,19 @@ export default class EditWarehouse extends Component {
                     name="country"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.country}
-                    required
                   ></input>
+                  {this.state.countrycheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        This field is required
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -187,8 +270,19 @@ export default class EditWarehouse extends Component {
                     name="contactName"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.contact.name}
-                    required
                   ></input>
+                  {this.state.namecheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        This field is required
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="editWH-form__entries">
@@ -204,8 +298,19 @@ export default class EditWarehouse extends Component {
                     name="position"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.contact.position}
-                    required
                   ></input>
+                  {this.state.positioncheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        This field is required
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="editWH-form__entries">
@@ -218,8 +323,31 @@ export default class EditWarehouse extends Component {
                     name="phone"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.contact.phone}
-                    required
                   ></input>
+                  {this.state.numbercheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        This field is required
+                      </p>
+                    </div>
+                  )}
+                  {this.state.numberStrcheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        Valid Phone Number is required
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="editWH-form__entries">
@@ -232,8 +360,31 @@ export default class EditWarehouse extends Component {
                     name="email"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.contact.email}
-                    required
                   ></input>
+                  {this.state.emailcheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        This field is required
+                      </p>
+                    </div>
+                  )}
+                  {this.state.emailStrcheck && (
+                    <div className="editWH-form__warning">
+                      <img
+                        src={ErrorIcon}
+                        alt="Error icon"
+                        className="editWH-form__warning-icon"
+                      />
+                      <p className="editWH-form__warning-text">
+                        Valid Phone Number is required
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
 

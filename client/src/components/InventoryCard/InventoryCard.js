@@ -24,7 +24,6 @@ class InventoryCard extends React.Component {
 
   render() {
     let modal = <></>;
-    console.log(this.props.id);
     if (this.state.showModal) {
       modal = (
         <DeleteInventoryModal

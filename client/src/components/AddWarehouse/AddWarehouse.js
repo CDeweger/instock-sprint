@@ -49,8 +49,6 @@ class AddWarehouse extends React.Component {
     } else if (!phoneRegex.test(e.target.contactNumber.value)) {
       this.setState({ numberStrcheck: true, emailcheck: false });
     } else {
-      console.log("it ran");
-
       this.setState({
         warehousecheck: false,
         addresscheck: false,
@@ -74,7 +72,6 @@ class AddWarehouse extends React.Component {
       });
 
       this.props.history.push("/warehouse");
-      window.location.reload(true);
     }
   };
 
