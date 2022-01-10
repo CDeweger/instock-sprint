@@ -22,7 +22,7 @@
 
   @include mixins.tablet {
     width: 42rem;
-    height: 16.375rem;
+    height: fit-content;
     margin-top: 10.5rem;
   }
 

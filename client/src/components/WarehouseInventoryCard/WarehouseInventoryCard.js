@@ -1,12 +1,11 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
 import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
-import "./InventoryCard.scss";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
 
-class InventoryCard extends React.Component {
+export default class WarehouseInventoryCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +32,6 @@ class InventoryCard extends React.Component {
         />
       );
     }
-
     return (
       <>
         {modal}
@@ -67,23 +65,15 @@ class InventoryCard extends React.Component {
             </div>
 
             <div
-              // className={
-              //   this.props.status === "Out of Stock"
-              //     ? "out-of-stock"
-              //     : "in-stock"
-              // }
-              className={this.props.quantity < 1 ? "out-of-stock" : "in-stock"}
+              className={
+                this.props.status === "Out of Stock"
+                  ? "out-of-stock"
+                  : "in-stock"
+              }
             >
               <h3 className="inventory__card-title">Status</h3>
               <div className="inventory__card-name">
-                {/* <p className="inventory__card-text">{this.props.status}</p> */}
-                <p className="inventory__card-text">
-                  {this.props.quantity < 1 ? (
-                    <span>Out of Stock</span>
-                  ) : (
-                    <span> In Stock</span>
-                  )}
-                </p>
+                <p className="inventory__card-text">{this.props.status}</p>
               </div>
             </div>
 
@@ -94,11 +84,6 @@ class InventoryCard extends React.Component {
               <div className="inventory__card-name">
                 <p className="inventory__card-text">{this.props.quantity}</p>
               </div>
-            </div>
-
-            <div className="inventory__card-info">
-              <h3 className="inventory__card-title">WAREHOUSE</h3>
-              <p className="inventory__card-text">{this.props.warehouseName}</p>
             </div>
           </div>
           <div>
@@ -118,5 +103,3 @@ class InventoryCard extends React.Component {
     );
   }
 }
-
-export default InventoryCard;
