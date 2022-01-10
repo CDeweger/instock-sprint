@@ -31,14 +31,12 @@ class InventoryList extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:8080/inventory").then((resolve) => {
-      console.log(resolve.data);
       this.setState({
         inventoriesData: resolve.data,
         // to get unique list of categories and warehouses
         categories: [...new Set(this.getCategories(resolve.data))],
         warehouses: [...new Set(this.getWarehouses(resolve.data))],
       });
-      console.log(this.state.warehouses, this.state.categories);
     });
   }
 

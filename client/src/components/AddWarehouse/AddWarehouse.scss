@@ -9,12 +9,12 @@
   display: flex;
   flex-direction: column;
   width: 91%;
-  margin: 1rem;
   border-radius: 3px;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   top: -2.5rem;
   margin: auto;
   margin-top: -3.5rem;
+  margin-bottom: 3rem;
 
   @include tablet {
     top: -6.7rem;
@@ -67,7 +67,6 @@
     }
 
     &-details {
-      margin: 0 0 4%;
       padding: 0 0 0.85rem;
       border-bottom: 1px solid $secondary-medium;
 
@@ -138,74 +137,49 @@
   }
 
   &__buttons {
-    display: flex;
-    justify-content: center;
     width: 100%;
-    margin: 0;
-    height: 6.2rem;
+    padding: 1rem;
     background-color: $background-light;
-
     @include tablet {
-      display: flex;
-      justify-content: flex-end;
+      @include flex(flex-end, center, row);
+      padding-right: 2rem;
     }
+  }
 
-    &-container {
-      display: flex;
-      justify-content: space-between;
-      width: 75%;
-      margin: 2% 0 0 0;
-      padding: 1rem 1.3rem 0;
-
-      @include tablet {
-        width: 50%;
-        padding: 1rem 1rem 0;
-        margin: 0 3% 0 0;
-      }
-
-      @include desktop {
-        width: 50%;
-        padding: 1rem 1.25rem 0;
-      }
-    }
-
-    &-cancel {
-      border: 1px solid $secondary-medium;
-      background-color: $primary-light;
-      height: 2.2rem;
-      width: 180%;
-      border-radius: 1.25rem;
-      font-family: "Titillium Web";
-      font-weight: 600;
-
-      @include tablet {
-        width: 200%;
-        height: 2.5rem;
-      }
-
-      @include desktop {
-        width: 280%;
-      }
-    }
-
-    &-add {
-      border: none;
-      background-color: $primary-blue;
-      height: 2.2rem;
-      border-radius: 1.25rem;
-      font-family: "Titillium Web";
-      font-weight: 600;
-      color: $primary-light;
+  &__buttons-container {
+    width: 100%;
+    @include flex(space-between, center, row);
+    @include tablet {
+      @include flex(flex-end, center, row);
       width: 40%;
+    }
+  }
 
-      @include tablet {
-        width: 43%;
-        height: 2.5rem;
-      }
+  &__buttons-cancel {
+    width: 48%;
+    background-color: $primary-light;
+    border: 1px solid $secondary-medium;
+    &:hover {
+      color: $primary-light;
+      background-color: $background-dark;
+      border: 1px solid $background-dark;
+    }
+    @include tablet {
+      width: fit-content;
+      margin-right: 1.5rem;
+    }
+  }
 
-      @include desktop {
-        width: 43%;
-      }
+  &__buttons-add {
+    width: 48%;
+    padding: 0 0.5rem;
+    color: $primary-light;
+    &:hover {
+      border: 1px solid $background-dark;
+    }
+    @include tablet {
+      width: fit-content;
+      padding: 0 1rem;
     }
   }
 

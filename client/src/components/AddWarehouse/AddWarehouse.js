@@ -19,6 +19,10 @@ class AddWarehouse extends React.Component {
     emailStrcheck: false,
   };
 
+  handleCancel = () => {
+    this.props.history.goBack();
+  };
+
   submitForm = (e) => {
     e.preventDefault();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -296,11 +300,12 @@ class AddWarehouse extends React.Component {
             </div>
             <div className="newWarehouse__buttons">
               <div className="newWarehouse__buttons-container">
-                <Link to="/warehouse">
-                  <button className="newWarehouse__buttons-cancel">
-                    Cancel
-                  </button>
-                </Link>
+                <button
+                  className="newWarehouse__buttons-cancel"
+                  onClick={this.handleCancel}
+                >
+                  Cancel
+                </button>
                 <button className="newWarehouse__buttons-add" type="submit">
                   + Add Warehouse
                 </button>
