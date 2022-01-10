@@ -35,6 +35,12 @@
     }
   }
 
+  &__back-icon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &__title {
     margin-left: 0.5rem;
     @include mixins.mobil-page-header;
