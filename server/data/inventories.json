@@ -96,8 +96,8 @@
     "itemName": "Television",
     "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
     "category": "Electronics",
-    "status": "Out of Stock",
-    "quantity": 0
+    "status": "In Stock",
+    "quantity": "1"
   },
   {
     "id": "f3e13429-b5e9-4a50-b01c-75fb07cefded",
