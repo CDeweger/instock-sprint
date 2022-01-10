@@ -1,0 +1,261 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.editInventory {
+    margin: 0 1rem;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    color: $primary-dark;
+    position: relative;
+    top: -2.5rem;
+    z-index: 2;
+    background-color: $primary-light;
+    border-radius: 0.2rem;
+
+    @include tablet {
+        margin: 0 2rem;
+        font-size: 0.9rem;
+        line-height: 1.4rem;
+        top: -6.56rem;
+    }
+
+    @include desktop {
+        margin: 0 8.13rem;
+    }
+
+    &__container {
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__header-title {
+        position: relative;
+        top: -0.25rem;
+        margin-left: 0.75rem;
+
+        @include tablet {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+    }
+
+    &__details {
+
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid $secondary-medium;
+
+        @include tablet {
+            width:50%;
+            border-bottom: unset;
+            border-right: 1px solid $secondary-medium;
+            padding: 0 1.5rem;
+            margin: 1rem 0;
+        }
+
+        &-title {
+            display: flex;
+            align-items: center;
+            padding: 2rem 1.5rem 1rem 1.5rem;
+            border-bottom: 1px solid $secondary-medium;
+        }
+    }
+
+    &__element {
+
+        &-label {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.81rem;
+            line-height: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+
+            @include tablet {
+                font-size: 0.9rem;
+                line-height: 1.38rem;
+            }
+        }
+    }
+
+    &__availability {
+        padding: 1rem 1.5rem;
+
+        @include tablet {
+            width: 50%;
+        }
+
+        &-title {
+            margin-bottom: 1rem;
+
+            @include tablet {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+        }
+    }
+
+    &__description {
+        resize: none;
+        height: 7.5rem;
+    }
+
+    &__radio {
+        margin-bottom: 1rem;
+
+        &-label {
+            margin-bottom: 0.25rem;
+        }
+
+        &-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        &-button {
+            width: 50%;
+            position: relative;
+        }
+
+        &-inactive {
+            color: $secondary-dark;
+        }
+
+        &-value {
+            margin-left: 0.5rem;
+            position: relative;
+            top: -3px;
+        }
+
+        &__text-input {
+            font-family: "Titillium Web";
+            font-size: 0.81rem;
+            line-height: 1.25rem;
+            margin: 4px 0 0 0;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            box-sizing: border-box;
+            height: 2.25rem;
+            border: 1px solid $secondary-medium;
+            background-color: $primary-light;
+            border-radius: 1.25rem;
+
+            &:focus {
+                outline: none;
+                border: 1px solid $primary-blue;
+            }
+        }
+
+
+    }
+
+    &__input-select {
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+    }
+
+    &__select-input {
+        font-family: "Titillium Web";
+        font-size: 0.81rem;
+        line-height: 1.25rem;
+        margin: 4px 0 0 0;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        height: 2.25rem;
+        border: 1px solid $secondary-medium;
+        background-color: $primary-light;
+        border-radius: 1.25rem;
+        appearance: none;
+        background-image: url(../../assets/icons/arrow_drop_down-24px.svg);
+        background-repeat: no-repeat;
+        background-position-x: 97%;
+        background-position-y: 5px;
+
+        &:focus {
+            outline: none;
+            border: 1px solid $primary-blue;
+        }
+    }
+
+    &__actions {
+        background-color: rgba(247, 248, 249, 0.7);
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
+    }
+
+    &__button-save {
+        color: $primary-light;
+        background-color: $primary-blue;
+        width: 8rem;
+        border: none;
+        border-radius: 1.25rem;
+        height: 2.25rem;
+        font-family: "Titillium Web";
+        font-size: 0.81rem;
+        line-height: 1.25rem;
+        font-weight: 600;
+
+        &:hover {
+            background-color: $background-dark;
+        }
+
+        @include tablet {
+            width: 3.81rem;
+            height: 2.38rem;
+            margin-left: 1rem;
+        }
+    }
+
+    &__button-cancel {
+        color: $secondary-dark;
+        cursor: pointer;
+        background-color: $primary-light;
+        width: 8rem;
+        border: 1px solid $secondary-medium;
+        border-radius: 1.25rem;
+        height: 2.25rem;
+        font-family: "Titillium Web";
+        font-size: 0.81rem;
+        line-height: 1.25rem;
+        font-weight: 600;
+
+        &:hover {
+            border: 1px solid $primary-blue;
+            color: $primary-blue;
+        }
+
+        @include tablet {
+            width: 4.5rem;
+            height: 2.38rem;
+        }
+
+    }
+
+    &__warning {
+        display: flex;
+        position: relative;
+        top: -0.75rem;
+    }
+
+    &__error-icon {
+        height: 1rem;
+    }
+
+    &__warning-text {
+        font-size: 0.75rem;
+        line-height: 1.13rem;
+        color: $supporting-red;
+        margin: 0 0 0 5px;
+    }
+
+}
