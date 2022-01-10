@@ -31,7 +31,7 @@ class InventoryItemDetails extends Component {
       <div>
         <div className="item-container">
           <div className="item-container__header">
-            <Link to={`/`} className="item-container__link-back">
+            <Link to={`/inventory`} className="item-container__link-back">
               <svg
                 width="24"
                 height="24"
@@ -50,7 +50,10 @@ class InventoryItemDetails extends Component {
             </h1>
 
             <div className="item-container__edit-background">
-              <Link to={`/`} className="item-container__link">
+              <Link
+                to={`/inventory/${this.state.inventoryData.id}/edit`}
+                className="item-container__link"
+              >
                 <svg
                   className="item-container__edit-img"
                   width="24"
