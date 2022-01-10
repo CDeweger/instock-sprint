@@ -38,45 +38,92 @@ export default class EditWarehouse extends Component {
     this.props.history.goBack();
   };
 
+  handleCheckName = (e) => {
+    if (e.target.value.trim() === "" || e.target.value === " ") {
+      this.setState({ warehousecheck: true });
+    } else {
+      this.setState({ warehousecheck: false });
+    }
+  };
+
+  handleAddressCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ addresscheck: true });
+    } else {
+      this.setState({ addresscheck: false });
+    }
+  };
+
+  handleCityCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ citycheck: true });
+    } else {
+      this.setState({ citycheck: false });
+    }
+  };
+
+  handleCountryCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ countrycheck: true });
+    } else {
+      this.setState({ countrycheck: false });
+    }
+  };
+
+  handleNameCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ namecheck: true });
+    } else {
+      this.setState({ namecheck: false });
+    }
+  };
+
+  handlePositionCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ positioncheck: true });
+    } else {
+      this.setState({ positioncheck: false });
+    }
+  };
+
+  handleNumberCheck = (e) => {
+    const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/;
+    if (e.target.value.trim() === "") {
+      this.setState({ numbercheck: true });
+    } else {
+      if (!phoneRegex.test(e.target.value)) {
+        this.setState({ numberStrcheck: true, numbercheck: false });
+      } else {
+        this.setState({ numberStrcheck: false, numbercheck: false });
+      }
+    }
+  };
+
+  handleEmailCheck = (e) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (e.target.value.trim() === "") {
+      this.setState({ emailcheck: true });
+    } else {
+      if (!emailRegex.test(e.target.value)) {
+        this.setState({ emailStrcheck: true, emailcheck: false });
+      } else {
+        this.setState({ emailStrcheck: false, emailcheck: false });
+      }
+    }
+  };
+
   handleEditWarehouse = (e) => {
     e.preventDefault();
-    console.log(e.target.phone.value);
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/;
-
-    if (e.target.name.value === "") {
-      this.setState({ warehousecheck: true });
-    } else if (e.target.address.value === "") {
-      this.setState({ addresscheck: true });
-    } else if (e.target.city.value === "") {
-      this.setState({ citycheck: true });
-    } else if (e.target.country.value === "") {
-      this.setState({ countrycheck: true });
-    } else if (e.target.contactName.value === "") {
-      this.setState({ namecheck: true });
-    } else if (e.target.position.value === "") {
-      this.setState({ positioncheck: true });
-    } else if (e.target.phone.value === "") {
-      this.setState({ numbercheck: true, numberStrcheck: false });
-    } else if (e.target.email.value === "") {
-      this.setState({ emailcheck: true, emailStrcheck: false });
-    } else if (!emailRegex.test(e.target.email.value)) {
-      this.setState({ emailStrcheck: true, emailcheck: false });
-    } else if (!phoneRegex.test(e.target.phone.value)) {
-      this.setState({ numberStrcheck: true, emailcheck: false });
-    } else {
-      this.setState({
-        warehousecheck: false,
-        addresscheck: false,
-        citycheck: false,
-        countrycheck: false,
-        namecheck: false,
-        positioncheck: false,
-        numbercheck: false,
-        emailcheck: false,
-      });
-
+    if (
+      !this.state.warehousecheck &&
+      !this.state.addresscheck &&
+      !this.state.citycheck &&
+      !this.state.countrycheck &&
+      !this.state.namecheck &&
+      !this.state.positioncheck &&
+      !this.state.numbercheck &&
+      !this.state.emailcheck
+    ) {
       const warehouseUpdatedDetails = {
         name: e.target.name.value,
         address: e.target.address.value,
@@ -95,9 +142,6 @@ export default class EditWarehouse extends Component {
           `http://localhost:8080/warehouse/${this.props.match.params.id}/edit`,
           warehouseUpdatedDetails
         )
-        .then((res) => {
-          console.log(res);
-        })
         .catch((e) => {
           console.error(e);
           alert("something went wrong");
@@ -129,7 +173,7 @@ export default class EditWarehouse extends Component {
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              onClick={this.handleCancel}
+              onChange={this.handleCancel}
             >
               <path
                 d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
@@ -158,6 +202,7 @@ export default class EditWarehouse extends Component {
                     name="name"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.name}
+                    onChange={this.handleCheckName}
                   ></input>
                   {this.state.warehousecheck && (
                     <div className="editWH-form__warning">
@@ -186,6 +231,7 @@ export default class EditWarehouse extends Component {
                     name="address"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.address}
+                    onChange={this.handleAddressCheck}
                   ></input>
                   {this.state.addresscheck && (
                     <div className="editWH-form__warning">
@@ -214,6 +260,7 @@ export default class EditWarehouse extends Component {
                     name="city"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.city}
+                    onChange={this.handleCityCheck}
                   ></input>
                   {this.state.citycheck && (
                     <div className="editWH-form__warning">
@@ -242,6 +289,7 @@ export default class EditWarehouse extends Component {
                     name="country"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.country}
+                    onChange={this.handleCountryCheck}
                   ></input>
                   {this.state.countrycheck && (
                     <div className="editWH-form__warning">
@@ -270,6 +318,7 @@ export default class EditWarehouse extends Component {
                     name="contactName"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.contact.name}
+                    onChange={this.handleNameCheck}
                   ></input>
                   {this.state.namecheck && (
                     <div className="editWH-form__warning">
@@ -298,6 +347,7 @@ export default class EditWarehouse extends Component {
                     name="position"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.contact.position}
+                    onChange={this.handlePositionCheck}
                   ></input>
                   {this.state.positioncheck && (
                     <div className="editWH-form__warning">
@@ -323,6 +373,7 @@ export default class EditWarehouse extends Component {
                     name="phone"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.contact.phone}
+                    onChange={this.handleNumberCheck}
                   ></input>
                   {this.state.numbercheck && (
                     <div className="editWH-form__warning">
@@ -360,6 +411,7 @@ export default class EditWarehouse extends Component {
                     name="email"
                     className="editWH-form__input"
                     defaultValue={this.state.warehouseDetails.contact.email}
+                    onChange={this.handleEmailCheck}
                   ></input>
                   {this.state.emailcheck && (
                     <div className="editWH-form__warning">
@@ -381,7 +433,7 @@ export default class EditWarehouse extends Component {
                         className="editWH-form__warning-icon"
                       />
                       <p className="editWH-form__warning-text">
-                        Valid Phone Number is required
+                        Valid Email is required
                       </p>
                     </div>
                   )}
