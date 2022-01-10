@@ -91,7 +91,7 @@ export default class WarehouseInventoryCard extends Component {
             {/* Please add pathname: "./inventory/:id/warehouse/:id/edit" ones edit inventory component is setup*/}
             <Link
               to={{
-                pathname: "./inventory/",
+                pathname: `/inventory/${this.props.id}/edit`,
                 state: {},
               }}
             >
