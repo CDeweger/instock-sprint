@@ -688,15 +688,5 @@
     "category": "Accessories",
     "status": "Out of Stock",
     "quantity": 0
-  },
-  {
-    "id": "8c558776-725d-4715-b038-c31c8a32a9ca",
-    "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-    "warehouseName": "Granville",
-    "itemName": "ddff",
-    "description": "fsss",
-    "category": "Gear",
-    "status": "In Stock",
-    "quantity": 0
   }
 ]
