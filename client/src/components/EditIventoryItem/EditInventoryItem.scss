@@ -82,16 +82,18 @@
             width:50%;
             border-bottom: unset;
             border-right: 1px solid $secondary-medium;
-            padding: 0 1.5rem;
-            margin: 1rem 0;
+
         }
 
         &-title {
-            display: flex;
-            align-items: center;
-            padding: 2rem 1.5rem 1rem 1.5rem;
-            border-bottom: 1px solid $secondary-medium;
-        }
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0 0 1rem;
+      
+            @include desktop {
+              font-size: 1.5rem;
+            }
+          }
     }
 
     &__element {
