@@ -7,7 +7,7 @@
     "description": "This sleek, 40L backpack is completely waterproof making it perfect for adventures or the daily commute.",
     "category": "Gear",
     "status": "In Stock",
-    "quantity": "0"
+    "quantity": "500"
   },
   {
     "id": "72c826ba-fde0-4aae-9aaf-95c6072946cd",
@@ -36,8 +36,8 @@
     "itemName": "Toothpaste",
     "description": "This toothpaste is specially formulated to protect enamel and whiten teeth with natural ingredients.",
     "category": "Health",
-    "status": "Out of Stock",
-    "quantity": 0
+    "status": "In Stock",
+    "quantity": "4000"
   },
   {
     "id": "f19b0b8a-9cca-4567-9af7-4016a15e038a",
