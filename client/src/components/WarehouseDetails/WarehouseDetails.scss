@@ -38,6 +38,12 @@
     }
   }
 
+  &__back-icon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &__headline {
     @include mixins.flex(flex-start, center, row);
   }
