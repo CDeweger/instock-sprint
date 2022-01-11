@@ -7,7 +7,7 @@
     "description": "This sleek, 40L backpack is completely waterproof making it perfect for adventures or the daily commute.",
     "category": "Gear",
     "status": "In Stock",
-    "quantity": "0"
+    "quantity": "0.5"
   },
   {
     "id": "72c826ba-fde0-4aae-9aaf-95c6072946cd",
@@ -588,5 +588,15 @@
     "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
+  },
+  {
+    "id": "bc34852e-fb5f-4679-abd7-5e7e0ce80621",
+    "warehouseID": "89898957-04ba-4bd0-9f5c-a7aea7447963",
+    "warehouseName": "Santa Monica",
+    "itemName": "eeee",
+    "description": "dd",
+    "category": "Accessories",
+    "status": "In Stock",
+    "quantity": "1"
   }
 ]

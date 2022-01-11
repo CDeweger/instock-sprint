@@ -290,6 +290,7 @@ export default class EditInventoryItem extends Component {
                   </div>
                 </div>
               </div>
+              
               {this.state.status === "In Stock" && (
                 <label
                   htmlFor="quantity"

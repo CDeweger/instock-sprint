@@ -32,6 +32,36 @@
         }
     }
 
+    &__header {
+        width: 100%;
+        padding: 1.25rem 1.25rem 1rem;
+        margin: 0 0 5%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $secondary-medium;
+    
+        @include desktop {
+          margin: 0 0 2%;
+        }
+    
+        &-back {
+          width: 1.5rem;
+          height: 1.5rem;
+          margin: 0 3% 0 0;
+        }
+    
+        &-title {
+          font-size: 1.7rem;
+          font-weight: 600;
+          margin: 0 0 0 4%;
+    
+          @include tablet {
+            font-size: 2rem;
+          }
+        }
+      }
+
     &__header-title {
         position: relative;
         top: -0.25rem;
