@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: flex-end;
 
     @include tablet {
       display: flex;
@@ -45,9 +46,17 @@
   &-info {
     width: 40%;
     padding: 1rem 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: baseline;
+    justify-content: space-between;
+    vertical-align: middle;
+
 
     @include tablet {
       padding: 0;
+      flex-direction: row;
       width: auto;
       text-align: left;
     }
@@ -101,13 +110,16 @@
 
   &-name {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    align-self: center;
     width: 100%;
+    text-align: center;
+    margin: 0 auto;
   }
 
   &-action {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: baseline;
     width: 90%;
     padding: 1rem 1rem 2rem;
@@ -134,4 +146,9 @@
     position: relative;
     left: 5px;
   }
+}
+
+.out-of-stock {
+  // background-color: white;
+
 }

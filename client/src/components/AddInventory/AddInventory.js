@@ -8,8 +8,8 @@ import "./AddInventory.scss";
 
 class AddInventory extends Component {
   state = {
-    warehouse: "Please select",
-    category: "Please select",
+    warehouse: "Manhattan",
+    category: "Gear",
     status: "In Stock",
   };
 
@@ -37,12 +37,12 @@ class AddInventory extends Component {
     this.setState({ warehouse: e.target.value });
   };
 
-  getWarehouseID = (arr) => {
-    const warehouseElement = arr.find(
-      (element) => element.warehouseName === this.state.warehouse
-    );
-    return warehouseElement.warehouseID;
-  };
+  // getWarehouseID = (arr) => {
+  //   const warehouseElement = arr.find(
+  //     (element) => element.warehouseName === this.state.warehouse
+  //   );
+  //   return warehouseElement.warehouseID;
+  // };
 
   //   handle form submit
   handleSubmit = (event) => {
@@ -65,7 +65,7 @@ class AddInventory extends Component {
     const category = this.state.category;
     const warehouse = this.state.warehouse;
     const inventoriesData = this.props.location.state.inventoriesData;
-    const warehouseID = this.getWarehouseID(inventoriesData);
+    // const warehouseID = this.getWarehouseID(inventoriesData);
 
     console.log(
       itemName,
@@ -74,12 +74,12 @@ class AddInventory extends Component {
       status,
       category,
       warehouse,
-      warehouseID
+      // warehouseID
     );
 
     // make post request
     const body = {
-      warehouseID: warehouseID,
+      // warehouseID: warehouseID,
       warehouseName: warehouse,
       itemName: itemName,
       description: description,
@@ -212,6 +212,7 @@ class AddInventory extends Component {
                       id="in-stock"
                       name="status"
                       onChange={this.handleStatusChange}
+                      
                       className="add-inventory__input-select"
                     />
                     <label
@@ -271,9 +272,8 @@ class AddInventory extends Component {
                   Quantity
                   <input
                     type="number"
-                    min="0"
                     onKeyPress={this.handleKeyPress}
-                    placeholder="0"
+                    placeholder="1"
                     name="quantity"
                     min="1"
                     step="1"
