@@ -6,8 +6,8 @@
     "itemName": "Backpack",
     "description": "This sleek, 40L backpack is completely waterproof making it perfect for adventures or the daily commute.",
     "category": "Gear",
-    "status": "In Stock",
-    "quantity": "500"
+    "status": "Out of Stock",
+    "quantity": 0
   },
   {
     "id": "72c826ba-fde0-4aae-9aaf-95c6072946cd",
