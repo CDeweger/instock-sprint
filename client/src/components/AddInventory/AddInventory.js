@@ -5,8 +5,8 @@ import "./AddInventory.scss";
 
 class AddInventory extends Component {
   state = {
-    warehouse: "Please select",
-    category: "Please select",
+    warehouse: "",
+    category: "",
     status: "In Stock",
   };
 
@@ -101,28 +101,37 @@ class AddInventory extends Component {
           <div>
             <h2>Item Details</h2>
             <label htmlFor="itemName">Item Name</label>
-            <input type="text" name="itemName" placeholder="Item Name" />
+            <input
+              type="text"
+              name="itemName"
+              placeholder="Item Name"
+              required
+            />
             <label htmlFor="description">Description</label>
             <input
+              required
               type="text"
               name="description"
               placeholder="Please enter a brief description"
             />
             <h3>Category</h3>
             <select
+              required
               name=""
               value={this.state.category}
               id=""
               onChange={this.handleCategoryChange}
             >
-              <option value="Please select">Please select</option>
-              {/* {this.props.location.state.categories.map((option) => {
+              <option value="" disabled selected>
+                Select your option
+              </option>
+              {this.props.location.state.categories.map((option) => {
                 return (
                   <option key={option} value={option}>
                     {option}
                   </option>
                 );
-              })} */}
+              })}
             </select>
           </div>
           <div>
@@ -161,18 +170,21 @@ class AddInventory extends Component {
             </div>
             <h3>Warehouse</h3>
             <select
+              required
               name=""
               value={this.state.warehouse}
               id=""
               onChange={this.handleWarehouseChange}
             >
-              <option value="Please select">Please select</option>
-              {/* {this.props.location.state.warehouses.map((option) => {
+              <option value="" disabled selected>
+                Select your option
+              </option>
+              {this.props.location.state.warehouses.map((option) => {
                 return (
                   <option key={option} value={option}>
                     {option}
                   </option>
-                ); */}
+                );
               })}
             </select>
           </div>
