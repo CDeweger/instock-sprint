@@ -275,7 +275,6 @@ class AddInventory extends Component {
                     name="quantity"
                     min="1"
                     step="1"
-                    required
                     className="add-inventory__text-input add-inventory__item-quantity"
                   />
                 </label>
