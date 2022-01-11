@@ -23,6 +23,10 @@
     width: 80%;
   }
 
+  &__goback {
+    cursor: pointer;
+  }
+
   &__top {
     width: 100%;
     @include mixins.flex(space-between, center, row);

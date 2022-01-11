@@ -167,7 +167,7 @@ export default class EditWarehouse extends Component {
       <div className="edit-container">
         <section className="edit-warehouse">
           <div className="edit-warehouse__top">
-            <svg
+            <svg className="edit-warehouse__goback"
               width="24"
               height="24"
               viewBox="0 0 24 24"

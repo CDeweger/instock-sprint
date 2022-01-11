@@ -48,7 +48,7 @@ export default class WarehouseDetails extends Component {
             <section className="whDetails">
               <div className="whDetails__top">
                 <div className="whDetails__headline">
-                  <svg
+                  <svg className="whDetails__goback"
                     width="24"
                     height="24"
                     onClick={this.handleGoback}
