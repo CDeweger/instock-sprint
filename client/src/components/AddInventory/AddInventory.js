@@ -37,12 +37,12 @@ class AddInventory extends Component {
     this.setState({ warehouse: e.target.value });
   };
 
-  // getWarehouseID = (arr) => {
-  //   const warehouseElement = arr.find(
-  //     (element) => element.warehouseName === this.state.warehouse
-  //   );
-  //   return warehouseElement.warehouseID;
-  // };
+  getWarehouseID = (arr) => {
+    const warehouseElement = arr.find(
+      (element) => element.warehouseName === this.state.warehouse
+    );
+    return warehouseElement.warehouseID;
+  };
 
   //   handle form submit
   handleSubmit = (event) => {
@@ -65,7 +65,7 @@ class AddInventory extends Component {
     const category = this.state.category;
     const warehouse = this.state.warehouse;
     const inventoriesData = this.props.location.state.inventoriesData;
-    // const warehouseID = this.getWarehouseID(inventoriesData);
+    const warehouseID = this.getWarehouseID(inventoriesData);
 
     console.log(
       itemName,
@@ -74,12 +74,12 @@ class AddInventory extends Component {
       status,
       category,
       warehouse,
-      // warehouseID
+      warehouseID
     );
 
     // make post request
     const body = {
-      // warehouseID: warehouseID,
+      warehouseID: warehouseID,
       warehouseName: warehouse,
       itemName: itemName,
       description: description,
@@ -290,7 +290,7 @@ class AddInventory extends Component {
                   onChange={this.handleWarehouseChange}
                   className="add-inventory__select-input add-inventory__warehouse"
                 >
-                  {/* <option value="Please select">Please select</option> */}
+                  <option value="Please select">Please select</option>
                   {this.props.location.state.warehouses.map((option) => {
                     return (
                       <option key={option} value={option}>
