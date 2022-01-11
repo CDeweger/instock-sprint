@@ -66,18 +66,14 @@ class InventoryCard extends React.Component {
               </div>
             </div>
 
-            <div
-              // className={
-              //   this.props.status === "Out of Stock"
-              //     ? "out-of-stock"
-              //     : "in-stock"
-              // }
+            <div className="inventory__card-info">
+            <h3 className="inventory__card-title">Status</h3>
+            <div 
               className={this.props.quantity < 1 ? "out-of-stock" : "in-stock"}
             >
-              <h3 className="inventory__card-title">Status</h3>
               <div className="inventory__card-name">
                 {/* <p className="inventory__card-text">{this.props.status}</p> */}
-                <p className="inventory__card-text">
+                <p className="inventory__card-text inventory__card-out">
                   {this.props.quantity < 1 ? (
                     <span>Out of Stock</span>
                   ) : (
@@ -85,6 +81,7 @@ class InventoryCard extends React.Component {
                   )}
                 </p>
               </div>
+            </div>
             </div>
 
             <div className="inventory__card-info">
@@ -101,7 +98,7 @@ class InventoryCard extends React.Component {
               <p className="inventory__card-text">{this.props.warehouseName}</p>
             </div>
           </div>
-          <div>
+          <div className="inventory__card-action">
             <img src={deleteIcon} alt="Delete icon" onClick={this.showModal} />
             {/* Please add pathname: "./inventory/:id/warehouse/:id/edit" ones edit inventory component is setup*/}
             <Link

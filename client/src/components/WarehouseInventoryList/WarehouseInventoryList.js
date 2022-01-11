@@ -63,14 +63,7 @@ class WarehouseInventoryList extends Component {
               />
             </div>
 
-            <div className="inventory__head-inventoryItem">
-              <h3 className="inventory__head-title">WAREHOUSE</h3>
-              <img
-                className="inventory__sortingImg"
-                src={SortIcon}
-                alt="sort icon"
-              />
-            </div>
+            
           </div>
 
           <div className="inventory__head-action">

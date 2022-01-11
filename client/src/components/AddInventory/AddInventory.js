@@ -8,8 +8,8 @@ import "./AddInventory.scss";
 
 class AddInventory extends Component {
   state = {
-    warehouse: "Please select",
-    category: "Please select",
+    warehouse: "Manhattan",
+    category: "Gear",
     status: "In Stock",
   };
 
@@ -182,7 +182,7 @@ class AddInventory extends Component {
                   id=""
                   onChange={this.handleCategoryChange}
                 >
-                  {/* <option value="Please select">Please select</option> */}
+                  <option value="Please select" disabled selected>Please select</option>
                   {this.props.location.state.categories.map((option) => {
                     return (
                       <option key={option} value={option}>
@@ -212,6 +212,7 @@ class AddInventory extends Component {
                       id="in-stock"
                       name="status"
                       onChange={this.handleStatusChange}
+                      
                       className="add-inventory__input-select"
                     />
                     <label
@@ -271,9 +272,8 @@ class AddInventory extends Component {
                   Quantity
                   <input
                     type="number"
-                    min="0"
                     onKeyPress={this.handleKeyPress}
-                    placeholder="0"
+                    placeholder="1"
                     name="quantity"
                     min="1"
                     step="1"
@@ -290,7 +290,7 @@ class AddInventory extends Component {
                   onChange={this.handleWarehouseChange}
                   className="add-inventory__select-input add-inventory__warehouse"
                 >
-                  {/* <option value="Please select">Please select</option> */}
+                  <option value="Please select" disabled selected>Please Select</option>
                   {this.props.location.state.warehouses.map((option) => {
                     return (
                       <option key={option} value={option}>

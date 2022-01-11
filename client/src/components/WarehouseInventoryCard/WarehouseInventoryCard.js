@@ -4,6 +4,7 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
 import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
 import React, { Component } from "react";
+import "../InventoryCard/InventoryCard.scss";
 
 export default class WarehouseInventoryCard extends Component {
   constructor(props) {
@@ -64,16 +65,18 @@ export default class WarehouseInventoryCard extends Component {
               </div>
             </div>
 
-            <div
-              className={
-                this.props.status === "Out of Stock"
-                  ? "out-of-stock"
-                  : "in-stock"
-              }
-            >
+            <div className="inventory__card-info">
               <h3 className="inventory__card-title">Status</h3>
-              <div className="inventory__card-name">
-                <p className="inventory__card-text">{this.props.status}</p>
+              <div
+                className={
+                  this.props.status === "Out of Stock"
+                    ? "out-of-stock"
+                    : "in-stock"
+                }
+              >
+                <div className="inventory__card-name">
+                  <p className="inventory__card-text">{this.props.status}</p>
+                </div>
               </div>
             </div>
 
@@ -86,7 +89,7 @@ export default class WarehouseInventoryCard extends Component {
               </div>
             </div>
           </div>
-          <div>
+          <div className="inventory__card-action">
             <img src={deleteIcon} alt="Delete icon" onClick={this.showModal} />
             {/* Please add pathname: "./inventory/:id/warehouse/:id/edit" ones edit inventory component is setup*/}
             <Link

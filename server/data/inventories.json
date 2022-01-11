@@ -206,8 +206,8 @@
     "itemName": "Television",
     "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
     "category": "Electronics",
-    "status": "Out of Stock",
-    "quantity": 0
+    "status": "In Stock",
+    "quantity": "1"
   },
   {
     "id": "f3e13429-b5e9-4a50-b01c-75fb07cefded",
@@ -686,16 +686,6 @@
     "itemName": "Watch",
     "description": "Crafted from premium materials including a full-grain leather strap and a stainless steel case, this watch features swiss movement and is waterproof up to 5 ATM.",
     "category": "Accessories",
-    "status": "Out of Stock",
-    "quantity": 0
-  },
-  {
-    "id": "853bcd65-b0b3-4f9c-844f-8b4133d7df6f",
-    "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
-    "warehouseName": "Montreal",
-    "itemName": "Soap",
-    "description": "Organic and hypoallergenic, this soap is safe to use for all skin types.",
-    "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
   }
