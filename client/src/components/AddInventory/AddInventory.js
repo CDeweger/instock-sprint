@@ -150,7 +150,7 @@ class AddInventory extends Component {
                 className="add-inventory__element-label"
               >
                 Description
-                <input
+                <textarea
                   required
                   type="text"
                   name="description"
