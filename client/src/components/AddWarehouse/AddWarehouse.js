@@ -23,54 +23,140 @@ class AddWarehouse extends React.Component {
     this.props.history.goBack();
   };
 
+  handleCheckName = (e) => {
+    if (e.target.value.trim() === "" || e.target.value === " ") {
+      this.setState({ warehousecheck: true });
+    } else {
+      this.setState({ warehousecheck: false });
+    }
+  };
+
+  handleAddressCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ addresscheck: true });
+    } else {
+      this.setState({ addresscheck: false });
+    }
+  };
+
+  handleCityCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ citycheck: true });
+    } else {
+      this.setState({ citycheck: false });
+    }
+  };
+
+  handleCountryCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ countrycheck: true });
+    } else {
+      this.setState({ countrycheck: false });
+    }
+  };
+
+  handleNameCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ namecheck: true });
+    } else {
+      this.setState({ namecheck: false });
+    }
+  };
+
+  handlePositionCheck = (e) => {
+    if (e.target.value.trim() === "") {
+      this.setState({ positioncheck: true });
+    } else {
+      this.setState({ positioncheck: false });
+    }
+  };
+
+  handleNumberCheck = (e) => {
+    const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/;
+    if (e.target.value.trim() === "") {
+      this.setState({ numbercheck: true });
+    } else {
+      if (!phoneRegex.test(e.target.value)) {
+        this.setState({ numberStrcheck: true, numbercheck: false });
+      } else {
+        this.setState({ numberStrcheck: false, numbercheck: false });
+      }
+    }
+  };
+
+  handleEmailCheck = (e) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (e.target.value.trim() === "") {
+      this.setState({ emailcheck: true });
+    } else {
+      if (!emailRegex.test(e.target.value)) {
+        this.setState({ emailStrcheck: true, emailcheck: false });
+      } else {
+        this.setState({ emailStrcheck: false, emailcheck: false });
+      }
+    }
+  };
+
   submitForm = (e) => {
     e.preventDefault();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/;
-
-    if (e.target.warehouseName.value === "") {
+    if (e.target.warehouseName.value.trim() === "") {
       this.setState({ warehousecheck: true });
-    } else if (e.target.address.value === "") {
+    }
+    if (e.target.address.value.trim() === "") {
       this.setState({ addresscheck: true });
-    } else if (e.target.city.value === "") {
+    }
+    if (e.target.city.value.trim() === "") {
       this.setState({ citycheck: true });
-    } else if (e.target.country.value === "") {
+    }
+    if (e.target.country.value.trim() === "") {
       this.setState({ countrycheck: true });
-    } else if (e.target.contactName.value === "") {
+    }
+    if (e.target.contactName.value.trim() === "") {
       this.setState({ namecheck: true });
-    } else if (e.target.contactPosition.value === "") {
+    }
+    if (e.target.contactPosition.value.trim() === "") {
       this.setState({ positioncheck: true });
-    } else if (e.target.contactNumber.value === "") {
-      this.setState({ numbercheck: true, numberStrcheck: false });
-    } else if (e.target.contactEmail.value === "") {
-      this.setState({ emailcheck: true, emailStrcheck: false });
-    } else if (!emailRegex.test(e.target.contactEmail.value)) {
-      this.setState({ emailStrcheck: true, emailcheck: false });
-    } else if (!phoneRegex.test(e.target.contactNumber.value)) {
-      this.setState({ numberStrcheck: true, emailcheck: false });
-    } else {
-      this.setState({
-        warehousecheck: false,
-        addresscheck: false,
-        citycheck: false,
-        countrycheck: false,
-        namecheck: false,
-        positioncheck: false,
-        numbercheck: false,
-        emailcheck: false,
-      });
+    }
+    if (e.target.contactNumber.value.trim() === "") {
+      this.setState({ numbercheck: true });
+    }
+    if (e.target.contactEmail.value.trim() === "") {
+      this.setState({ emailcheck: true });
+    }
 
-      axios.post("http://localhost:8080/warehouse", {
-        warehouseName: e.target.warehouseName.value,
-        address: e.target.address.value,
-        city: e.target.city.value,
-        country: e.target.country.value,
-        contactName: e.target.contactName.value,
-        position: e.target.contactPosition.value,
-        phoneNumber: e.target.contactNumber.value,
-        email: e.target.contactEmail.value,
-      });
-
+    if (
+      !this.state.warehousecheck &&
+      !this.state.addresscheck &&
+      !this.state.citycheck &&
+      !this.state.countrycheck &&
+      !this.state.namecheck &&
+      !this.state.positioncheck &&
+      !this.state.numbercheck &&
+      !this.state.emailcheck &&
+      e.target.warehouseName.value &&
+      e.target.address.value &&
+      e.target.city.value &&
+      e.target.country.value &&
+      e.target.contactName.value &&
+      e.target.contactPosition.value &&
+      e.target.contactNumber.value &&
+      e.target.contactEmail.value
+    ) {
+      axios
+        .post("http://localhost:8080/warehouse", {
+          warehouseName: e.target.warehouseName.value,
+          address: e.target.address.value,
+          city: e.target.city.value,
+          country: e.target.country.value,
+          contactName: e.target.contactName.value,
+          position: e.target.contactPosition.value,
+          phoneNumber: e.target.contactNumber.value,
+          email: e.target.contactEmail.value,
+        })
+        .catch((e) => {
+          console.error(e);
+          alert("something went wrong");
+        });
       this.props.history.push("/warehouse");
     }
   };
@@ -105,6 +191,7 @@ class AddWarehouse extends React.Component {
                       className="newWarehouse__details-input"
                       name="warehouseName"
                       placeholder="Warehouse Name"
+                      onChange={this.handleCheckName}
                     ></input>
                     {this.state.warehousecheck && (
                       <div className="newWarehouse__warning">
@@ -127,6 +214,7 @@ class AddWarehouse extends React.Component {
                       className="newWarehouse__details-input"
                       name="address"
                       placeholder="Street Address"
+                      onChange={this.handleAddressCheck}
                     ></input>
                     {this.state.addresscheck && (
                       <div className="newWarehouse__warning">
@@ -147,6 +235,7 @@ class AddWarehouse extends React.Component {
                       className="newWarehouse__details-input"
                       name="city"
                       placeholder="City"
+                      onChange={this.handleCityCheck}
                     ></input>
                     {this.state.citycheck && (
                       <div className="newWarehouse__warning">
@@ -168,6 +257,7 @@ class AddWarehouse extends React.Component {
                       className="newWarehouse__details-input"
                       name="country"
                       placeholder="Country"
+                      onChange={this.handleCountryCheck}
                     ></input>
                     {this.state.countrycheck && (
                       <div className="newWarehouse__warning">
@@ -194,6 +284,7 @@ class AddWarehouse extends React.Component {
                       className="newWarehouse__details-input"
                       name="contactName"
                       placeholder="Contact name"
+                      onChange={this.handleNameCheck}
                     ></input>
                     {this.state.namecheck && (
                       <div className="newWarehouse__warning">
@@ -214,6 +305,7 @@ class AddWarehouse extends React.Component {
                       className="newWarehouse__details-input"
                       name="contactPosition"
                       placeholder="Position"
+                      onChange={this.handlePositionCheck}
                     ></input>
                     {this.state.positioncheck && (
                       <div className="newWarehouse__warning">
@@ -234,6 +326,7 @@ class AddWarehouse extends React.Component {
                       className="newWarehouse__details-input"
                       name="contactNumber"
                       placeholder="Phone Number"
+                      onChange={this.handleNumberCheck}
                     ></input>
                     {this.state.numbercheck && (
                       <div className="newWarehouse__warning">
@@ -266,6 +359,7 @@ class AddWarehouse extends React.Component {
                       className="newWarehouse__details-input"
                       name="contactEmail"
                       placeholder="Email"
+                      onChange={this.handleEmailCheck}
                     ></input>
                     {this.state.emailcheck && (
                       <div className="newWarehouse__warning">
