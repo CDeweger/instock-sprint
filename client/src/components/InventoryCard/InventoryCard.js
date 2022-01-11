@@ -101,7 +101,7 @@ class InventoryCard extends React.Component {
               <p className="inventory__card-text">{this.props.warehouseName}</p>
             </div>
           </div>
-          <div>
+          <div className="inventory__card-action">
             <img src={deleteIcon} alt="Delete icon" onClick={this.showModal} />
             {/* Please add pathname: "./inventory/:id/warehouse/:id/edit" ones edit inventory component is setup*/}
             <Link
