@@ -73,9 +73,11 @@ export default class EditInventoryItem extends Component {
       this.state.quantity === ""
     ) {
       alert("This field is required");
-    } else if (this.state.quantity < 1) {
-      alert("ooh, quantity should be greater than 0");
-    } else {
+    }
+    // else if (this.state.quantity === 0) {
+    //   alert("ooh, quantity should be greater than 0");
+    // }
+    else {
       axios
         .patch(
           `http://localhost:8080/inventory/${this.props.match.params.id}/edit`,
