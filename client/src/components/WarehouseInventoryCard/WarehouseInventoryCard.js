@@ -4,6 +4,7 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
 import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
 import React, { Component } from "react";
+import "../InventoryCard/InventoryCard.scss";
 
 export default class WarehouseInventoryCard extends Component {
   constructor(props) {
