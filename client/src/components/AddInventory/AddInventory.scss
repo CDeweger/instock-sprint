@@ -134,6 +134,10 @@
         line-height: 2rem;
       }
     }
+
+    &-radio {
+      margin: 1rem 0;
+    }
   }
 
   &__description {
@@ -300,6 +304,7 @@
 
 .active {
   display: block;
+  margin-bottom: 1rem;
 }
 .not-active {
   display: none;

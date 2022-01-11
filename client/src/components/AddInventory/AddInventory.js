@@ -151,6 +151,7 @@ class AddInventory extends Component {
               >
                 Description
                 <input
+                  required
                   type="text"
                   name="description"
                   placeholder="Please enter a brief description"
@@ -211,12 +212,17 @@ class AddInventory extends Component {
                       onChange={this.handleStatusChange}
                       className="add-inventory__input-select"
                     />
-                    <label className={`add-inventory__radio-value
+                    <label
+                      className={`add-inventory__radio-value
                             ${
                               this.state.status === "In Stock"
                                 ? "add-inventory__radio-active"
                                 : "add-inventory__radio-inactive"
-                            }`} htmlFor="in-stock">In Stock</label>
+                            }`}
+                      htmlFor="in-stock"
+                    >
+                      In Stock
+                    </label>
                   </div>
                   <div className="add-inventory__radio-button">
                     <input
@@ -227,12 +233,17 @@ class AddInventory extends Component {
                       onChange={this.handleStatusChange}
                       className="add-inventory__input-select"
                     />
-                    <label htmlFor="out-of-stock" className={`add-inventory__radio-value
+                    <label
+                      htmlFor="out-of-stock"
+                      className={`add-inventory__radio-value
                       ${
                         this.state.status === "Out of Stock"
                           ? "add-inventory__radio-active"
                           : "add-inventory__radio-inactive"
-                      }`}>Out of Stock</label>
+                      }`}
+                    >
+                      Out of Stock
+                    </label>
                   </div>
                 </div>
               </div>
@@ -256,15 +267,18 @@ class AddInventory extends Component {
                   className="add-inventory__element-label"
                 >
                   Quantity
+                  <input
+                    type="number"
+                    min="0"
+                    onKeyPress={this.handleKeyPress}
+                    placeholder="0"
+                    name="quantity"
+                    min="1"
+                    step="1"
+                    required
+                    className="add-inventory__text-input add-inventory__item-quantity"
+                  />
                 </label>
-                <input
-                  type="number"
-                  min="0"
-                  onKeyPress={this.handleKeyPress}
-                  placeholder="0"
-                  name="quantity"
-                  className="add-inventory__text-input add-inventory__item-quantity"
-                />
               </div>
               <label className="add-inventory__element-label">
                 Warehouse
@@ -292,7 +306,11 @@ class AddInventory extends Component {
           <Link to="/inventory">
             <button className="add-inventory__button-cancel">Cancel</button>
           </Link>
-          <button type="submit" className="add-inventory__button-save" form="addInventory">
+          <button
+            type="submit"
+            className="add-inventory__button-save"
+            form="addInventory"
+          >
             + Add Item
           </button>
         </div>
