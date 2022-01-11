@@ -22,15 +22,9 @@
   @include tablet {
     width: 100%;
     padding: 1rem 0 1.5rem;
-    display: flex;
     justify-content: space-around;
     align-items: center;
     box-sizing: border-box;
-    height: 3.69rem;
-  }
-
-  @include desktop {
-    padding: 0 2.5rem;
   }
 
   &-container {
@@ -44,7 +38,7 @@
       flex-wrap: nowrap;
       border-bottom: none;
       justify-content: space-around;
-      width: 80%;
+      width: 77%;
     }
 
     @include desktop {
@@ -56,37 +50,24 @@
   }
 
   &-info {
-    margin-right: 1.2rem;
-    margin-left: 1.2rem;
-    text-align: center;
-    align-items: center;
-    align-content: center;
-    padding-top: 0.5rem;
-    width: 6.875rem;
+    width: 40%;
+    padding: 1rem 1rem 0;
 
     @include tablet {
-      margin-right: 1.5rem;
-      width: 8.75rem;
+      padding: 0;
+      width: auto;
+      text-align: left;
     }
   }
 
   &-title {
     color: #5c667e;
     font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 600;
+    margin: 0 0 4%;
     font-family: "Titillium Web";
 
     @include tablet {
       display: none;
-    }
-  }
-
-  &__link {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
     }
   }
 
@@ -128,20 +109,16 @@
 
   &-name {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100%;
-    text-align: center;
   }
 
   &-action {
     display: flex;
     justify-content: space-between;
-    position: relative;
-    align-items: center;
-    top:5px;
+    align-items: baseline;
     width: 90%;
-    padding: 0.5rem 2rem;
+    padding: 1rem 1rem 2rem;
 
     @include tablet {
       padding: 0;
@@ -159,6 +136,10 @@
     width: 1.5rem;
   }
 }
-.out-of-stock {
-  padding-top: 5rem;
+
+.inventory__icon {
+  &:hover {
+    position: relative;
+    left: 5px;
+  }
 }

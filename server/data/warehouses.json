@@ -76,18 +76,5 @@
       "phone": "+1 (646) 123-1234",
       "email": "vmendoza@instock.com"
     }
-  },
-  {
-    "id": "9def0bf1-d431-44e0-97cd-ac0e5742a50b",
-    "name": "ddddd",
-    "address": "dddd",
-    "city": "fff",
-    "country": "fff",
-    "contact": {
-      "name": "fff",
-      "position": "ffff",
-      "phone": "1111111111",
-      "email": "fdfdfdf@eee.kk"
-    }
   }
 ]
