@@ -690,32 +690,13 @@
     "quantity": 0
   },
   {
-    "id": "f07b8e72-086f-4b67-a734-50c201f92b14",
-    "warehouseName": "Manhattan",
-    "itemName": "Good morning",
-    "description": "How are you doing",
+    "id": "8c558776-725d-4715-b038-c31c8a32a9ca",
+    "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
+    "warehouseName": "Granville",
+    "itemName": "ddff",
+    "description": "fsss",
     "category": "Gear",
     "status": "In Stock",
-    "quantity": "55555"
-  },
-  {
-    "id": "91e25f04-2f44-45da-ad70-831f6f5ad00f",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "trtrtrt",
-    "description": "dddd",
-    "category": "Gear",
-    "status": "In Stock",
-    "quantity": 0
-  },
-  {
-    "id": "5d42c3fc-001d-4097-a0d0-ebb56112cd8a",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "sssss",
-    "description": "fffffff",
-    "category": "Gear",
-    "status": "Out of Stock",
     "quantity": 0
   }
 ]
